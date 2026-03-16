@@ -1,92 +1,84 @@
+aid: microsoft-project
 name: Microsoft Project
-description: Microsoft Project is a project management software product developed and sold by Microsoft. It is designed to assist project managers in developing plans, assigning resources to tasks, tracking progress, managing budgets, and analyzing workloads.
-image: https://example.com/microsoft-project-logo.png
-created: '2024-01-15'
-modified: '2024-01-15'
-specificationVersion: '0.18'
+description: >-
+  Microsoft Project is a project management software product developed by
+  Microsoft for developing plans, assigning resources to tasks, tracking
+  progress, managing budgets, and analyzing workloads. It provides REST
+  APIs and Microsoft Graph access for programmatic project management.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- project management
-- scheduling
-- resource management
-- task management
-- collaboration
-url: https://www.microsoft.com/en-us/microsoft-365/project/project-management-software
+  - Project Management
+  - Scheduling
+  - Resource Management
+  - Task Management
+  - Microsoft
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/apis.yml
+created: '2024-01-15'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis:
-- name: Microsoft Project REST API
-  description: REST API for accessing and managing Microsoft Project data, including projects, tasks, resources, and assignments
-  image: https://example.com/microsoft-project-api-logo.png
-  humanUrl: https://learn.microsoft.com/en-us/project/api/project-rest-api
-  baseUrl: https://api.project.microsoft.com/v1.0
-  tags:
-  - REST
-  - projects
-  - tasks
-  - resources
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/project/api/project-rest-api
-  - type: OpenAPI
-    url: https://api.project.microsoft.com/openapi.json
-  - type: Authentication
-    url: https://learn.microsoft.com/en-us/project/api/project-api-authentication
-  contact:
-  - FN: Microsoft Support
-    email: support@microsoft.com
-    url: https://support.microsoft.com
-- name: Microsoft Project Online CSOM API
-  description: Client-Side Object Model API for programmatic access to Project Online and Project Server
-  image: https://example.com/microsoft-project-csom-logo.png
-  humanUrl: https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
-  baseUrl: https://{tenant}.sharepoint.com/_api/ProjectServer
-  tags:
-  - CSOM
-  - client library
-  - .NET
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
-  - type: SDK
-    url: https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
-  - type: Code Examples
-    url: https://learn.microsoft.com/en-us/project/api/project-programming-tasks
-  contact:
-  - FN: Microsoft Support
-    email: support@microsoft.com
-    url: https://support.microsoft.com
-- name: Microsoft Graph Project API
-  description: Access Project for the web data through Microsoft Graph API
-  image: https://example.com/microsoft-graph-logo.png
-  humanUrl: https://learn.microsoft.com/en-us/graph/api/resources/project-rome-overview
-  baseUrl: https://graph.microsoft.com/v1.0
-  tags:
-  - Microsoft Graph
-  - Project for the web
-  - Dataverse
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/graph/api/overview
-  - type: OpenAPI
-    url: https://graph.microsoft.com/v1.0/$metadata
-  - type: Authentication
-    url: https://learn.microsoft.com/en-us/graph/auth/
-  - type: Explorer
-    url: https://developer.microsoft.com/en-us/graph/graph-explorer
-  contact:
-  - FN: Microsoft Graph Support
-    email: graphsupport@microsoft.com
-    url: https://developer.microsoft.com/en-us/graph/support
+  - aid: microsoft-project:rest-api
+    name: Microsoft Project REST API
+    description: REST API for accessing and managing Microsoft Project data, including projects, tasks, resources, and assignments
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://learn.microsoft.com/en-us/project/api/project-rest-api
+    baseURL: https://api.project.microsoft.com/v1.0
+    tags:
+      - REST
+      - Projects
+      - Tasks
+      - Resources
+    properties:
+      - type: Documentation
+        url: https://learn.microsoft.com/en-us/project/api/project-rest-api
+      - type: Authentication
+        url: https://learn.microsoft.com/en-us/project/api/project-api-authentication
+  - aid: microsoft-project:csom-api
+    name: Microsoft Project Online CSOM API
+    description: Client-Side Object Model API for programmatic access to Project Online and Project Server
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
+    baseURL: https://{tenant}.sharepoint.com/_api/ProjectServer
+    tags:
+      - CSOM
+      - Client Library
+      - .NET
+    properties:
+      - type: Documentation
+        url: https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
+      - type: SDKs
+        url: https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
+  - aid: microsoft-project:graph-project-api
+    name: Microsoft Graph Project API
+    description: Access Project for the web data through Microsoft Graph API
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://learn.microsoft.com/en-us/graph/api/resources/project-rome-overview
+    baseURL: https://graph.microsoft.com/v1.0
+    tags:
+      - Microsoft Graph
+      - Project for the web
+      - Dataverse
+    properties:
+      - type: Documentation
+        url: https://learn.microsoft.com/en-us/graph/api/overview
+      - type: Authentication
+        url: https://learn.microsoft.com/en-us/graph/auth/
 common:
-- type: Portal
-  url: https://developer.microsoft.com/en-us/microsoft-365
-- type: Blog
-  url: https://techcommunity.microsoft.com/t5/project-blog/bg-p/ProjectBlog
-- type: Terms of Service
-  url: https://www.microsoft.com/en-us/servicesagreement
-- type: Privacy Policy
-  url: https://privacy.microsoft.com/en-us/privacystatement
-- type: Pricing
-  url: https://www.microsoft.com/en-us/microsoft-365/project/compare-microsoft-project-management-software
+  - type: Portal
+    url: https://developer.microsoft.com/en-us/microsoft-365
+  - type: Website
+    url: https://www.microsoft.com/en-us/microsoft-365/project/project-management-software
+  - type: Blog
+    url: https://techcommunity.microsoft.com/t5/project-blog/bg-p/ProjectBlog
+  - type: Terms of Service
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  - type: Privacy Policy
+    url: https://privacy.microsoft.com/en-us/privacystatement
+  - type: Pricing
+    url: https://www.microsoft.com/en-us/microsoft-365/project/compare-microsoft-project-management-software
+  - type: Support
+    url: https://support.microsoft.com/
 maintainers:
-- FN: Microsoft Corporation
-  email: projectsupport@microsoft.com
-  url: https://www.microsoft.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
