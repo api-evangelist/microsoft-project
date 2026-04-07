@@ -8,13 +8,12 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Project Management
-  - Scheduling
-  - Resource Management
-  - Task Management
   - Microsoft
-url: 
-  https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/apis.yml
+  - Project Management
+  - Resource Management
+  - Scheduling
+  - Task Management
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/apis.yml
 created: '2024-01-15'
 modified: '2026-03-16'
 specificationVersion: '0.19'
@@ -24,54 +23,47 @@ apis:
     description: >-
       REST API for accessing and managing Microsoft Project data, including projects,
       tasks, resources, and assignments.
-    image: 
-      https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/project/api/project-rest-api
     baseURL: https://api.project.microsoft.com/v1.0
     tags:
-      - REST
       - Projects
-      - Tasks
       - Resources
+      - REST
+      - Tasks
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/project/api/project-rest-api
       - type: Authentication
-        url: 
-          https://learn.microsoft.com/en-us/project/api/project-api-authentication
+        url: https://learn.microsoft.com/en-us/project/api/project-api-authentication
   - aid: microsoft-project:csom-api
     name: Microsoft Project Online CSOM API
     description: >-
       Client-Side Object Model API for programmatic access to Project Online and Project
       Server.
-    image: 
-      https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: 
-      https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
     baseURL: https://{tenant}.sharepoint.com/_api/ProjectServer
     tags:
-      - CSOM
-      - Client Library
       - .NET
+      - Client Library
+      - CSOM
     properties:
       - type: Documentation
-        url: 
-          https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
+        url: https://learn.microsoft.com/en-us/project/api/client-side-object-model-csom-for-project-2013
       - type: SDKs
         url: https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
   - aid: microsoft-project:graph-project-api
     name: Microsoft Graph Project API
     description: >-
       Access Project for the web data through Microsoft Graph API.
-    image: 
-      https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    humanURL: 
-      https://learn.microsoft.com/en-us/graph/api/resources/project-rome-overview
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://learn.microsoft.com/en-us/graph/api/resources/project-rome-overview
     baseURL: https://graph.microsoft.com/v1.0
     tags:
-      - Microsoft Graph
-      - Project for the web
       - Dataverse
+      - Microsoft Graph
+      - Project for the Web
     properties:
       - type: Documentation
         url: https://learn.microsoft.com/en-us/graph/api/overview
@@ -81,8 +73,7 @@ common:
   - type: Portal
     url: https://developer.microsoft.com/en-us/microsoft-365
   - type: Website
-    url: 
-      https://www.microsoft.com/en-us/microsoft-365/project/project-management-software
+    url: https://www.microsoft.com/en-us/microsoft-365/project/project-management-software
   - type: Blog
     url: https://techcommunity.microsoft.com/t5/project-blog/bg-p/ProjectBlog
   - type: Terms of Service
@@ -90,8 +81,7 @@ common:
   - type: Privacy Policy
     url: https://privacy.microsoft.com/en-us/privacystatement
   - type: Pricing
-    url: 
-      https://www.microsoft.com/en-us/microsoft-365/project/compare-microsoft-project-management-software
+    url: https://www.microsoft.com/en-us/microsoft-365/project/compare-microsoft-project-management-software
   - type: Support
     url: https://support.microsoft.com/
 maintainers:
