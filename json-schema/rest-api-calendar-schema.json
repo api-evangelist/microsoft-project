@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-schema/rest-api-calendar-schema.json",
+  "title": "Calendar",
+  "description": "Calendar schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Calendar identifier"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Calendar name"
+    },
+    "IsStandardCalendar": {
+      "type": "boolean",
+      "description": "Whether this is the standard calendar"
+    },
+    "Created": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Calendar creation date"
+    },
+    "Modified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Calendar last modified date"
+    }
+  }
+}

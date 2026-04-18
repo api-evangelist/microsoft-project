@@ -1,0 +1,461 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Microsoft Project"
+  description: "Unified taxonomy mapping operational API dimensions and capability workflows for Microsoft Project Online, covering project management, task scheduling, resource management, and timesheet operations."
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+operational:
+  apis:
+    - name: Microsoft Project Online REST API
+      namespace: project-rest
+      version: "1.0"
+      baseUrl: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+      status: active
+
+  resources:
+    - name: Projects
+      api: project-rest
+      description: Project entities with lifecycle management
+      actions:
+        - list
+        - get
+        - create
+        - delete
+        - checkOut
+        - checkIn
+        - publish
+        - submitToWorkflow
+    - name: Tasks
+      api: project-rest
+      description: Project tasks and subtasks with scheduling
+      actions:
+        - list
+        - get
+        - create
+        - update
+        - delete
+    - name: Resources
+      api: project-rest
+      description: Enterprise resources for assignment
+      actions:
+        - list
+        - get
+        - create
+    - name: Assignments
+      api: project-rest
+      description: Resource-to-task assignments
+      actions:
+        - list
+        - get
+        - create
+        - delete
+    - name: Calendars
+      api: project-rest
+      description: Enterprise calendars for scheduling
+      actions:
+        - list
+        - get
+        - create
+        - delete
+    - name: Custom Fields
+      api: project-rest
+      description: Enterprise custom field definitions
+      actions:
+        - list
+        - get
+        - create
+        - delete
+    - name: Lookup Tables
+      api: project-rest
+      description: Lookup table definitions with entries
+      actions:
+        - list
+        - get
+        - create
+        - delete
+    - name: Timesheets
+      api: project-rest
+      description: Timesheet periods, lines, and work entries
+      actions:
+        - list
+        - get
+        - create
+        - submitForApproval
+    - name: Phases
+      api: project-rest
+      description: Workflow phases for demand management
+      actions:
+        - list
+        - get
+        - create
+        - delete
+    - name: Stages
+      api: project-rest
+      description: Workflow stages within phases
+      actions:
+        - list
+        - get
+        - create
+        - delete
+    - name: Enterprise Project Types
+      api: project-rest
+      description: Enterprise project type configurations
+      actions:
+        - list
+        - get
+        - create
+        - delete
+    - name: Event Handlers
+      api: project-rest
+      description: Event handler subscriptions
+      actions:
+        - list
+        - get
+        - create
+        - delete
+
+  actions:
+    - name: list
+      method: GET
+      pattern: read
+      description: Retrieve a collection of resources
+    - name: get
+      method: GET
+      pattern: read
+      description: Retrieve a single resource by ID
+    - name: create
+      method: POST
+      pattern: write
+      description: Create a new resource
+    - name: update
+      method: PATCH
+      pattern: write
+      description: Update an existing resource
+    - name: delete
+      method: DELETE
+      pattern: destructive
+      description: Delete a resource
+    - name: checkOut
+      method: POST
+      pattern: write
+      description: Check out a project for editing
+    - name: checkIn
+      method: POST
+      pattern: write
+      description: Check in a project draft
+    - name: publish
+      method: POST
+      pattern: write
+      description: Publish a project draft
+    - name: submitToWorkflow
+      method: POST
+      pattern: write
+      description: Submit a project to its workflow
+    - name: submitForApproval
+      method: POST
+      pattern: write
+      description: Submit a timesheet for manager approval
+
+  schemas:
+    core:
+      - name: Project
+        description: Project entity with lifecycle state
+        properties:
+          - Id
+          - Name
+          - Description
+          - StartDate
+          - FinishDate
+          - PercentComplete
+          - IsCheckedOut
+          - ProjectType
+      - name: Task
+        description: Project task with scheduling and progress
+        properties:
+          - Id
+          - Name
+          - Start
+          - Finish
+          - Duration
+          - PercentComplete
+          - IsSummary
+          - IsMilestone
+          - Priority
+      - name: EnterpriseResource
+        description: Enterprise resource for assignment
+        properties:
+          - Id
+          - Name
+          - Email
+          - ResourceType
+          - IsActive
+          - StandardRate
+      - name: Assignment
+        description: Resource-to-task assignment
+        properties:
+          - Id
+          - ProjectId
+          - TaskId
+          - ResourceId
+          - PercentWorkComplete
+    scheduling:
+      - name: Calendar
+        description: Enterprise calendar
+        properties:
+          - Id
+          - Name
+          - IsStandardCalendar
+      - name: TaskLink
+        description: Task dependency link
+        properties:
+          - StartId
+          - EndId
+          - DependencyType
+    configuration:
+      - name: CustomField
+        description: Custom field definition
+        properties:
+          - Id
+          - Name
+          - FieldType
+          - EntityType
+      - name: LookupTable
+        description: Lookup table definition
+        properties:
+          - Id
+          - Name
+          - FieldType
+      - name: EnterpriseProjectType
+        description: Project type configuration
+        properties:
+          - Id
+          - Name
+          - IsDefault
+    time:
+      - name: TimeSheet
+        description: Timesheet with approval status
+        properties:
+          - Id
+          - Status
+          - TotalWork
+          - TotalActualWork
+      - name: TimeSheetPeriod
+        description: Timesheet period
+        properties:
+          - Id
+          - Name
+          - Start
+          - End
+    workflow:
+      - name: Phase
+        description: Workflow phase
+        properties:
+          - Id
+          - Name
+          - Description
+      - name: Stage
+        description: Workflow stage
+        properties:
+          - Id
+          - Name
+          - PhaseId
+
+  parameters:
+    identifiers:
+      - name: projectId
+        type: uuid
+        description: Project GUID
+      - name: taskId
+        type: uuid
+        description: Task GUID
+      - name: resourceId
+        type: uuid
+        description: Resource GUID
+      - name: assignmentId
+        type: uuid
+        description: Assignment GUID
+      - name: calendarId
+        type: uuid
+        description: Calendar GUID
+      - name: periodId
+        type: uuid
+        description: Timesheet period GUID
+
+  enums:
+    resourceTypes:
+      - value: 0
+        label: Material
+      - value: 1
+        label: Work
+      - value: 2
+        label: Cost
+    taskDependencyTypes:
+      - value: 0
+        label: Finish To Start
+      - value: 1
+        label: Finish To Finish
+      - value: 2
+        label: Start To Start
+      - value: 3
+        label: Start To Finish
+    timesheetStatuses:
+      - value: 0
+        label: In Progress
+      - value: 1
+        label: Submitted
+      - value: 2
+        label: Acceptable
+      - value: 3
+        label: Approved
+      - value: 4
+        label: Rejected
+    fieldTypes:
+      - value: 0
+        label: Cost
+      - value: 1
+        label: Date
+      - value: 2
+        label: Duration
+      - value: 4
+        label: Flag
+      - value: 5
+        label: Number
+      - value: 7
+        label: Text
+
+  authentication:
+    schemes:
+      - type: oauth2
+        flow: authorizationCode
+        authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+        tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+        scopes:
+          - ProjectServer.Read
+          - ProjectServer.ReadWrite
+
+capability:
+  workflows:
+    - name: Project Management
+      file: capabilities/project-management.yaml
+      description: Unified project management workflow for managing projects, tasks, resources, assignments, timesheets, and workflows.
+      apis:
+        - project-rest
+      toolCount: 18
+      personas:
+        - Project Manager
+        - PMO
+      domains:
+        - Project Lifecycle
+        - Task Scheduling
+        - Resource Management
+        - Time Tracking
+
+  personas:
+    - id: project-manager
+      name: Project Manager
+      description: Plans, executes, and tracks projects with task scheduling, resource assignments, and progress reporting.
+      workflows:
+        - Project Management
+    - id: pmo
+      name: PMO
+      description: Program management office managing portfolios, governance workflows, and enterprise configurations.
+      workflows:
+        - Project Management
+    - id: resource-manager
+      name: Resource Manager
+      description: Manages enterprise resource pools, capacity planning, and assignment optimization.
+      workflows:
+        - Project Management
+
+  domains:
+    - name: Project Lifecycle
+      description: Project creation, checkout, publishing, and workflow governance
+      resources:
+        - Projects
+        - Phases
+        - Stages
+        - Enterprise Project Types
+    - name: Task Scheduling
+      description: Task creation, dependencies, and scheduling
+      resources:
+        - Tasks
+        - Calendars
+    - name: Resource Management
+      description: Enterprise resources and task assignments
+      resources:
+        - Resources
+        - Assignments
+    - name: Time Tracking
+      description: Timesheet management and approval
+      resources:
+        - Timesheets
+    - name: Configuration
+      description: Custom fields, lookup tables, and event handlers
+      resources:
+        - Custom Fields
+        - Lookup Tables
+        - Event Handlers
+
+  namespaces:
+    consumed:
+      - project-rest
+    rest:
+      - project-management-api (8080)
+    mcp:
+      - project-management-mcp (9090)
+
+  binds:
+    - SHAREPOINT_ACCESS_TOKEN
+
+crossReference:
+  - resource: Projects
+    operations:
+      - listProjects
+      - getProject
+      - createProject
+      - deleteProject
+      - checkOutProject
+      - publishProject
+    workflows:
+      - Project Management
+    personas:
+      - Project Manager
+      - PMO
+  - resource: Tasks
+    operations:
+      - listProjectTasks
+      - getProjectTask
+      - createDraftTask
+    workflows:
+      - Project Management
+    personas:
+      - Project Manager
+  - resource: Resources
+    operations:
+      - listEnterpriseResources
+      - createEnterpriseResource
+    workflows:
+      - Project Management
+    personas:
+      - Resource Manager
+      - Project Manager
+  - resource: Assignments
+    operations:
+      - listProjectAssignments
+      - createDraftAssignment
+    workflows:
+      - Project Management
+    personas:
+      - Project Manager
+      - Resource Manager
+  - resource: Timesheets
+    operations:
+      - listTimeSheetPeriods
+      - getTimeSheet
+      - submitTimeSheetForApproval
+    workflows:
+      - Project Management
+    personas:
+      - Project Manager

@@ -1,0 +1,519 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Microsoft Project Online REST API"
+  description: "REST API for managing Microsoft Project Online data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, and workflows."
+  tags:
+    - Microsoft Project
+    - Project Management
+    - REST
+    - Task Management
+    - Resource Management
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      SHAREPOINT_ACCESS_TOKEN: SHAREPOINT_ACCESS_TOKEN
+
+capability:
+  consumes:
+    - type: http
+      namespace: project-rest
+      baseUri: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+      description: "Microsoft Project Online REST API via SharePoint"
+      authentication:
+        type: bearer
+        token: "{{SHAREPOINT_ACCESS_TOKEN}}"
+      resources:
+        - name: projects
+          path: /Projects
+          description: "Manage projects"
+          operations:
+            - name: list-projects
+              method: GET
+              description: "Retrieve all projects"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-project
+              method: POST
+              description: "Create a new project"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  Name: "{{tools.name}}"
+                  Description: "{{tools.description}}"
+            - name: get-project
+              method: GET
+              description: "Get a specific project"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete-project
+              method: DELETE
+              description: "Delete a project"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: check-out-project
+              method: POST
+              description: "Check out a project for editing"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: publish-project
+              method: POST
+              description: "Publish a project draft"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: tasks
+          path: /Projects('{projectId}')/Tasks
+          description: "Manage project tasks"
+          operations:
+            - name: list-tasks
+              method: GET
+              description: "List all tasks in a project"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-task
+              method: GET
+              description: "Get a specific task"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+                - name: taskId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Task GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-draft-task
+              method: POST
+              description: "Create a task in the project draft"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  Name: "{{tools.name}}"
+                  Duration: "{{tools.duration}}"
+        - name: resources
+          path: /EnterpriseResources
+          description: "Manage enterprise resources"
+          operations:
+            - name: list-enterprise-resources
+              method: GET
+              description: "List all enterprise resources"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-enterprise-resource
+              method: POST
+              description: "Create an enterprise resource"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  Name: "{{tools.name}}"
+                  Email: "{{tools.email}}"
+        - name: assignments
+          path: /Projects('{projectId}')/Assignments
+          description: "Manage resource assignments"
+          operations:
+            - name: list-assignments
+              method: GET
+              description: "List all assignments in a project"
+              inputParameters:
+                - name: projectId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Project GUID"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: calendars
+          path: /Calendars
+          description: "Manage enterprise calendars"
+          operations:
+            - name: list-calendars
+              method: GET
+              description: "List all calendars"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-calendar
+              method: POST
+              description: "Create a calendar"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  Name: "{{tools.name}}"
+        - name: custom-fields
+          path: /CustomFields
+          description: "Manage custom field definitions"
+          operations:
+            - name: list-custom-fields
+              method: GET
+              description: "List all custom fields"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: timesheets
+          path: /TimeSheetPeriods
+          description: "Manage timesheets"
+          operations:
+            - name: list-timesheet-periods
+              method: GET
+              description: "List all timesheet periods"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: phases
+          path: /Phases
+          description: "Manage workflow phases"
+          operations:
+            - name: list-phases
+              method: GET
+              description: "List all workflow phases"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: stages
+          path: /Stages
+          description: "Manage workflow stages"
+          operations:
+            - name: list-stages
+              method: GET
+              description: "List all workflow stages"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: project-rest-api
+      resources:
+        - path: /v1/projects
+          name: projects
+          description: "Project management operations"
+          operations:
+            - method: GET
+              name: list-projects
+              description: "List all projects"
+              call: "project-rest.list-projects"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-project
+              description: "Create a project"
+              call: "project-rest.create-project"
+              with:
+                name: "rest.name"
+                description: "rest.description"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/projects/{projectId}
+          name: project-detail
+          description: "Single project operations"
+          operations:
+            - method: GET
+              name: get-project
+              description: "Get project details"
+              call: "project-rest.get-project"
+              with:
+                projectId: "rest.projectId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/projects/{projectId}/tasks
+          name: tasks
+          description: "Task management"
+          operations:
+            - method: GET
+              name: list-tasks
+              description: "List project tasks"
+              call: "project-rest.list-tasks"
+              with:
+                projectId: "rest.projectId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/resources
+          name: resources
+          description: "Resource management"
+          operations:
+            - method: GET
+              name: list-resources
+              description: "List enterprise resources"
+              call: "project-rest.list-enterprise-resources"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: project-rest-mcp
+      transport: http
+      tools:
+        - name: list-projects
+          description: "List all Microsoft Project Online projects"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "project-rest.list-projects"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-project
+          description: "Get details of a specific project"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "project-rest.get-project"
+          with:
+            projectId: "tools.projectId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-project
+          description: "Create a new project"
+          hints:
+            readOnly: false
+          call: "project-rest.create-project"
+          with:
+            name: "tools.name"
+            description: "tools.description"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-project
+          description: "Delete a project"
+          hints:
+            readOnly: false
+            destructive: true
+          call: "project-rest.delete-project"
+          with:
+            projectId: "tools.projectId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: check-out-project
+          description: "Check out a project for editing"
+          hints:
+            readOnly: false
+          call: "project-rest.check-out-project"
+          with:
+            projectId: "tools.projectId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: publish-project
+          description: "Publish a project draft"
+          hints:
+            readOnly: false
+          call: "project-rest.publish-project"
+          with:
+            projectId: "tools.projectId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-tasks
+          description: "List all tasks in a project"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "project-rest.list-tasks"
+          with:
+            projectId: "tools.projectId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-task
+          description: "Get a specific task from a project"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "project-rest.get-task"
+          with:
+            projectId: "tools.projectId"
+            taskId: "tools.taskId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-draft-task
+          description: "Create a new task in a project draft"
+          hints:
+            readOnly: false
+          call: "project-rest.create-draft-task"
+          with:
+            projectId: "tools.projectId"
+            name: "tools.name"
+            duration: "tools.duration"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-enterprise-resources
+          description: "List all enterprise resources"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "project-rest.list-enterprise-resources"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-enterprise-resource
+          description: "Create a new enterprise resource"
+          hints:
+            readOnly: false
+          call: "project-rest.create-enterprise-resource"
+          with:
+            name: "tools.name"
+            email: "tools.email"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-assignments
+          description: "List all assignments in a project"
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "project-rest.list-assignments"
+          with:
+            projectId: "tools.projectId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-calendars
+          description: "List all enterprise calendars"
+          hints:
+            readOnly: true
+          call: "project-rest.list-calendars"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-custom-fields
+          description: "List all custom field definitions"
+          hints:
+            readOnly: true
+          call: "project-rest.list-custom-fields"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-timesheet-periods
+          description: "List all timesheet periods"
+          hints:
+            readOnly: true
+          call: "project-rest.list-timesheet-periods"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-phases
+          description: "List all workflow phases"
+          hints:
+            readOnly: true
+          call: "project-rest.list-phases"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-stages
+          description: "List all workflow stages"
+          hints:
+            readOnly: true
+          call: "project-rest.list-stages"
+          outputParameters:
+            - type: object
+              mapping: "$."

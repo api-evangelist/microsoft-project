@@ -1,0 +1,210 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "msproject": "https://learn.microsoft.com/en-us/office/client-developer/project/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Project": "msproject:Project",
+    "Task": "msproject:Task",
+    "EnterpriseResource": "msproject:EnterpriseResource",
+    "Assignment": "msproject:Assignment",
+    "Calendar": "msproject:Calendar",
+    "CustomField": "msproject:CustomField",
+    "LookupTable": "msproject:LookupTable",
+    "TimeSheet": "msproject:TimeSheet",
+    "Phase": "msproject:Phase",
+    "Stage": "msproject:Stage",
+    "EnterpriseProjectType": "msproject:EnterpriseProjectType",
+
+    "id": {
+      "@id": "dcterms:identifier",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "startDate": {
+      "@id": "msproject:StartDate",
+      "@type": "xsd:dateTime"
+    },
+    "finishDate": {
+      "@id": "msproject:FinishDate",
+      "@type": "xsd:dateTime"
+    },
+    "createdDate": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "modifiedDate": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "isCheckedOut": {
+      "@id": "msproject:IsCheckedOut",
+      "@type": "xsd:boolean"
+    },
+    "checkedOutBy": {
+      "@id": "msproject:CheckedOutBy",
+      "@type": "xsd:string"
+    },
+    "percentComplete": {
+      "@id": "msproject:PercentComplete",
+      "@type": "xsd:integer"
+    },
+    "projectType": {
+      "@id": "msproject:ProjectType",
+      "@type": "xsd:integer"
+    },
+    "projectSiteUrl": {
+      "@id": "msproject:ProjectSiteUrl",
+      "@type": "@id"
+    },
+    "start": {
+      "@id": "msproject:Start",
+      "@type": "xsd:dateTime"
+    },
+    "finish": {
+      "@id": "msproject:Finish",
+      "@type": "xsd:dateTime"
+    },
+    "duration": {
+      "@id": "msproject:Duration",
+      "@type": "xsd:string"
+    },
+    "isSummary": {
+      "@id": "msproject:IsSummary",
+      "@type": "xsd:boolean"
+    },
+    "isMilestone": {
+      "@id": "msproject:IsMilestone",
+      "@type": "xsd:boolean"
+    },
+    "priority": {
+      "@id": "msproject:Priority",
+      "@type": "xsd:integer"
+    },
+    "parentId": {
+      "@id": "msproject:ParentId",
+      "@type": "xsd:string"
+    },
+    "notes": {
+      "@id": "msproject:Notes",
+      "@type": "xsd:string"
+    },
+    "isManuallyScheduled": {
+      "@id": "msproject:IsManuallyScheduled",
+      "@type": "xsd:boolean"
+    },
+    "work": {
+      "@id": "msproject:Work",
+      "@type": "xsd:string"
+    },
+    "remainingWork": {
+      "@id": "msproject:RemainingWork",
+      "@type": "xsd:string"
+    },
+    "actualWork": {
+      "@id": "msproject:ActualWork",
+      "@type": "xsd:string"
+    },
+    "cost": {
+      "@id": "msproject:Cost",
+      "@type": "xsd:double"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "resourceType": {
+      "@id": "msproject:ResourceType",
+      "@type": "xsd:integer"
+    },
+    "isActive": {
+      "@id": "msproject:IsActive",
+      "@type": "xsd:boolean"
+    },
+    "isGeneric": {
+      "@id": "msproject:IsGeneric",
+      "@type": "xsd:boolean"
+    },
+    "maxUnits": {
+      "@id": "msproject:MaxUnits",
+      "@type": "xsd:double"
+    },
+    "standardRate": {
+      "@id": "msproject:StandardRate",
+      "@type": "xsd:double"
+    },
+    "costCenter": {
+      "@id": "msproject:CostCenter",
+      "@type": "xsd:string"
+    },
+    "group": {
+      "@id": "msproject:Group",
+      "@type": "xsd:string"
+    },
+    "baseCalendar": {
+      "@id": "msproject:BaseCalendar",
+      "@type": "xsd:string"
+    },
+    "projectId": {
+      "@id": "msproject:ProjectId",
+      "@type": "xsd:string"
+    },
+    "taskId": {
+      "@id": "msproject:TaskId",
+      "@type": "xsd:string"
+    },
+    "resourceId": {
+      "@id": "msproject:ResourceId",
+      "@type": "xsd:string"
+    },
+    "resourceName": {
+      "@id": "msproject:ResourceName",
+      "@type": "xsd:string"
+    },
+    "percentWorkComplete": {
+      "@id": "msproject:PercentWorkComplete",
+      "@type": "xsd:integer"
+    },
+    "isStandardCalendar": {
+      "@id": "msproject:IsStandardCalendar",
+      "@type": "xsd:boolean"
+    },
+    "fieldType": {
+      "@id": "msproject:FieldType",
+      "@type": "xsd:integer"
+    },
+    "entityType": {
+      "@id": "msproject:EntityType",
+      "@type": "xsd:integer"
+    },
+    "isRequired": {
+      "@id": "msproject:IsRequired",
+      "@type": "xsd:boolean"
+    },
+    "status": {
+      "@id": "msproject:Status",
+      "@type": "xsd:integer"
+    },
+    "totalWork": {
+      "@id": "msproject:TotalWork",
+      "@type": "xsd:string"
+    },
+    "totalActualWork": {
+      "@id": "msproject:TotalActualWork",
+      "@type": "xsd:string"
+    },
+    "phaseId": {
+      "@id": "msproject:PhaseId",
+      "@type": "xsd:string"
+    }
+  }
+}

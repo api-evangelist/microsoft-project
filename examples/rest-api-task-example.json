@@ -1,0 +1,20 @@
+{
+  "Id": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+  "Name": "Design Review Meeting",
+  "Start": "2026-02-01T08:00:00Z",
+  "Finish": "2026-02-15T17:00:00Z",
+  "Duration": "10d",
+  "PercentComplete": 75,
+  "IsSummary": false,
+  "IsMilestone": false,
+  "Priority": 500,
+  "ParentId": "a0b1c2d3-e4f5-6789-0abc-def123456789",
+  "Notes": "Requires all stakeholders to be present for the review session",
+  "IsManuallyScheduled": false,
+  "ConstraintType": 0,
+  "ConstraintStartEnd": null,
+  "Work": "80h",
+  "RemainingWork": "20h",
+  "ActualWork": "60h",
+  "Cost": 5000.00
+}

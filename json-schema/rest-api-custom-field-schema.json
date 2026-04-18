@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-schema/rest-api-custom-field-schema.json",
+  "title": "CustomField",
+  "description": "Custom field schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Custom field identifier"
+    },
+    "InternalName": {
+      "type": "string",
+      "description": "Internal name of the custom field"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Display name of the custom field"
+    },
+    "FieldType": {
+      "type": "integer",
+      "description": "Field data type (0=Cost, 1=Date, 2=Duration, 3=Finish, 4=Flag, 5=Number, 6=Start, 7=Text)"
+    },
+    "EntityType": {
+      "type": "integer",
+      "description": "Entity type (0=Project, 1=Resource, 2=Task)"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Field description"
+    },
+    "LookupTableId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Associated lookup table ID"
+    },
+    "IsRequired": {
+      "type": "boolean",
+      "description": "Whether the field is required"
+    },
+    "IsMultilineText": {
+      "type": "boolean",
+      "description": "Whether the text field supports multiple lines"
+    },
+    "Formula": {
+      "type": "string",
+      "description": "Calculated field formula"
+    }
+  }
+}

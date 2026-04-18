@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-schema/rest-api-task-schema.json",
+  "title": "Task",
+  "description": "Task schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the task"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Name of the task"
+    },
+    "Start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Task start date"
+    },
+    "Finish": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Task finish date"
+    },
+    "Duration": {
+      "type": "string",
+      "description": "Task duration in days"
+    },
+    "PercentComplete": {
+      "type": "integer",
+      "description": "Task completion percentage"
+    },
+    "IsSummary": {
+      "type": "boolean",
+      "description": "Whether this is a summary task"
+    },
+    "IsMilestone": {
+      "type": "boolean",
+      "description": "Whether this is a milestone"
+    },
+    "Priority": {
+      "type": "integer",
+      "description": "Task priority (0-1000)"
+    },
+    "ParentId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Parent task ID for subtasks"
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Task notes"
+    },
+    "IsManuallyScheduled": {
+      "type": "boolean",
+      "description": "Whether the task is manually scheduled"
+    },
+    "ConstraintType": {
+      "type": "integer",
+      "description": "Scheduling constraint type"
+    },
+    "ConstraintStartEnd": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Constraint date"
+    },
+    "Work": {
+      "type": "string",
+      "description": "Total scheduled work"
+    },
+    "RemainingWork": {
+      "type": "string",
+      "description": "Remaining work"
+    },
+    "ActualWork": {
+      "type": "string",
+      "description": "Actual work completed"
+    },
+    "Cost": {
+      "type": "number",
+      "format": "double",
+      "description": "Total cost"
+    }
+  }
+}

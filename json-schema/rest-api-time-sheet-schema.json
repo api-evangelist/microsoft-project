@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-schema/rest-api-time-sheet-schema.json",
+  "title": "TimeSheet",
+  "description": "TimeSheet schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Timesheet identifier"
+    },
+    "Status": {
+      "type": "integer",
+      "description": "Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)"
+    },
+    "PeriodId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Associated period ID"
+    },
+    "TotalWork": {
+      "type": "string",
+      "description": "Total work reported"
+    },
+    "TotalActualWork": {
+      "type": "string",
+      "description": "Total actual work"
+    }
+  }
+}

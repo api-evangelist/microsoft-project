@@ -1,0 +1,12 @@
+{
+  "Id": "a2eafeb5-437c-e111-92fc-00155d3ba208",
+  "ProjectId": "263fc8d7-427c-e111-92fc-00155d3ba208",
+  "TaskId": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+  "ResourceId": "28eeb2b5-fe74-4efc-aa35-6a64514d1526",
+  "ResourceName": "Jane Smith",
+  "ActualWork": "40h",
+  "RemainingWork": "20h",
+  "PercentWorkComplete": 67,
+  "Start": "2026-02-01T08:00:00Z",
+  "Finish": "2026-02-15T17:00:00Z"
+}

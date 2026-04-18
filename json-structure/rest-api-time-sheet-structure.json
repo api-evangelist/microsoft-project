@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-structure/rest-api-time-sheet-structure.json",
+  "name": "TimeSheet",
+  "description": "Timesheet schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "uuid",
+      "description": "Timesheet identifier"
+    },
+    "Status": {
+      "type": "int32",
+      "description": "Timesheet status"
+    },
+    "PeriodId": {
+      "type": "uuid",
+      "description": "Associated period ID"
+    },
+    "TotalWork": {
+      "type": "string",
+      "description": "Total work reported"
+    },
+    "TotalActualWork": {
+      "type": "string",
+      "description": "Total actual work"
+    }
+  }
+}

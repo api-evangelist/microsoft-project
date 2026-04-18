@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-structure/rest-api-enterprise-resource-structure.json",
+  "name": "EnterpriseResource",
+  "description": "Enterprise resource schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "uuid",
+      "description": "Resource identifier"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Resource name"
+    },
+    "Email": {
+      "type": "string",
+      "description": "Resource email address"
+    },
+    "ResourceType": {
+      "type": "int32",
+      "description": "Resource type (0=Material, 1=Work, 2=Cost)"
+    },
+    "IsActive": {
+      "type": "boolean",
+      "description": "Whether the resource is active"
+    },
+    "IsGeneric": {
+      "type": "boolean",
+      "description": "Whether this is a generic resource"
+    },
+    "MaxUnits": {
+      "type": "double",
+      "description": "Maximum assignment units"
+    },
+    "StandardRate": {
+      "type": "double",
+      "description": "Standard billing rate"
+    },
+    "CostCenter": {
+      "type": "string",
+      "description": "Cost center code"
+    },
+    "Group": {
+      "type": "string",
+      "description": "Resource group"
+    },
+    "BaseCalendar": {
+      "type": "string",
+      "description": "Base calendar name"
+    }
+  }
+}

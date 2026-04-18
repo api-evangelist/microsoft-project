@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-structure/rest-api-assignment-structure.json",
+  "name": "Assignment",
+  "description": "Assignment schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "uuid",
+      "description": "Assignment identifier"
+    },
+    "ProjectId": {
+      "type": "uuid",
+      "description": "Project identifier"
+    },
+    "TaskId": {
+      "type": "uuid",
+      "description": "Task identifier"
+    },
+    "ResourceId": {
+      "type": "uuid",
+      "description": "Resource identifier"
+    },
+    "ResourceName": {
+      "type": "string",
+      "description": "Name of the assigned resource"
+    },
+    "ActualWork": {
+      "type": "string",
+      "description": "Actual work completed"
+    },
+    "RemainingWork": {
+      "type": "string",
+      "description": "Remaining work"
+    },
+    "PercentWorkComplete": {
+      "type": "int32",
+      "description": "Work completion percentage"
+    },
+    "Start": {
+      "type": "datetime",
+      "description": "Assignment start date"
+    },
+    "Finish": {
+      "type": "datetime",
+      "description": "Assignment finish date"
+    }
+  }
+}

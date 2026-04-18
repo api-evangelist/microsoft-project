@@ -1,0 +1,13 @@
+{
+  "Id": "28eeb2b5-fe74-4efc-aa35-6a64514d1526",
+  "Name": "Jane Smith",
+  "Email": "jsmith@contoso.com",
+  "ResourceType": 1,
+  "IsActive": true,
+  "IsGeneric": false,
+  "MaxUnits": 1.0,
+  "StandardRate": 150.00,
+  "CostCenter": "IT-DEV",
+  "Group": "Development",
+  "BaseCalendar": "Standard"
+}

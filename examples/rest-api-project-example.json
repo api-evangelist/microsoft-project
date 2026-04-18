@@ -1,0 +1,14 @@
+{
+  "Id": "263fc8d7-427c-e111-92fc-00155d3ba208",
+  "Name": "Enterprise Website Redesign",
+  "Description": "Complete redesign of the corporate website with new branding and improved user experience",
+  "StartDate": "2026-01-15T00:00:00Z",
+  "FinishDate": "2026-06-30T00:00:00Z",
+  "CreatedDate": "2026-01-10T14:30:00Z",
+  "ModifiedDate": "2026-04-18T09:15:00Z",
+  "IsCheckedOut": false,
+  "CheckedOutBy": null,
+  "PercentComplete": 45,
+  "ProjectType": 0,
+  "ProjectSiteUrl": "https://contoso.sharepoint.com/sites/pwa/WebsiteRedesign"
+}

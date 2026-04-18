@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-schema/rest-api-assignment-schema.json",
+  "title": "Assignment",
+  "description": "Assignment schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Assignment identifier"
+    },
+    "ProjectId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Project identifier"
+    },
+    "TaskId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Task identifier"
+    },
+    "ResourceId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Resource identifier"
+    },
+    "ResourceName": {
+      "type": "string",
+      "description": "Name of the assigned resource"
+    },
+    "ActualWork": {
+      "type": "string",
+      "description": "Actual work completed"
+    },
+    "RemainingWork": {
+      "type": "string",
+      "description": "Remaining work"
+    },
+    "PercentWorkComplete": {
+      "type": "integer",
+      "description": "Work completion percentage"
+    },
+    "Start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Assignment start date"
+    },
+    "Finish": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Assignment finish date"
+    }
+  }
+}

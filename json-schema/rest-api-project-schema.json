@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-schema/rest-api-project-schema.json",
+  "title": "Project",
+  "description": "Project schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier of the project"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Name of the project"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Description of the project"
+    },
+    "StartDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Project start date"
+    },
+    "FinishDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Project finish date"
+    },
+    "CreatedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the project was created"
+    },
+    "ModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the project was last modified"
+    },
+    "IsCheckedOut": {
+      "type": "boolean",
+      "description": "Whether the project is currently checked out"
+    },
+    "CheckedOutBy": {
+      "type": "string",
+      "description": "User who checked out the project"
+    },
+    "PercentComplete": {
+      "type": "integer",
+      "description": "Overall completion percentage"
+    },
+    "ProjectType": {
+      "type": "integer",
+      "description": "Enterprise project type identifier"
+    },
+    "ProjectSiteUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the project site"
+    }
+  }
+}

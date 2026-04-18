@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-structure/rest-api-custom-field-structure.json",
+  "name": "CustomField",
+  "description": "Custom field definition schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "uuid",
+      "description": "Custom field identifier"
+    },
+    "InternalName": {
+      "type": "string",
+      "description": "Internal name of the custom field"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Display name of the custom field"
+    },
+    "FieldType": {
+      "type": "int32",
+      "description": "Field data type"
+    },
+    "EntityType": {
+      "type": "int32",
+      "description": "Entity type"
+    },
+    "Description": {
+      "type": "string",
+      "description": "Field description"
+    },
+    "LookupTableId": {
+      "type": "uuid",
+      "description": "Associated lookup table ID"
+    },
+    "IsRequired": {
+      "type": "boolean",
+      "description": "Whether the field is required"
+    },
+    "IsMultilineText": {
+      "type": "boolean",
+      "description": "Whether the text field supports multiple lines"
+    },
+    "Formula": {
+      "type": "string",
+      "description": "Calculated field formula"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "Id": "d4e5f6a7-b8c9-0123-def4-567890123456",
+  "InternalName": "Custom_x0020_Text1",
+  "Name": "Department Code",
+  "FieldType": 7,
+  "EntityType": 2,
+  "Description": "Custom field for department codes assigned to project tasks",
+  "LookupTableId": "e5f6a7b8-c9d0-1234-ef56-789012345678",
+  "IsRequired": false,
+  "IsMultilineText": false,
+  "Formula": null
+}

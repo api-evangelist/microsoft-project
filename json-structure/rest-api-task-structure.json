@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/json-structure/rest-api-task-structure.json",
+  "name": "Task",
+  "description": "Task schema from Microsoft Project Online REST API",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "uuid",
+      "description": "Unique identifier of the task"
+    },
+    "Name": {
+      "type": "string",
+      "description": "Name of the task"
+    },
+    "Start": {
+      "type": "datetime",
+      "description": "Task start date"
+    },
+    "Finish": {
+      "type": "datetime",
+      "description": "Task finish date"
+    },
+    "Duration": {
+      "type": "string",
+      "description": "Task duration in days"
+    },
+    "PercentComplete": {
+      "type": "int32",
+      "description": "Task completion percentage"
+    },
+    "IsSummary": {
+      "type": "boolean",
+      "description": "Whether this is a summary task"
+    },
+    "IsMilestone": {
+      "type": "boolean",
+      "description": "Whether this is a milestone"
+    },
+    "Priority": {
+      "type": "int32",
+      "description": "Task priority (0-1000)"
+    },
+    "ParentId": {
+      "type": "uuid",
+      "description": "Parent task ID for subtasks"
+    },
+    "Notes": {
+      "type": "string",
+      "description": "Task notes"
+    },
+    "IsManuallyScheduled": {
+      "type": "boolean",
+      "description": "Whether the task is manually scheduled"
+    },
+    "ConstraintType": {
+      "type": "int32",
+      "description": "Scheduling constraint type"
+    },
+    "ConstraintStartEnd": {
+      "type": "datetime",
+      "description": "Constraint date"
+    },
+    "Work": {
+      "type": "string",
+      "description": "Total scheduled work"
+    },
+    "RemainingWork": {
+      "type": "string",
+      "description": "Remaining work"
+    },
+    "ActualWork": {
+      "type": "string",
+      "description": "Actual work completed"
+    },
+    "Cost": {
+      "type": "double",
+      "description": "Total cost"
+    }
+  }
+}
