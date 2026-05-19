@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Project Online REST API — Event Handlers
+  description: 'Microsoft Project Online REST API — Event Handlers. 4 operations. Lead operation: Microsoft Project List Event
+    Handlers. Self-contained Naftiko capability covering one Microsoft Project business surface.'
+  tags:
+  - Microsoft Project
+  - Event Handlers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PROJECT_API_KEY: MICROSOFT_PROJECT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-event-handlers
+    baseUri: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+    description: Microsoft Project Online REST API — Event Handlers business capability. Self-contained, no shared references.
+    resources:
+    - name: EventHandlers
+      path: /EventHandlers
+      operations:
+      - name: listeventhandlers
+        method: GET
+        description: Microsoft Project List Event Handlers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createeventhandler
+        method: POST
+        description: Microsoft Project Create Event Handler
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: EventHandlers('{handlerId}')
+      path: /EventHandlers('{handlerId}')
+      operations:
+      - name: geteventhandler
+        method: GET
+        description: Microsoft Project Get Event Handler
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteeventhandler
+        method: DELETE
+        description: Microsoft Project Delete Event Handler
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PROJECT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-event-handlers-rest
+    port: 8080
+    description: REST adapter for Microsoft Project Online REST API — Event Handlers. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/eventhandlers
+      name: eventhandlers
+      description: REST surface for EventHandlers.
+      operations:
+      - method: GET
+        name: listeventhandlers
+        description: Microsoft Project List Event Handlers
+        call: rest-event-handlers.listeventhandlers
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createeventhandler
+        description: Microsoft Project Create Event Handler
+        call: rest-event-handlers.createeventhandler
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/eventhandlers-handlerid
+      name: eventhandlers-handlerid
+      description: REST surface for EventHandlers('{handlerId}').
+      operations:
+      - method: GET
+        name: geteventhandler
+        description: Microsoft Project Get Event Handler
+        call: rest-event-handlers.geteventhandler
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteeventhandler
+        description: Microsoft Project Delete Event Handler
+        call: rest-event-handlers.deleteeventhandler
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-event-handlers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Project Online REST API — Event Handlers. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-project-list-event-handlers
+      description: Microsoft Project List Event Handlers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-event-handlers.listeventhandlers
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-create-event-handler
+      description: Microsoft Project Create Event Handler
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-event-handlers.createeventhandler
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-get-event-handler
+      description: Microsoft Project Get Event Handler
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-event-handlers.geteventhandler
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-delete-event-handler
+      description: Microsoft Project Delete Event Handler
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-event-handlers.deleteeventhandler
+      outputParameters:
+      - type: object
+        mapping: $.

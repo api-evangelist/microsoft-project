@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Project Online REST API — Workflow Activities
+  description: 'Microsoft Project Online REST API — Workflow Activities. 1 operations. Lead operation: Microsoft Project List
+    Workflow Activities. Self-contained Naftiko capability covering one Microsoft Project business surface.'
+  tags:
+  - Microsoft Project
+  - Workflow Activities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PROJECT_API_KEY: MICROSOFT_PROJECT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-workflow-activities
+    baseUri: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+    description: Microsoft Project Online REST API — Workflow Activities business capability. Self-contained, no shared references.
+    resources:
+    - name: WorkflowActivities
+      path: /WorkflowActivities
+      operations:
+      - name: listworkflowactivities
+        method: GET
+        description: Microsoft Project List Workflow Activities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PROJECT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-workflow-activities-rest
+    port: 8080
+    description: REST adapter for Microsoft Project Online REST API — Workflow Activities. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/workflowactivities
+      name: workflowactivities
+      description: REST surface for WorkflowActivities.
+      operations:
+      - method: GET
+        name: listworkflowactivities
+        description: Microsoft Project List Workflow Activities
+        call: rest-workflow-activities.listworkflowactivities
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-workflow-activities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Project Online REST API — Workflow Activities. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-project-list-workflow-activities
+      description: Microsoft Project List Workflow Activities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-workflow-activities.listworkflowactivities
+      outputParameters:
+      - type: object
+        mapping: $.

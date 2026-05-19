@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Project Online REST API — Custom Fields
+  description: 'Microsoft Project Online REST API — Custom Fields. 4 operations. Lead operation: Microsoft Project List Custom
+    Fields. Self-contained Naftiko capability covering one Microsoft Project business surface.'
+  tags:
+  - Microsoft Project
+  - Custom Fields
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PROJECT_API_KEY: MICROSOFT_PROJECT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-custom-fields
+    baseUri: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+    description: Microsoft Project Online REST API — Custom Fields business capability. Self-contained, no shared references.
+    resources:
+    - name: CustomFields
+      path: /CustomFields
+      operations:
+      - name: listcustomfields
+        method: GET
+        description: Microsoft Project List Custom Fields
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcustomfield
+        method: POST
+        description: Microsoft Project Create Custom Field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: CustomFields('{fieldId}')
+      path: /CustomFields('{fieldId}')
+      operations:
+      - name: getcustomfield
+        method: GET
+        description: Microsoft Project Get Custom Field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletecustomfield
+        method: DELETE
+        description: Microsoft Project Delete Custom Field
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PROJECT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-custom-fields-rest
+    port: 8080
+    description: REST adapter for Microsoft Project Online REST API — Custom Fields. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/customfields
+      name: customfields
+      description: REST surface for CustomFields.
+      operations:
+      - method: GET
+        name: listcustomfields
+        description: Microsoft Project List Custom Fields
+        call: rest-custom-fields.listcustomfields
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcustomfield
+        description: Microsoft Project Create Custom Field
+        call: rest-custom-fields.createcustomfield
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/customfields-fieldid
+      name: customfields-fieldid
+      description: REST surface for CustomFields('{fieldId}').
+      operations:
+      - method: GET
+        name: getcustomfield
+        description: Microsoft Project Get Custom Field
+        call: rest-custom-fields.getcustomfield
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecustomfield
+        description: Microsoft Project Delete Custom Field
+        call: rest-custom-fields.deletecustomfield
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-custom-fields-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Project Online REST API — Custom Fields. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-project-list-custom-fields
+      description: Microsoft Project List Custom Fields
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-custom-fields.listcustomfields
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-create-custom-field
+      description: Microsoft Project Create Custom Field
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-custom-fields.createcustomfield
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-get-custom-field
+      description: Microsoft Project Get Custom Field
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-custom-fields.getcustomfield
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-delete-custom-field
+      description: Microsoft Project Delete Custom Field
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-custom-fields.deletecustomfield
+      outputParameters:
+      - type: object
+        mapping: $.

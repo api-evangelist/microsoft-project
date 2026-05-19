@@ -1,0 +1,201 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Project Online REST API — Timesheets
+  description: 'Microsoft Project Online REST API — Timesheets. 5 operations. Lead operation: Microsoft Project List Timesheet
+    Periods. Self-contained Naftiko capability covering one Microsoft Project business surface.'
+  tags:
+  - Microsoft Project
+  - Timesheets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PROJECT_API_KEY: MICROSOFT_PROJECT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-timesheets
+    baseUri: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+    description: Microsoft Project Online REST API — Timesheets business capability. Self-contained, no shared references.
+    resources:
+    - name: TimeSheetPeriods
+      path: /TimeSheetPeriods
+      operations:
+      - name: listtimesheetperiods
+        method: GET
+        description: Microsoft Project List Timesheet Periods
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: TimeSheetPeriods('{periodId}')-TimeSheet
+      path: /TimeSheetPeriods('{periodId}')/TimeSheet
+      operations:
+      - name: gettimesheet
+        method: GET
+        description: Microsoft Project Get Timesheet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: TimeSheetPeriods('{periodId}')-TimeSheet-Lines
+      path: /TimeSheetPeriods('{periodId}')/TimeSheet/Lines
+      operations:
+      - name: listtimesheetlines
+        method: GET
+        description: Microsoft Project List Timesheet Lines
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createtimesheetline
+        method: POST
+        description: Microsoft Project Create Timesheet Line
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: TimeSheetPeriods('{periodId}')-TimeSheet-submitForApproval()
+      path: /TimeSheetPeriods('{periodId}')/TimeSheet/submitForApproval()
+      operations:
+      - name: submittimesheetforapproval
+        method: POST
+        description: Microsoft Project Submit Timesheet for Approval
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PROJECT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-timesheets-rest
+    port: 8080
+    description: REST adapter for Microsoft Project Online REST API — Timesheets. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/timesheetperiods
+      name: timesheetperiods
+      description: REST surface for TimeSheetPeriods.
+      operations:
+      - method: GET
+        name: listtimesheetperiods
+        description: Microsoft Project List Timesheet Periods
+        call: rest-timesheets.listtimesheetperiods
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/timesheetperiods-periodid/timesheet
+      name: timesheetperiods-periodid-timesheet
+      description: REST surface for TimeSheetPeriods('{periodId}')-TimeSheet.
+      operations:
+      - method: GET
+        name: gettimesheet
+        description: Microsoft Project Get Timesheet
+        call: rest-timesheets.gettimesheet
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/timesheetperiods-periodid/timesheet/lines
+      name: timesheetperiods-periodid-timesheet-lines
+      description: REST surface for TimeSheetPeriods('{periodId}')-TimeSheet-Lines.
+      operations:
+      - method: GET
+        name: listtimesheetlines
+        description: Microsoft Project List Timesheet Lines
+        call: rest-timesheets.listtimesheetlines
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtimesheetline
+        description: Microsoft Project Create Timesheet Line
+        call: rest-timesheets.createtimesheetline
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/timesheetperiods-periodid/timesheet/submitforapproval
+      name: timesheetperiods-periodid-timesheet-submitforapproval
+      description: REST surface for TimeSheetPeriods('{periodId}')-TimeSheet-submitForApproval().
+      operations:
+      - method: POST
+        name: submittimesheetforapproval
+        description: Microsoft Project Submit Timesheet for Approval
+        call: rest-timesheets.submittimesheetforapproval
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-timesheets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Project Online REST API — Timesheets. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-project-list-timesheet-periods
+      description: Microsoft Project List Timesheet Periods
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-timesheets.listtimesheetperiods
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-get-timesheet
+      description: Microsoft Project Get Timesheet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-timesheets.gettimesheet
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-list-timesheet-lines
+      description: Microsoft Project List Timesheet Lines
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-timesheets.listtimesheetlines
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-create-timesheet-line
+      description: Microsoft Project Create Timesheet Line
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-timesheets.createtimesheetline
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-submit-timesheet-approval
+      description: Microsoft Project Submit Timesheet for Approval
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-timesheets.submittimesheetforapproval
+      outputParameters:
+      - type: object
+        mapping: $.

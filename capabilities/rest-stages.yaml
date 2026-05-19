@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Project Online REST API — Stages
+  description: 'Microsoft Project Online REST API — Stages. 4 operations. Lead operation: Microsoft Project List Stages. Self-contained
+    Naftiko capability covering one Microsoft Project business surface.'
+  tags:
+  - Microsoft Project
+  - Stages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PROJECT_API_KEY: MICROSOFT_PROJECT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-stages
+    baseUri: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+    description: Microsoft Project Online REST API — Stages business capability. Self-contained, no shared references.
+    resources:
+    - name: Stages
+      path: /Stages
+      operations:
+      - name: liststages
+        method: GET
+        description: Microsoft Project List Stages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createstage
+        method: POST
+        description: Microsoft Project Create Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: Stages('{stageId}')
+      path: /Stages('{stageId}')
+      operations:
+      - name: getstage
+        method: GET
+        description: Microsoft Project Get Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletestage
+        method: DELETE
+        description: Microsoft Project Delete Stage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PROJECT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-stages-rest
+    port: 8080
+    description: REST adapter for Microsoft Project Online REST API — Stages. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/stages
+      name: stages
+      description: REST surface for Stages.
+      operations:
+      - method: GET
+        name: liststages
+        description: Microsoft Project List Stages
+        call: rest-stages.liststages
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createstage
+        description: Microsoft Project Create Stage
+        call: rest-stages.createstage
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/stages-stageid
+      name: stages-stageid
+      description: REST surface for Stages('{stageId}').
+      operations:
+      - method: GET
+        name: getstage
+        description: Microsoft Project Get Stage
+        call: rest-stages.getstage
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletestage
+        description: Microsoft Project Delete Stage
+        call: rest-stages.deletestage
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-stages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Project Online REST API — Stages. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-project-list-stages
+      description: Microsoft Project List Stages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-stages.liststages
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-create-stage
+      description: Microsoft Project Create Stage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-stages.createstage
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-get-stage
+      description: Microsoft Project Get Stage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-stages.getstage
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-delete-stage
+      description: Microsoft Project Delete Stage
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-stages.deletestage
+      outputParameters:
+      - type: object
+        mapping: $.

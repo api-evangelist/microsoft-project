@@ -1,0 +1,201 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Project Online REST API — Assignments
+  description: 'Microsoft Project Online REST API — Assignments. 5 operations. Lead operation: Microsoft Project List Enterprise
+    Resource Assignments. Self-contained Naftiko capability covering one Microsoft Project business surface.'
+  tags:
+  - Microsoft Project
+  - Assignments
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PROJECT_API_KEY: MICROSOFT_PROJECT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-assignments
+    baseUri: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+    description: Microsoft Project Online REST API — Assignments business capability. Self-contained, no shared references.
+    resources:
+    - name: EnterpriseResources('{resourceId}')-Assignments
+      path: /EnterpriseResources('{resourceId}')/Assignments
+      operations:
+      - name: listenterpriseresourceassignments
+        method: GET
+        description: Microsoft Project List Enterprise Resource Assignments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Projects('{projectId}')-Assignments
+      path: /Projects('{projectId}')/Assignments
+      operations:
+      - name: listprojectassignments
+        method: GET
+        description: Microsoft Project List Project Assignments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: Projects('{projectId}')-Draft-Assignments
+      path: /Projects('{projectId}')/Draft/Assignments
+      operations:
+      - name: listdraftassignments
+        method: GET
+        description: Microsoft Project List Draft Assignments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdraftassignment
+        method: POST
+        description: Microsoft Project Create Draft Assignment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: Projects('{projectId}')-Draft-Assignments('{assignmentId}')
+      path: /Projects('{projectId}')/Draft/Assignments('{assignmentId}')
+      operations:
+      - name: deletedraftassignment
+        method: DELETE
+        description: Microsoft Project Delete Draft Assignment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PROJECT_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: rest-assignments-rest
+    port: 8080
+    description: REST adapter for Microsoft Project Online REST API — Assignments. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/enterpriseresources-resourceid/assignments
+      name: enterpriseresources-resourceid-assignments
+      description: REST surface for EnterpriseResources('{resourceId}')-Assignments.
+      operations:
+      - method: GET
+        name: listenterpriseresourceassignments
+        description: Microsoft Project List Enterprise Resource Assignments
+        call: rest-assignments.listenterpriseresourceassignments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects-projectid/assignments
+      name: projects-projectid-assignments
+      description: REST surface for Projects('{projectId}')-Assignments.
+      operations:
+      - method: GET
+        name: listprojectassignments
+        description: Microsoft Project List Project Assignments
+        call: rest-assignments.listprojectassignments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects-projectid/draft/assignments
+      name: projects-projectid-draft-assignments
+      description: REST surface for Projects('{projectId}')-Draft-Assignments.
+      operations:
+      - method: GET
+        name: listdraftassignments
+        description: Microsoft Project List Draft Assignments
+        call: rest-assignments.listdraftassignments
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdraftassignment
+        description: Microsoft Project Create Draft Assignment
+        call: rest-assignments.createdraftassignment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/projects-projectid/draft/assignments-assignmentid
+      name: projects-projectid-draft-assignments-assignmentid
+      description: REST surface for Projects('{projectId}')-Draft-Assignments('{assignmentId}').
+      operations:
+      - method: DELETE
+        name: deletedraftassignment
+        description: Microsoft Project Delete Draft Assignment
+        call: rest-assignments.deletedraftassignment
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-assignments-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Project Online REST API — Assignments. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-project-list-enterprise-resource
+      description: Microsoft Project List Enterprise Resource Assignments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-assignments.listenterpriseresourceassignments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-list-project-assignments
+      description: Microsoft Project List Project Assignments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-assignments.listprojectassignments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-list-draft-assignments
+      description: Microsoft Project List Draft Assignments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-assignments.listdraftassignments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-create-draft-assignment
+      description: Microsoft Project Create Draft Assignment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-assignments.createdraftassignment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-project-delete-draft-assignment
+      description: Microsoft Project Delete Draft Assignment
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: rest-assignments.deletedraftassignment
+      outputParameters:
+      - type: object
+        mapping: $.
