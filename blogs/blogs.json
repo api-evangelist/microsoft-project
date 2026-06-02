@@ -2,13 +2,10 @@
   "repo": "microsoft-project",
   "feeds": [
     {
-      "source": "https://techcommunity.microsoft.com/t5/project-blog/bg-p/ProjectBlog",
-      "feed_url": "",
-      "title": "",
-      "saved": 0,
-      "error": "no_feed"
+      "source": "https://learn.microsoft.com/en-us/office/client-developer/project/project-programming-tasks",
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-05-17T20:48:52Z",
+  "fetched": "2026-06-01T23:35:02Z",
   "post_count": 0
 }
