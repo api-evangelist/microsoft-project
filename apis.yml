@@ -95,52 +95,52 @@ apis:
     title: TimeSheet Structure
   - type: JSONLD
     url: json-ld/microsoft-project-rest-api-context.jsonld
-  - type: Example
+  - type: Examples
     url: examples/rest-api-project-example.json
     title: Project Example
-  - type: Example
+  - type: Examples
     url: examples/rest-api-task-example.json
     title: Task Example
-  - type: Example
+  - type: Examples
     url: examples/rest-api-enterprise-resource-example.json
     title: Enterprise Resource Example
-  - type: Example
+  - type: Examples
     url: examples/rest-api-assignment-example.json
     title: Assignment Example
-  - type: Example
+  - type: Examples
     url: examples/rest-api-calendar-example.json
     title: Calendar Example
-  - type: Example
+  - type: Examples
     url: examples/rest-api-custom-field-example.json
     title: Custom Field Example
-  - type: Example
+  - type: Examples
     url: examples/rest-api-time-sheet-example.json
     title: TimeSheet Example
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-assignments.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-calendars.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-custom-fields.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-enterprise-project-types.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-event-handlers.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-lookup-tables.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-phases.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-projects.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-resources.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-stages.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-tasks.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-timesheets.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:csom-api
   name: Microsoft Project Online CSOM API
@@ -161,7 +161,7 @@ apis:
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
-  - type: SDK
+  - type: SDKs
     url: https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
     title: .NET SDK
   - type: GettingStarted
@@ -199,7 +199,7 @@ apis:
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins
-  - type: Quickstart
+  - type: GettingStarted
     url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/project-quickstart
   - type: APIReference
     url: https://learn.microsoft.com/en-us/javascript/api/office/office.context
