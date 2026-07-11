@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-project-rest-api.yaml
+schemes:
+- name: oauth2
+  source: openapi/microsoft-project-rest-api.yaml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+  description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+scopes:
+- scope: ProjectServer.Read
+  description: Read Project Server data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-project-rest-api.yaml
+- scope: ProjectServer.ReadWrite
+  description: Read and write Project Server data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-project-rest-api.yaml

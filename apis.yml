@@ -206,6 +206,8 @@ apis:
   - type: CodeExamples
     url: https://developer.microsoft.com/en-us/microsoft-365/gallery/?filterBy=Project,Samples
 common:
+- type: OAuthScopes
+  url: scopes/microsoft-project-scopes.yml
 - type: Portal
   url: https://developer.microsoft.com/en-us/microsoft-365
 - type: DeveloperPortal
