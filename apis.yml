@@ -206,6 +206,12 @@ apis:
   - type: CodeExamples
     url: https://developer.microsoft.com/en-us/microsoft-365/gallery/?filterBy=Project,Samples
 common:
+- type: VulnerabilityDisclosure
+  url: security/microsoft-project-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/microsoft-project-domain-security.yml
+- type: Authentication
+  url: authentication/microsoft-project-authentication.yml
 - type: OAuthScopes
   url: scopes/microsoft-project-scopes.yml
 - type: Portal
