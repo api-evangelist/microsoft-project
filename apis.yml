@@ -206,6 +206,8 @@ apis:
   - type: CodeExamples
     url: https://developer.microsoft.com/en-us/microsoft-365/gallery/?filterBy=Project,Samples
 common:
+- type: AgenticAccess
+  url: agentic-access/microsoft-project-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/microsoft-project-vulnerability-disclosure.yml
 - type: DomainSecurity
