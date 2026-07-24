@@ -1,0 +1,157 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Stages API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Stages
+  description: Manage workflow stages
+paths:
+  /Stages:
+    get:
+      operationId: listStages
+      summary: Microsoft Project List Stages
+      description: Retrieve all workflow stages.
+      tags:
+      - Stages
+      responses:
+        '200':
+          description: List of stages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StageCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createStage
+      summary: Microsoft Project Create Stage
+      description: Create a new workflow stage.
+      tags:
+      - Stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StageCreate'
+      responses:
+        '201':
+          description: Stage created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Stages('{stageId}'):
+    get:
+      operationId: getStage
+      summary: Microsoft Project Get Stage
+      description: Retrieve a specific workflow stage.
+      tags:
+      - Stages
+      parameters:
+      - $ref: '#/components/parameters/stageId'
+      responses:
+        '200':
+          description: Stage details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stage'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteStage
+      summary: Microsoft Project Delete Stage
+      description: Delete a workflow stage.
+      tags:
+      - Stages
+      parameters:
+      - $ref: '#/components/parameters/stageId'
+      responses:
+        '204':
+          description: Stage deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    StageCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+    StageCreate:
+      type: object
+      required:
+      - Name
+      - PhaseId
+      properties:
+        Name:
+          type: string
+          description: Stage name
+        Description:
+          type: string
+          description: Stage description
+        PhaseId:
+          type: string
+          format: uuid
+          description: Parent phase ID
+    Stage:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Stage identifier
+        Name:
+          type: string
+          description: Stage name
+          example: Requirements Review
+        Description:
+          type: string
+          description: Stage description
+          example: Review and approve project requirements
+        PhaseId:
+          type: string
+          format: uuid
+          description: Parent phase ID
+  parameters:
+    stageId:
+      name: stageId
+      in: path
+      required: true
+      description: The GUID identifier of the stage
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

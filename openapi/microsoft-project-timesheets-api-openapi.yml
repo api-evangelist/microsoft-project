@@ -1,0 +1,234 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Timesheets API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Timesheets
+  description: Manage timesheet periods, lines, and work entries
+paths:
+  /TimeSheetPeriods:
+    get:
+      operationId: listTimeSheetPeriods
+      summary: Microsoft Project List Timesheet Periods
+      description: Retrieve all timesheet periods.
+      tags:
+      - Timesheets
+      responses:
+        '200':
+          description: List of timesheet periods
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSheetPeriodCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /TimeSheetPeriods('{periodId}')/TimeSheet:
+    get:
+      operationId: getTimeSheet
+      summary: Microsoft Project Get Timesheet
+      description: Retrieve a timesheet for a specific period.
+      tags:
+      - Timesheets
+      parameters:
+      - $ref: '#/components/parameters/periodId'
+      responses:
+        '200':
+          description: Timesheet details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSheet'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /TimeSheetPeriods('{periodId}')/TimeSheet/Lines:
+    get:
+      operationId: listTimeSheetLines
+      summary: Microsoft Project List Timesheet Lines
+      description: Retrieve all lines in a timesheet.
+      tags:
+      - Timesheets
+      parameters:
+      - $ref: '#/components/parameters/periodId'
+      responses:
+        '200':
+          description: List of timesheet lines
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSheetLineCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createTimeSheetLine
+      summary: Microsoft Project Create Timesheet Line
+      description: Create a new line in a timesheet.
+      tags:
+      - Timesheets
+      parameters:
+      - $ref: '#/components/parameters/periodId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSheetLineCreate'
+      responses:
+        '201':
+          description: Timesheet line created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /TimeSheetPeriods('{periodId}')/TimeSheet/submitForApproval():
+    post:
+      operationId: submitTimeSheetForApproval
+      summary: Microsoft Project Submit Timesheet for Approval
+      description: Submit a timesheet for manager approval.
+      tags:
+      - Timesheets
+      parameters:
+      - $ref: '#/components/parameters/periodId'
+      responses:
+        '200':
+          description: Timesheet submitted for approval
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TimeSheetLineCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetLine'
+    TimeSheetLineCreate:
+      type: object
+      properties:
+        LineClass:
+          type: integer
+          description: Line classification
+          default: 0
+        ProjectId:
+          type: string
+          format: uuid
+          description: Project ID
+        TaskId:
+          type: string
+          format: uuid
+          description: Task ID
+    TimeSheetLine:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Line identifier
+        LineClass:
+          type: integer
+          description: Line classification (0=StandardLine, 1=SickTimeLine, 2=VacationTimeLine, 3=AdministrativeTimeLine)
+          example: 0
+        ProjectName:
+          type: string
+          description: Associated project name
+          example: Enterprise Website Redesign
+        TaskName:
+          type: string
+          description: Associated task name
+          example: Design Review Meeting
+        TotalWork:
+          type: string
+          description: Total work for this line
+          example: 8h
+        Comment:
+          type: string
+          description: Line comment
+    TimeSheetPeriodCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetPeriod'
+    TimeSheetPeriod:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Period identifier
+        Name:
+          type: string
+          description: Period name
+          example: March 2026 - Week 1
+        Start:
+          type: string
+          format: date-time
+          description: Period start date
+        End:
+          type: string
+          format: date-time
+          description: Period end date
+    TimeSheet:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Timesheet identifier
+        Status:
+          type: integer
+          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
+          example: 0
+        PeriodId:
+          type: string
+          format: uuid
+          description: Associated period ID
+        TotalWork:
+          type: string
+          description: Total work reported
+          example: 40h
+        TotalActualWork:
+          type: string
+          description: Total actual work
+          example: 38h
+  parameters:
+    periodId:
+      name: periodId
+      in: path
+      required: true
+      description: The GUID identifier of the timesheet period
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

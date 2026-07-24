@@ -1,0 +1,155 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Enterprise Project Types API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Enterprise Project Types
+  description: Manage enterprise project type configurations
+paths:
+  /EnterpriseProjectTypes:
+    get:
+      operationId: listEnterpriseProjectTypes
+      summary: Microsoft Project List Enterprise Project Types
+      description: Retrieve all enterprise project type configurations.
+      tags:
+      - Enterprise Project Types
+      responses:
+        '200':
+          description: List of enterprise project types
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseProjectTypeCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createEnterpriseProjectType
+      summary: Microsoft Project Create Enterprise Project Type
+      description: Create a new enterprise project type.
+      tags:
+      - Enterprise Project Types
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnterpriseProjectTypeCreate'
+      responses:
+        '201':
+          description: Enterprise project type created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EnterpriseProjectTypes('{projectTypeId}'):
+    get:
+      operationId: getEnterpriseProjectType
+      summary: Microsoft Project Get Enterprise Project Type
+      description: Retrieve a specific enterprise project type.
+      tags:
+      - Enterprise Project Types
+      parameters:
+      - $ref: '#/components/parameters/projectTypeId'
+      responses:
+        '200':
+          description: Enterprise project type details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseProjectType'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteEnterpriseProjectType
+      summary: Microsoft Project Delete Enterprise Project Type
+      description: Delete an enterprise project type.
+      tags:
+      - Enterprise Project Types
+      parameters:
+      - $ref: '#/components/parameters/projectTypeId'
+      responses:
+        '204':
+          description: Enterprise project type deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    EnterpriseProjectType:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Project type identifier
+        Name:
+          type: string
+          description: Project type name
+          example: Standard Enterprise Project
+        Description:
+          type: string
+          description: Project type description
+          example: Standard project type for enterprise projects
+        IsDefault:
+          type: boolean
+          description: Whether this is the default project type
+          example: true
+        WorkspaceTemplateName:
+          type: string
+          description: Associated workspace template name
+    EnterpriseProjectTypeCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Project type name
+        Description:
+          type: string
+          description: Project type description
+    EnterpriseProjectTypeCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterpriseProjectType'
+  parameters:
+    projectTypeId:
+      name: projectTypeId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise project type
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

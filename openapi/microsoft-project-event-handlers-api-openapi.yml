@@ -1,0 +1,167 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Event Handlers API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Event Handlers
+  description: Manage event handler subscriptions
+paths:
+  /EventHandlers:
+    get:
+      operationId: listEventHandlers
+      summary: Microsoft Project List Event Handlers
+      description: Retrieve all registered event handlers.
+      tags:
+      - Event Handlers
+      responses:
+        '200':
+          description: List of event handlers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventHandlerCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createEventHandler
+      summary: Microsoft Project Create Event Handler
+      description: Register a new event handler.
+      tags:
+      - Event Handlers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventHandlerCreate'
+      responses:
+        '201':
+          description: Event handler created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EventHandlers('{handlerId}'):
+    get:
+      operationId: getEventHandler
+      summary: Microsoft Project Get Event Handler
+      description: Retrieve a specific event handler.
+      tags:
+      - Event Handlers
+      parameters:
+      - $ref: '#/components/parameters/handlerId'
+      responses:
+        '200':
+          description: Event handler details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventHandler'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteEventHandler
+      summary: Microsoft Project Delete Event Handler
+      description: Delete an event handler.
+      tags:
+      - Event Handlers
+      parameters:
+      - $ref: '#/components/parameters/handlerId'
+      responses:
+        '204':
+          description: Event handler deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    EventHandlerCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHandler'
+    EventHandler:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Event handler identifier
+        Name:
+          type: string
+          description: Event handler name
+          example: Project Published Handler
+        AssemblyName:
+          type: string
+          description: Assembly containing the handler
+        ClassName:
+          type: string
+          description: Class implementing the handler
+        EventId:
+          type: integer
+          description: Event identifier
+        Order:
+          type: integer
+          description: Handler execution order
+          example: 1
+    EventHandlerCreate:
+      type: object
+      required:
+      - Name
+      - EventId
+      properties:
+        Name:
+          type: string
+          description: Event handler name
+        EventId:
+          type: integer
+          description: Event identifier
+        AssemblyName:
+          type: string
+          description: Assembly name
+        ClassName:
+          type: string
+          description: Class name
+        Order:
+          type: integer
+          description: Execution order
+  parameters:
+    handlerId:
+      name: handlerId
+      in: path
+      required: true
+      description: The GUID identifier of the event handler
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

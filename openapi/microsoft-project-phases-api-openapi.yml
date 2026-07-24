@@ -1,0 +1,148 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Phases API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Phases
+  description: Manage workflow phases
+paths:
+  /Phases:
+    get:
+      operationId: listPhases
+      summary: Microsoft Project List Phases
+      description: Retrieve all workflow phases.
+      tags:
+      - Phases
+      responses:
+        '200':
+          description: List of phases
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhaseCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createPhase
+      summary: Microsoft Project Create Phase
+      description: Create a new workflow phase.
+      tags:
+      - Phases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhaseCreate'
+      responses:
+        '201':
+          description: Phase created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Phases('{phaseId}'):
+    get:
+      operationId: getPhase
+      summary: Microsoft Project Get Phase
+      description: Retrieve a specific workflow phase.
+      tags:
+      - Phases
+      parameters:
+      - $ref: '#/components/parameters/phaseId'
+      responses:
+        '200':
+          description: Phase details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Phase'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deletePhase
+      summary: Microsoft Project Delete Phase
+      description: Delete a workflow phase.
+      tags:
+      - Phases
+      parameters:
+      - $ref: '#/components/parameters/phaseId'
+      responses:
+        '204':
+          description: Phase deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    PhaseCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Phase name
+        Description:
+          type: string
+          description: Phase description
+    Phase:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Phase identifier
+        Name:
+          type: string
+          description: Phase name
+          example: Initiation
+        Description:
+          type: string
+          description: Phase description
+          example: Project initiation and planning phase
+    PhaseCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Phase'
+  parameters:
+    phaseId:
+      name: phaseId
+      in: path
+      required: true
+      description: The GUID identifier of the phase
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

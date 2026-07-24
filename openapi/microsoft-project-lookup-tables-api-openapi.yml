@@ -1,0 +1,224 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Lookup Tables API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Lookup Tables
+  description: Manage lookup table definitions and entries
+paths:
+  /LookupTables:
+    get:
+      operationId: listLookupTables
+      summary: Microsoft Project List Lookup Tables
+      description: Retrieve all lookup table definitions.
+      tags:
+      - Lookup Tables
+      responses:
+        '200':
+          description: List of lookup tables
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTableCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createLookupTable
+      summary: Microsoft Project Create Lookup Table
+      description: Create a new lookup table definition.
+      tags:
+      - Lookup Tables
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableCreate'
+      responses:
+        '201':
+          description: Lookup table created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /LookupTables('{tableId}'):
+    get:
+      operationId: getLookupTable
+      summary: Microsoft Project Get Lookup Table
+      description: Retrieve a specific lookup table by ID.
+      tags:
+      - Lookup Tables
+      parameters:
+      - $ref: '#/components/parameters/tableId'
+      responses:
+        '200':
+          description: Lookup table details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTable'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteLookupTable
+      summary: Microsoft Project Delete Lookup Table
+      description: Delete a lookup table by ID.
+      tags:
+      - Lookup Tables
+      parameters:
+      - $ref: '#/components/parameters/tableId'
+      responses:
+        '204':
+          description: Lookup table deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /LookupTables('{tableId}')/Entries:
+    get:
+      operationId: listLookupTableEntries
+      summary: Microsoft Project List Lookup Table Entries
+      description: Retrieve all entries in a lookup table.
+      tags:
+      - Lookup Tables
+      parameters:
+      - $ref: '#/components/parameters/tableId'
+      responses:
+        '200':
+          description: List of entries
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTableEntryCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createLookupTableEntry
+      summary: Microsoft Project Create Lookup Table Entry
+      description: Create a new entry in a lookup table.
+      tags:
+      - Lookup Tables
+      parameters:
+      - $ref: '#/components/parameters/tableId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableEntryCreate'
+      responses:
+        '201':
+          description: Entry created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    LookupTableCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Lookup table name
+        FieldType:
+          type: integer
+          description: Value field type
+    LookupTableEntry:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Entry identifier
+        Value:
+          type: string
+          description: Entry value
+          example: High Priority
+        SortIndex:
+          type: integer
+          description: Sort order index
+          example: 1
+        Description:
+          type: string
+          description: Entry description
+    LookupTableEntryCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTableEntry'
+    LookupTable:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Lookup table identifier
+        Name:
+          type: string
+          description: Lookup table name
+          example: Priority Levels
+        FieldType:
+          type: integer
+          description: Value field type
+        SortOrder:
+          type: integer
+          description: Sort order for entries
+    LookupTableCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTable'
+    LookupTableEntryCreate:
+      type: object
+      required:
+      - Value
+      properties:
+        Value:
+          type: string
+          description: Entry value
+        Description:
+          type: string
+          description: Entry description
+  parameters:
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The GUID identifier of the lookup table
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

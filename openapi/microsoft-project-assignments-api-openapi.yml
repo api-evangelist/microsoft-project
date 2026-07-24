@@ -1,0 +1,228 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Assignments
+  description: Manage resource assignments to tasks
+paths:
+  /Projects('{projectId}')/Assignments:
+    get:
+      operationId: listProjectAssignments
+      summary: Microsoft Project List Project Assignments
+      description: Retrieve all published assignments for a project.
+      tags:
+      - Assignments
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Assignments:
+    get:
+      operationId: listDraftAssignments
+      summary: Microsoft Project List Draft Assignments
+      description: Retrieve all draft assignments for a project.
+      tags:
+      - Assignments
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of draft assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDraftAssignment
+      summary: Microsoft Project Create Draft Assignment
+      description: Create a new assignment in the project draft.
+      tags:
+      - Assignments
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignmentCreate'
+      responses:
+        '201':
+          description: Assignment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assignment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Assignments('{assignmentId}'):
+    delete:
+      operationId: deleteDraftAssignment
+      summary: Microsoft Project Delete Draft Assignment
+      description: Delete an assignment from the project draft.
+      tags:
+      - Assignments
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/assignmentId'
+      responses:
+        '204':
+          description: Assignment deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EnterpriseResources('{resourceId}')/Assignments:
+    get:
+      operationId: listEnterpriseResourceAssignments
+      summary: Microsoft Project List Enterprise Resource Assignments
+      description: Retrieve all assignments for an enterprise resource.
+      tags:
+      - Assignments
+      parameters:
+      - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          description: List of assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Assignment:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Assignment identifier
+          example: a2eafeb5-437c-e111-92fc-00155d3ba208
+        ProjectId:
+          type: string
+          format: uuid
+          description: Project identifier
+        TaskId:
+          type: string
+          format: uuid
+          description: Task identifier
+        ResourceId:
+          type: string
+          format: uuid
+          description: Resource identifier
+        ResourceName:
+          type: string
+          description: Name of the assigned resource
+          example: Jane Smith
+        ActualWork:
+          type: string
+          description: Actual work completed
+          example: 40h
+        RemainingWork:
+          type: string
+          description: Remaining work
+          example: 20h
+        PercentWorkComplete:
+          type: integer
+          description: Work completion percentage
+          example: 67
+        Start:
+          type: string
+          format: date-time
+          description: Assignment start date
+        Finish:
+          type: string
+          format: date-time
+          description: Assignment finish date
+    AssignmentCreate:
+      type: object
+      required:
+      - TaskId
+      - ResourceId
+      properties:
+        TaskId:
+          type: string
+          format: uuid
+          description: Task to assign resource to
+        ResourceId:
+          type: string
+          format: uuid
+          description: Resource to assign
+    AssignmentCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assignment'
+  parameters:
+    resourceId:
+      name: resourceId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise resource
+      schema:
+        type: string
+        format: uuid
+      example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
+    assignmentId:
+      name: assignmentId
+      in: path
+      required: true
+      description: The GUID identifier of the assignment
+      schema:
+        type: string
+        format: uuid
+      example: a2eafeb5-437c-e111-92fc-00155d3ba208
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

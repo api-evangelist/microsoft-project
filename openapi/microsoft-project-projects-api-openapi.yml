@@ -1,0 +1,372 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Projects API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Projects
+  description: Manage projects and project lifecycle operations
+paths:
+  /Projects:
+    get:
+      operationId: listProjects
+      summary: Microsoft Project List Projects
+      description: Retrieve all projects accessible to the current user.
+      tags:
+      - Projects
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCollection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createProject
+      summary: Microsoft Project Create Project
+      description: Create a new project.
+      tags:
+      - Projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectCreate'
+      responses:
+        '201':
+          description: Project created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}'):
+    get:
+      operationId: getProject
+      summary: Microsoft Project Get Project
+      description: Retrieve a specific project by its ID.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteProject
+      summary: Microsoft Project Delete Project
+      description: Delete a project by its ID.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '204':
+          description: Project deleted
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/checkOut():
+    post:
+      operationId: checkOutProject
+      summary: Microsoft Project Check Out Project
+      description: Check out a project for editing.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: Project checked out
+        '409':
+          description: Project already checked out
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/checkIn(force={force}):
+    post:
+      operationId: checkInProject
+      summary: Microsoft Project Check in Project Draft
+      description: Check in a project draft. Optionally force check-in.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - name: force
+        in: query
+        description: Whether to force check-in
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Project checked in
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/publish(checkIn={checkIn}):
+    post:
+      operationId: publishProject
+      summary: Microsoft Project Publish Project
+      description: Publish a project draft.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - name: checkIn
+        in: query
+        description: Whether to check in after publishing
+        schema:
+          type: boolean
+          default: true
+      responses:
+        '200':
+          description: Project published
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/submitToWorkflow():
+    post:
+      operationId: submitProjectToWorkflow
+      summary: Microsoft Project Submit Project to Workflow
+      description: Submit a project to its associated workflow.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: Project submitted to workflow
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/QueueJobs:
+    get:
+      operationId: listProjectQueueJobs
+      summary: Microsoft Project List Project Queue Jobs
+      description: Retrieve all queue jobs for a project.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of queue jobs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueueJobCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  responses:
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request - invalid parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    ProjectCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+              example: InvalidRequest
+            message:
+              type: string
+              description: Error message
+              example: The specified project was not found.
+    Project:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique identifier of the project
+          example: 263fc8d7-427c-e111-92fc-00155d3ba208
+        Name:
+          type: string
+          description: Name of the project
+          example: Enterprise Website Redesign
+        Description:
+          type: string
+          description: Description of the project
+          example: Complete redesign of the corporate website
+        StartDate:
+          type: string
+          format: date-time
+          description: Project start date
+          example: '2026-01-15T00:00:00Z'
+        FinishDate:
+          type: string
+          format: date-time
+          description: Project finish date
+          example: '2026-06-30T00:00:00Z'
+        CreatedDate:
+          type: string
+          format: date-time
+          description: Date the project was created
+          example: '2026-01-10T14:30:00Z'
+        ModifiedDate:
+          type: string
+          format: date-time
+          description: Date the project was last modified
+          example: '2026-04-18T09:15:00Z'
+        IsCheckedOut:
+          type: boolean
+          description: Whether the project is currently checked out
+          example: false
+        CheckedOutBy:
+          type: string
+          description: User who checked out the project
+          example: jsmith@contoso.com
+        PercentComplete:
+          type: integer
+          description: Overall completion percentage
+          example: 45
+        ProjectType:
+          type: integer
+          description: Enterprise project type identifier
+          example: 0
+        ProjectSiteUrl:
+          type: string
+          format: uri
+          description: URL to the project site
+          example: https://contoso.sharepoint.com/sites/pwa/ProjectSite
+    QueueJobCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueueJob'
+    ProjectCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Name of the project
+          example: New Product Launch
+        Description:
+          type: string
+          description: Description of the project
+          example: Launch plan for Q3 product release
+        StartDate:
+          type: string
+          format: date-time
+          description: Project start date
+          example: '2026-07-01T00:00:00Z'
+    QueueJob:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Queue job identifier
+        JobState:
+          type: integer
+          description: Job state (0=Unknown, 1=ReadyForProcessing, 2=SendIncomplete, 3=Processing, 4=Success, 5=Failed, 6=FailedNotBlocking, 7=ProcessingDeferred, 8=CorrelationBlocked, 9=Canceled, 10=OnHold, 11=Sleeping, 12=ReadyForLaunch)
+          example: 4
+        MessageType:
+          type: integer
+          description: Queue message type
+        PercentComplete:
+          type: integer
+          description: Job completion percentage
+          example: 100
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

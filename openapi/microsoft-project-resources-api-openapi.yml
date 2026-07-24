@@ -1,0 +1,250 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Resources API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Resources
+  description: Manage enterprise resources and project resources
+paths:
+  /Projects('{projectId}')/Draft/ProjectResources:
+    get:
+      operationId: listDraftProjectResources
+      summary: Microsoft Project List Draft Project Resources
+      description: Retrieve all resources in the project draft.
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of project resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResourceCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: addDraftProjectResource
+      summary: Microsoft Project Add Draft Project Resource
+      description: Add a resource to the project draft.
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectResourceCreate'
+      responses:
+        '201':
+          description: Resource added
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/ProjectResources:
+    get:
+      operationId: listProjectResources
+      summary: Microsoft Project List Project Resources
+      description: Retrieve all published resources for a project.
+      tags:
+      - Resources
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of project resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResourceCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EnterpriseResources:
+    get:
+      operationId: listEnterpriseResources
+      summary: Microsoft Project List Enterprise Resources
+      description: Retrieve all enterprise resources.
+      tags:
+      - Resources
+      responses:
+        '200':
+          description: List of enterprise resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseResourceCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createEnterpriseResource
+      summary: Microsoft Project Create Enterprise Resource
+      description: Create a new enterprise resource.
+      tags:
+      - Resources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnterpriseResourceCreate'
+      responses:
+        '201':
+          description: Enterprise resource created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseResource'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    EnterpriseResource:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Resource identifier
+          example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
+        Name:
+          type: string
+          description: Resource name
+          example: Jane Smith
+        Email:
+          type: string
+          format: email
+          description: Resource email address
+          example: jsmith@contoso.com
+        ResourceType:
+          type: integer
+          description: Resource type (0=Material, 1=Work, 2=Cost)
+          example: 1
+        IsActive:
+          type: boolean
+          description: Whether the resource is active
+          example: true
+        IsGeneric:
+          type: boolean
+          description: Whether this is a generic resource
+          example: false
+        MaxUnits:
+          type: number
+          format: double
+          description: Maximum assignment units
+          example: 1.0
+        StandardRate:
+          type: number
+          format: double
+          description: Standard billing rate
+          example: 150.0
+        CostCenter:
+          type: string
+          description: Cost center code
+          example: IT-DEV
+        Group:
+          type: string
+          description: Resource group
+          example: Development
+        BaseCalendar:
+          type: string
+          description: Base calendar name
+          example: Standard
+    ProjectResourceCreate:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Enterprise resource ID to add to project
+    ProjectResource:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Resource identifier
+        Name:
+          type: string
+          description: Resource name
+        Email:
+          type: string
+          format: email
+          description: Resource email
+    EnterpriseResourceCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Resource name
+          example: John Doe
+        Email:
+          type: string
+          format: email
+          description: Resource email
+        ResourceType:
+          type: integer
+          description: Resource type
+          default: 1
+        IsGeneric:
+          type: boolean
+          default: false
+    EnterpriseResourceCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterpriseResource'
+    ProjectResourceCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectResource'
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

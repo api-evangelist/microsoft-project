@@ -1,0 +1,187 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Custom Fields API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Custom Fields
+  description: Manage enterprise custom field definitions
+paths:
+  /CustomFields:
+    get:
+      operationId: listCustomFields
+      summary: Microsoft Project List Custom Fields
+      description: Retrieve all enterprise custom field definitions.
+      tags:
+      - Custom Fields
+      responses:
+        '200':
+          description: List of custom fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomFieldCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createCustomField
+      summary: Microsoft Project Create Custom Field
+      description: Create a new enterprise custom field definition.
+      tags:
+      - Custom Fields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomFieldCreate'
+      responses:
+        '201':
+          description: Custom field created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /CustomFields('{fieldId}'):
+    get:
+      operationId: getCustomField
+      summary: Microsoft Project Get Custom Field
+      description: Retrieve a specific custom field by ID.
+      tags:
+      - Custom Fields
+      parameters:
+      - $ref: '#/components/parameters/fieldId'
+      responses:
+        '200':
+          description: Custom field details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteCustomField
+      summary: Microsoft Project Delete Custom Field
+      description: Delete a custom field definition.
+      tags:
+      - Custom Fields
+      parameters:
+      - $ref: '#/components/parameters/fieldId'
+      responses:
+        '204':
+          description: Custom field deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CustomFieldCreate:
+      type: object
+      required:
+      - Name
+      - FieldType
+      - EntityType
+      properties:
+        Name:
+          type: string
+          description: Custom field display name
+        FieldType:
+          type: integer
+          description: Field data type
+        EntityType:
+          type: integer
+          description: Entity type
+        Description:
+          type: string
+          description: Field description
+    CustomField:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Custom field identifier
+        InternalName:
+          type: string
+          description: Internal name of the custom field
+          example: Custom_x0020_Text1
+        Name:
+          type: string
+          description: Display name of the custom field
+          example: Department Code
+        FieldType:
+          type: integer
+          description: Field data type (0=Cost, 1=Date, 2=Duration, 3=Finish, 4=Flag, 5=Number, 6=Start, 7=Text)
+          example: 7
+        EntityType:
+          type: integer
+          description: Entity type (0=Project, 1=Resource, 2=Task)
+          example: 2
+        Description:
+          type: string
+          description: Field description
+          example: Custom field for department codes
+        LookupTableId:
+          type: string
+          format: uuid
+          description: Associated lookup table ID
+        IsRequired:
+          type: boolean
+          description: Whether the field is required
+          example: false
+        IsMultilineText:
+          type: boolean
+          description: Whether the text field supports multiple lines
+          example: false
+        Formula:
+          type: string
+          description: Calculated field formula
+    CustomFieldCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomField'
+  parameters:
+    fieldId:
+      name: fieldId
+      in: path
+      required: true
+      description: The GUID identifier of the custom field
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

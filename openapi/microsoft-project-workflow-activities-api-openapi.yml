@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Workflow Activities API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Workflow Activities
+  description: Manage workflow activities
+paths:
+  /WorkflowActivities:
+    get:
+      operationId: listWorkflowActivities
+      summary: Microsoft Project List Workflow Activities
+      description: Retrieve all workflow activities.
+      tags:
+      - Workflow Activities
+      responses:
+        '200':
+          description: List of workflow activities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowActivityCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    WorkflowActivityCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowActivity'
+    WorkflowActivity:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Activity identifier
+        Name:
+          type: string
+          description: Activity name
+        Description:
+          type: string
+          description: Activity description
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data

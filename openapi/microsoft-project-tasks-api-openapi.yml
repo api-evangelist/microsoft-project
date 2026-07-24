@@ -1,0 +1,402 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST Assignments Tasks API
+  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+- url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  description: Project Online REST API
+  variables:
+    tenant:
+      default: contoso
+      description: SharePoint tenant name
+security:
+- oauth2: []
+tags:
+- name: Tasks
+  description: Manage project tasks and subtasks
+paths:
+  /Projects('{projectId}')/Tasks:
+    get:
+      operationId: listProjectTasks
+      summary: Microsoft Project List Project Tasks
+      description: Retrieve all published tasks for a project.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskCollection'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Tasks('{taskId}'):
+    get:
+      operationId: getProjectTask
+      summary: Microsoft Project Get Project Task
+      description: Retrieve a specific task from a project.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/taskId'
+      responses:
+        '200':
+          description: Task details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Tasks:
+    get:
+      operationId: listDraftTasks
+      summary: Microsoft Project List Draft Tasks
+      description: Retrieve all draft tasks for a project.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of draft tasks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDraftTask
+      summary: Microsoft Project Create Draft Task
+      description: Create a new task in the project draft.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreate'
+      responses:
+        '201':
+          description: Task created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Tasks('{taskId}'):
+    delete:
+      operationId: deleteDraftTask
+      summary: Microsoft Project Delete Draft Task
+      description: Delete a task from the project draft.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/taskId'
+      responses:
+        '204':
+          description: Task deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateDraftTask
+      summary: Microsoft Project Update Draft Task
+      description: Update a task in the project draft.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/taskId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskUpdate'
+      responses:
+        '200':
+          description: Task updated
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/TaskLinks:
+    get:
+      operationId: listDraftTaskLinks
+      summary: Microsoft Project List Draft Task Links
+      description: Retrieve all task dependency links in the project draft.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of task links
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskLinkCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDraftTaskLink
+      summary: Microsoft Project Create Draft Task Link
+      description: Create a task dependency link in the project draft.
+      tags:
+      - Tasks
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskLinkCreate'
+      responses:
+        '201':
+          description: Task link created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TaskUpdate:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Updated task name
+        PercentComplete:
+          type: integer
+          description: Updated completion percentage
+        Duration:
+          type: string
+          description: Updated duration
+    TaskCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+    TaskCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Task name
+          example: Requirements Gathering
+        Start:
+          type: string
+          format: date-time
+          description: Task start date
+        Duration:
+          type: string
+          description: Task duration
+          example: 5d
+        ParentId:
+          type: string
+          format: uuid
+          description: Parent task ID
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+              example: InvalidRequest
+            message:
+              type: string
+              description: Error message
+              example: The specified project was not found.
+    Task:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique identifier of the task
+          example: b1c2d3e4-f5a6-7890-abcd-ef1234567890
+        Name:
+          type: string
+          description: Name of the task
+          example: Design Review Meeting
+        Start:
+          type: string
+          format: date-time
+          description: Task start date
+          example: '2026-02-01T08:00:00Z'
+        Finish:
+          type: string
+          format: date-time
+          description: Task finish date
+          example: '2026-02-15T17:00:00Z'
+        Duration:
+          type: string
+          description: Task duration in days
+          example: 10d
+        PercentComplete:
+          type: integer
+          description: Task completion percentage
+          example: 75
+        IsSummary:
+          type: boolean
+          description: Whether this is a summary task
+          example: false
+        IsMilestone:
+          type: boolean
+          description: Whether this is a milestone
+          example: false
+        Priority:
+          type: integer
+          description: Task priority (0-1000)
+          example: 500
+        ParentId:
+          type: string
+          format: uuid
+          description: Parent task ID for subtasks
+        Notes:
+          type: string
+          description: Task notes
+          example: Requires all stakeholders present
+        IsManuallyScheduled:
+          type: boolean
+          description: Whether the task is manually scheduled
+          example: false
+        ConstraintType:
+          type: integer
+          description: Scheduling constraint type
+          example: 0
+        ConstraintStartEnd:
+          type: string
+          format: date-time
+          description: Constraint date
+        Work:
+          type: string
+          description: Total scheduled work
+          example: 80h
+        RemainingWork:
+          type: string
+          description: Remaining work
+          example: 20h
+        ActualWork:
+          type: string
+          description: Actual work completed
+          example: 60h
+        Cost:
+          type: number
+          format: double
+          description: Total cost
+          example: 5000.0
+    TaskLinkCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskLink'
+    TaskLink:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Task link identifier
+        StartId:
+          type: string
+          format: uuid
+          description: Predecessor task ID
+        EndId:
+          type: string
+          format: uuid
+          description: Successor task ID
+        DependencyType:
+          type: integer
+          description: Dependency type (0=FinishToStart, 1=FinishToFinish, 2=StartToStart, 3=StartToFinish)
+          example: 0
+    TaskLinkCreate:
+      type: object
+      required:
+      - StartId
+      - EndId
+      properties:
+        StartId:
+          type: string
+          format: uuid
+          description: Predecessor task ID
+        EndId:
+          type: string
+          format: uuid
+          description: Successor task ID
+        DependencyType:
+          type: integer
+          description: Dependency type
+          default: 0
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  parameters:
+    taskId:
+      name: taskId
+      in: path
+      required: true
+      description: The GUID identifier of the task
+      schema:
+        type: string
+        format: uuid
+      example: b1c2d3e4-f5a6-7890-abcd-ef1234567890
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data
