@@ -5,7 +5,20 @@ description: Microsoft Project is a project management software product develope
   REST APIs via SharePoint/Project Online, a Client-Side Object Model (CSOM), OData reporting feeds, and JavaScript APIs for
   building add-ins and integrations.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-project.png
 tags:
 - Budgeting
 - Gantt Charts
@@ -20,102 +33,147 @@ created: '2024-01-15'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: microsoft-project:rest-api
-  name: Microsoft Project Online REST API
-  description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks,
-    resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based
-    REST endpoints via the ProjectServer service.
+- aid: microsoft-project:csom-api
+  name: Microsoft Project Online CSOM API
+  description: >-
+    Client-Side Object Model API for programmatic access to Project Online and Project Server. Provides
+    .NET, Silverlight, Windows Phone, and JavaScript interfaces for CRUD operations on projects, tasks,
+    resources, assignments, custom fields, lookup tables, and enterprise project types.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - .NET
+  - Client Library
+  - CSOM
+  - JavaScript
+  - Projects
+  - Resources
+  - Tasks
+  properties:
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: SDKs
+    url: https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
+    title: .NET SDK
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/getting-started-with-the-project-server-csom-and-.net
+- aid: microsoft-project:odata-reporting-api
+  name: Microsoft Project OData Reporting API
+  description: >-
+    OData-based reporting feed for read-only access to Project Server and Project Online reporting data.
+    Provides access to project, task, resource, assignment, and timesheet reporting tables and views via
+    the ProjectData service endpoint.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectData
+  tags:
+  - OData
+  - Projects
+  - Reporting
+  - Resources
+  - Tasks
+  properties:
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+- aid: microsoft-project:javascript-api
+  name: Microsoft Project JavaScript API
+  description: >-
+    JavaScript API for building Office Add-ins that extend Microsoft Project desktop client. Enables reading
+    task, resource, and view data from the active project within a task pane add-in.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins
+  baseURL: https://appsforoffice.microsoft.com/lib/1/hosted/office.js
+  tags:
+  - Add-Ins
+  - JavaScript
+  - Office
+  - Task Pane
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/project-quickstart
+  - type: APIReference
+    url: https://learn.microsoft.com/en-us/javascript/api/office/office.context
+  - type: CodeExamples
+    url: https://developer.microsoft.com/en-us/microsoft-365/gallery/?filterBy=Project,Samples
+- aid: microsoft-project:microsoft-project-assignments-api
+  name: Microsoft Project Assignments API
+  description: Manage resource assignments to tasks
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
   tags:
   - Assignments
-  - Calendars
-  - Custom Fields
-  - Projects
-  - Resources
-  - REST
-  - Tasks
-  - Timesheets
   properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-assignments-api-openapi.yml
   - type: Documentation
-    url: https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   - type: APIReference
-    url: https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
   - type: Authentication
-    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
   - type: CodeExamples
     url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
   - type: CodeExamples
     url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
-    title: REST CRUD Operations Sample
-  - type: OpenAPI
-    url: openapi/microsoft-project-rest-api.yaml
   - type: JSONSchema
     url: json-schema/rest-api-project-schema.json
-    title: Project Schema
   - type: JSONSchema
     url: json-schema/rest-api-task-schema.json
-    title: Task Schema
   - type: JSONSchema
     url: json-schema/rest-api-enterprise-resource-schema.json
-    title: Enterprise Resource Schema
   - type: JSONSchema
     url: json-schema/rest-api-assignment-schema.json
-    title: Assignment Schema
   - type: JSONSchema
     url: json-schema/rest-api-calendar-schema.json
-    title: Calendar Schema
   - type: JSONSchema
     url: json-schema/rest-api-custom-field-schema.json
-    title: Custom Field Schema
   - type: JSONSchema
     url: json-schema/rest-api-time-sheet-schema.json
-    title: TimeSheet Schema
   - type: JSONStructure
     url: json-structure/rest-api-project-structure.json
-    title: Project Structure
   - type: JSONStructure
     url: json-structure/rest-api-task-structure.json
-    title: Task Structure
   - type: JSONStructure
     url: json-structure/rest-api-enterprise-resource-structure.json
-    title: Enterprise Resource Structure
   - type: JSONStructure
     url: json-structure/rest-api-assignment-structure.json
-    title: Assignment Structure
   - type: JSONStructure
     url: json-structure/rest-api-calendar-structure.json
-    title: Calendar Structure
   - type: JSONStructure
     url: json-structure/rest-api-custom-field-structure.json
-    title: Custom Field Structure
   - type: JSONStructure
     url: json-structure/rest-api-time-sheet-structure.json
-    title: TimeSheet Structure
   - type: JSONLD
     url: json-ld/microsoft-project-rest-api-context.jsonld
   - type: Examples
     url: examples/rest-api-project-example.json
-    title: Project Example
   - type: Examples
     url: examples/rest-api-task-example.json
-    title: Task Example
   - type: Examples
     url: examples/rest-api-enterprise-resource-example.json
-    title: Enterprise Resource Example
   - type: Examples
     url: examples/rest-api-assignment-example.json
-    title: Assignment Example
   - type: Examples
     url: examples/rest-api-calendar-example.json
-    title: Calendar Example
   - type: Examples
     url: examples/rest-api-custom-field-example.json
-    title: Custom Field Example
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-    title: TimeSheet Example
   - type: X-NaftikoCapability
     url: capabilities/rest-assignments.yaml
   - type: X-NaftikoCapability
@@ -142,70 +200,1137 @@ apis:
     url: capabilities/rest-timesheets.yaml
   - type: X-NaftikoCapability
     url: capabilities/rest-workflow-activities.yaml
-- aid: microsoft-project:csom-api
-  name: Microsoft Project Online CSOM API
-  description: Client-Side Object Model API for programmatic access to Project Online and Project Server. Provides .NET, Silverlight,
-    Windows Phone, and JavaScript interfaces for CRUD operations on projects, tasks, resources, assignments, custom fields,
-    lookup tables, and enterprise project types.
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+- aid: microsoft-project:microsoft-project-calendars-api
+  name: Microsoft Project Calendars API
+  description: Manage enterprise calendars
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
   tags:
-  - .NET
-  - Client Library
-  - CSOM
-  - JavaScript
-  - Projects
-  - Resources
-  - Tasks
+  - Calendars
   properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-calendars-api-openapi.yml
   - type: Documentation
-    url: https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
-  - type: SDKs
-    url: https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/
-    title: .NET SDK
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/office/client-developer/project/getting-started-with-the-project-server-csom-and-.net
-- aid: microsoft-project:odata-reporting-api
-  name: Microsoft Project OData Reporting API
-  description: OData-based reporting feed for read-only access to Project Server and Project Online reporting data. Provides
-    access to project, task, resource, assignment, and timesheet reporting tables and views via the ProjectData service endpoint.
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture
-  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectData
-  tags:
-  - OData
-  - Projects
-  - Reporting
-  - Resources
-  - Tasks
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture
-  - type: Authentication
-    url: https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
-- aid: microsoft-project:javascript-api
-  name: Microsoft Project JavaScript API
-  description: JavaScript API for building Office Add-ins that extend Microsoft Project desktop client. Enables reading task,
-    resource, and view data from the active project within a task pane add-in.
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins
-  baseURL: https://appsforoffice.microsoft.com/lib/1/hosted/office.js
-  tags:
-  - Add-Ins
-  - JavaScript
-  - Office
-  - Task Pane
-  properties:
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/project-quickstart
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   - type: APIReference
-    url: https://learn.microsoft.com/en-us/javascript/api/office/office.context
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
   - type: CodeExamples
-    url: https://developer.microsoft.com/en-us/microsoft-365/gallery/?filterBy=Project,Samples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-custom-fields-api
+  name: Microsoft Project Custom Fields API
+  description: Manage enterprise custom field definitions
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Custom Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-custom-fields-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-enterprise-project-types-api
+  name: Microsoft Project Enterprise Project Types API
+  description: Manage enterprise project type configurations
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Enterprise Project Types
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-enterprise-project-types-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-event-handlers-api
+  name: Microsoft Project Event Handlers API
+  description: Manage event handler subscriptions
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Event Handlers
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-event-handlers-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-lookup-tables-api
+  name: Microsoft Project Lookup Tables API
+  description: Manage lookup table definitions and entries
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Lookup Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-lookup-tables-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-phases-api
+  name: Microsoft Project Phases API
+  description: Manage workflow phases
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Phases
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-phases-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-projects-api
+  name: Microsoft Project Projects API
+  description: Manage projects and project lifecycle operations
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-projects-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-resources-api
+  name: Microsoft Project Resources API
+  description: Manage enterprise resources and project resources
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-resources-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-stages-api
+  name: Microsoft Project Stages API
+  description: Manage workflow stages
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Stages
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-stages-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-tasks-api
+  name: Microsoft Project Tasks API
+  description: Manage project tasks and subtasks
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-tasks-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-timesheets-api
+  name: Microsoft Project Timesheets API
+  description: Manage timesheet periods, lines, and work entries
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Timesheets
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-timesheets-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
+- aid: microsoft-project:microsoft-project-workflow-activities-api
+  name: Microsoft Project Workflow Activities API
+  description: Manage workflow activities
+  humanURL: >-
+    https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+  tags:
+  - Workflow Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-project-workflow-activities-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
+  - type: APIReference
+    url: >-
+      https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013
+  - type: Authentication
+    url: >-
+      https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples
+  - type: CodeExamples
+    url: https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations
+  - type: JSONSchema
+    url: json-schema/rest-api-project-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-task-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-enterprise-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-assignment-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-calendar-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-custom-field-schema.json
+  - type: JSONSchema
+    url: json-schema/rest-api-time-sheet-schema.json
+  - type: JSONStructure
+    url: json-structure/rest-api-project-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-task-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-enterprise-resource-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-assignment-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-calendar-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-custom-field-structure.json
+  - type: JSONStructure
+    url: json-structure/rest-api-time-sheet-structure.json
+  - type: JSONLD
+    url: json-ld/microsoft-project-rest-api-context.jsonld
+  - type: Examples
+    url: examples/rest-api-project-example.json
+  - type: Examples
+    url: examples/rest-api-task-example.json
+  - type: Examples
+    url: examples/rest-api-enterprise-resource-example.json
+  - type: Examples
+    url: examples/rest-api-assignment-example.json
+  - type: Examples
+    url: examples/rest-api-calendar-example.json
+  - type: Examples
+    url: examples/rest-api-custom-field-example.json
+  - type: Examples
+    url: examples/rest-api-time-sheet-example.json
+  - type: X-NaftikoCapability
+    url: capabilities/rest-assignments.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-calendars.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-custom-fields.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-enterprise-project-types.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-event-handlers.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-lookup-tables.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-phases.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-projects.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-resources.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-stages.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-tasks.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-timesheets.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/rest-workflow-activities.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/microsoft-project/overview
 - type: AgenticAccess
   url: agentic-access/microsoft-project-agentic-access.yml
 - type: VulnerabilityDisclosure
