@@ -1,0 +1,377 @@
+{
+  "info": {
+    "_postman_id": "1146431e-e665-41a4-94b5-fab6e381cb9e",
+    "name": "Microsoft Project Online REST Assignments Custom Fields API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:12.000Z",
+    "updatedAt": "2026-07-28T02:12:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1146431e-e665-41a4-94b5-fab6e381cb9e"
+  },
+  "item": [
+    {
+      "name": "CustomFields",
+      "item": [
+        {
+          "name": "Microsoft Project List Custom Fields",
+          "id": "f376dbe6-9c96-44dc-badc-5be87c55ce18",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/CustomFields",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CustomFields"
+              ]
+            },
+            "description": "Retrieve all enterprise custom field definitions."
+          },
+          "response": [
+            {
+              "id": "83fe2629-5c29-4ebb-bfae-9df3c7b361ac",
+              "name": "List of custom fields",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/CustomFields",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CustomFields"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"InternalName\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"FieldType\": \"<integer>\",\n      \"EntityType\": \"<integer>\",\n      \"Description\": \"<string>\",\n      \"LookupTableId\": \"<uuid>\",\n      \"IsRequired\": \"<boolean>\",\n      \"IsMultilineText\": \"<boolean>\",\n      \"Formula\": \"<string>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"InternalName\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"FieldType\": \"<integer>\",\n      \"EntityType\": \"<integer>\",\n      \"Description\": \"<string>\",\n      \"LookupTableId\": \"<uuid>\",\n      \"IsRequired\": \"<boolean>\",\n      \"IsMultilineText\": \"<boolean>\",\n      \"Formula\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:13.000Z",
+              "updatedAt": "2026-07-28T02:12:13.000Z",
+              "uid": "35240-83fe2629-5c29-4ebb-bfae-9df3c7b361ac"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:13.000Z",
+          "updatedAt": "2026-07-28T02:12:13.000Z",
+          "uid": "35240-f376dbe6-9c96-44dc-badc-5be87c55ce18"
+        },
+        {
+          "name": "Microsoft Project Create Custom Field",
+          "id": "cc07a5a5-4e00-4358-b457-d2299cb75d77",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\",\n  \"EntityType\": \"<integer>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/CustomFields",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CustomFields"
+              ]
+            },
+            "description": "Create a new enterprise custom field definition."
+          },
+          "response": [
+            {
+              "id": "1544e4ab-d389-4f38-8224-017e1c1a0e2f",
+              "name": "Custom field created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\",\n  \"EntityType\": \"<integer>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CustomFields",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CustomFields"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"InternalName\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\",\n  \"EntityType\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"LookupTableId\": \"<uuid>\",\n  \"IsRequired\": \"<boolean>\",\n  \"IsMultilineText\": \"<boolean>\",\n  \"Formula\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:12:13.000Z",
+              "updatedAt": "2026-07-28T02:12:13.000Z",
+              "uid": "35240-1544e4ab-d389-4f38-8224-017e1c1a0e2f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:13.000Z",
+          "updatedAt": "2026-07-28T02:12:13.000Z",
+          "uid": "35240-cc07a5a5-4e00-4358-b457-d2299cb75d77"
+        }
+      ],
+      "id": "3e17ebfa-15db-4a08-b712-d96896f84eb5",
+      "createdAt": "2026-07-28T02:12:13.000Z",
+      "updatedAt": "2026-07-28T02:12:13.000Z",
+      "uid": "35240-3e17ebfa-15db-4a08-b712-d96896f84eb5"
+    },
+    {
+      "name": "CustomFields('{fieldId}')",
+      "item": [
+        {
+          "name": "Microsoft Project Get Custom Field",
+          "id": "0a33de27-c376-45f9-a5ee-8f250a630d8e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/CustomFields('{{fieldId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CustomFields('{{fieldId}}')"
+              ]
+            },
+            "description": "Retrieve a specific custom field by ID."
+          },
+          "response": [
+            {
+              "id": "21871eaf-6eff-4b27-aea0-36122f85c943",
+              "name": "Custom field details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/CustomFields('{{fieldId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CustomFields('{{fieldId}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"InternalName\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\",\n  \"EntityType\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"LookupTableId\": \"<uuid>\",\n  \"IsRequired\": \"<boolean>\",\n  \"IsMultilineText\": \"<boolean>\",\n  \"Formula\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:12:13.000Z",
+              "updatedAt": "2026-07-28T02:12:13.000Z",
+              "uid": "35240-21871eaf-6eff-4b27-aea0-36122f85c943"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:13.000Z",
+          "updatedAt": "2026-07-28T02:12:13.000Z",
+          "uid": "35240-0a33de27-c376-45f9-a5ee-8f250a630d8e"
+        },
+        {
+          "name": "Microsoft Project Delete Custom Field",
+          "id": "7ae19eee-6c8c-4d35-9bcc-4e3c63887f9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/CustomFields('{{fieldId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CustomFields('{{fieldId}}')"
+              ]
+            },
+            "description": "Delete a custom field definition."
+          },
+          "response": [
+            {
+              "id": "6bf20896-5b84-4537-af4d-3de2d52f3f8a",
+              "name": "Custom field deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/CustomFields('{{fieldId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CustomFields('{{fieldId}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:13.000Z",
+              "updatedAt": "2026-07-28T02:12:13.000Z",
+              "uid": "35240-6bf20896-5b84-4537-af4d-3de2d52f3f8a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:13.000Z",
+          "updatedAt": "2026-07-28T02:12:13.000Z",
+          "uid": "35240-7ae19eee-6c8c-4d35-9bcc-4e3c63887f9b"
+        }
+      ],
+      "id": "f94f5376-89c5-451d-aefe-d4155cd0e1f4",
+      "createdAt": "2026-07-28T02:12:13.000Z",
+      "updatedAt": "2026-07-28T02:12:13.000Z",
+      "uid": "35240-f94f5376-89c5-451d-aefe-d4155cd0e1f4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "fieldId",
+      "value": "<uuid>"
+    }
+  ]
+}

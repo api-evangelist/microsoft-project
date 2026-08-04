@@ -1,0 +1,131 @@
+{
+  "info": {
+    "_postman_id": "eb4082b1-d9ec-45c6-9c0a-b2e71881e984",
+    "name": "Microsoft Project Online REST Assignments Workflow Activities API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:45.000Z",
+    "updatedAt": "2026-07-28T02:12:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eb4082b1-d9ec-45c6-9c0a-b2e71881e984"
+  },
+  "item": [
+    {
+      "name": "WorkflowActivities",
+      "item": [
+        {
+          "name": "Microsoft Project List Workflow Activities",
+          "id": "9a5d9748-6fd9-485f-a2ad-8037e829ba15",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/WorkflowActivities",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "WorkflowActivities"
+              ]
+            },
+            "description": "Retrieve all workflow activities."
+          },
+          "response": [
+            {
+              "id": "f5b99f89-9323-4854-9025-4650baf7ddb3",
+              "name": "List of workflow activities",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/WorkflowActivities",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "WorkflowActivities"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:46.000Z",
+              "updatedAt": "2026-07-28T02:12:46.000Z",
+              "uid": "35240-f5b99f89-9323-4854-9025-4650baf7ddb3"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:46.000Z",
+          "updatedAt": "2026-07-28T02:12:46.000Z",
+          "uid": "35240-9a5d9748-6fd9-485f-a2ad-8037e829ba15"
+        }
+      ],
+      "id": "27d48b1c-bcd9-49de-88ac-0ce741874f32",
+      "createdAt": "2026-07-28T02:12:46.000Z",
+      "updatedAt": "2026-07-28T02:12:46.000Z",
+      "uid": "35240-27d48b1c-bcd9-49de-88ac-0ce741874f32"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    }
+  ]
+}

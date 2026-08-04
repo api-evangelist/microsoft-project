@@ -1,0 +1,2259 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Project Online REST API
+  description: >-
+    REST API for accessing and managing Microsoft Project Online and Project
+    Server data including projects, tasks, resources, assignments, calendars,
+    custom fields, timesheets, lookup tables, and workflow activities. Uses
+    SharePoint-based REST endpoints via the ProjectServer service.
+  version: '1.0'
+  contact:
+    name: Microsoft Project Support
+    url: https://support.microsoft.com/
+  license:
+    name: Microsoft API License
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  x-generated-from: documentation
+  x-last-validated: '2026-04-18'
+servers:
+  - url: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
+    description: Project Online REST API
+    variables:
+      tenant:
+        default: contoso
+        description: SharePoint tenant name
+security:
+  - oauth2: []
+tags:
+  - name: Projects
+    description: Manage projects and project lifecycle operations
+  - name: Tasks
+    description: Manage project tasks and subtasks
+  - name: Resources
+    description: Manage enterprise resources and project resources
+  - name: Assignments
+    description: Manage resource assignments to tasks
+  - name: Calendars
+    description: Manage enterprise calendars
+  - name: Custom Fields
+    description: Manage enterprise custom field definitions
+  - name: Lookup Tables
+    description: Manage lookup table definitions and entries
+  - name: Timesheets
+    description: Manage timesheet periods, lines, and work entries
+  - name: Phases
+    description: Manage workflow phases
+  - name: Stages
+    description: Manage workflow stages
+  - name: Enterprise Project Types
+    description: Manage enterprise project type configurations
+  - name: Event Handlers
+    description: Manage event handler subscriptions
+  - name: Workflow Activities
+    description: Manage workflow activities
+paths:
+  /Projects:
+    get:
+      operationId: listProjects
+      summary: Microsoft Project List Projects
+      description: Retrieve all projects accessible to the current user.
+      tags:
+        - Projects
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCollection'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createProject
+      summary: Microsoft Project Create Project
+      description: Create a new project.
+      tags:
+        - Projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectCreate'
+      responses:
+        '201':
+          description: Project created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}'):
+    get:
+      operationId: getProject
+      summary: Microsoft Project Get Project
+      description: Retrieve a specific project by its ID.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteProject
+      summary: Microsoft Project Delete Project
+      description: Delete a project by its ID.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '204':
+          description: Project deleted
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/checkOut():
+    post:
+      operationId: checkOutProject
+      summary: Microsoft Project Check Out Project
+      description: Check out a project for editing.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: Project checked out
+        '409':
+          description: Project already checked out
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/checkIn(force={force}):
+    post:
+      operationId: checkInProject
+      summary: Microsoft Project Check in Project Draft
+      description: Check in a project draft. Optionally force check-in.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - name: force
+          in: query
+          description: Whether to force check-in
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Project checked in
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/publish(checkIn={checkIn}):
+    post:
+      operationId: publishProject
+      summary: Microsoft Project Publish Project
+      description: Publish a project draft.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - name: checkIn
+          in: query
+          description: Whether to check in after publishing
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: Project published
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/submitToWorkflow():
+    post:
+      operationId: submitProjectToWorkflow
+      summary: Microsoft Project Submit Project to Workflow
+      description: Submit a project to its associated workflow.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: Project submitted to workflow
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Tasks:
+    get:
+      operationId: listProjectTasks
+      summary: Microsoft Project List Project Tasks
+      description: Retrieve all published tasks for a project.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskCollection'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Tasks('{taskId}'):
+    get:
+      operationId: getProjectTask
+      summary: Microsoft Project Get Project Task
+      description: Retrieve a specific task from a project.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/taskId'
+      responses:
+        '200':
+          description: Task details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Tasks:
+    get:
+      operationId: listDraftTasks
+      summary: Microsoft Project List Draft Tasks
+      description: Retrieve all draft tasks for a project.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of draft tasks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDraftTask
+      summary: Microsoft Project Create Draft Task
+      description: Create a new task in the project draft.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskCreate'
+      responses:
+        '201':
+          description: Task created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Tasks('{taskId}'):
+    delete:
+      operationId: deleteDraftTask
+      summary: Microsoft Project Delete Draft Task
+      description: Delete a task from the project draft.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/taskId'
+      responses:
+        '204':
+          description: Task deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateDraftTask
+      summary: Microsoft Project Update Draft Task
+      description: Update a task in the project draft.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/taskId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskUpdate'
+      responses:
+        '200':
+          description: Task updated
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/TaskLinks:
+    get:
+      operationId: listDraftTaskLinks
+      summary: Microsoft Project List Draft Task Links
+      description: Retrieve all task dependency links in the project draft.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of task links
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskLinkCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDraftTaskLink
+      summary: Microsoft Project Create Draft Task Link
+      description: Create a task dependency link in the project draft.
+      tags:
+        - Tasks
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskLinkCreate'
+      responses:
+        '201':
+          description: Task link created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Assignments:
+    get:
+      operationId: listProjectAssignments
+      summary: Microsoft Project List Project Assignments
+      description: Retrieve all published assignments for a project.
+      tags:
+        - Assignments
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Assignments:
+    get:
+      operationId: listDraftAssignments
+      summary: Microsoft Project List Draft Assignments
+      description: Retrieve all draft assignments for a project.
+      tags:
+        - Assignments
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of draft assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDraftAssignment
+      summary: Microsoft Project Create Draft Assignment
+      description: Create a new assignment in the project draft.
+      tags:
+        - Assignments
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignmentCreate'
+      responses:
+        '201':
+          description: Assignment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assignment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/Assignments('{assignmentId}'):
+    delete:
+      operationId: deleteDraftAssignment
+      summary: Microsoft Project Delete Draft Assignment
+      description: Delete an assignment from the project draft.
+      tags:
+        - Assignments
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/assignmentId'
+      responses:
+        '204':
+          description: Assignment deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/Draft/ProjectResources:
+    get:
+      operationId: listDraftProjectResources
+      summary: Microsoft Project List Draft Project Resources
+      description: Retrieve all resources in the project draft.
+      tags:
+        - Resources
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of project resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResourceCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: addDraftProjectResource
+      summary: Microsoft Project Add Draft Project Resource
+      description: Add a resource to the project draft.
+      tags:
+        - Resources
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectResourceCreate'
+      responses:
+        '201':
+          description: Resource added
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/ProjectResources:
+    get:
+      operationId: listProjectResources
+      summary: Microsoft Project List Project Resources
+      description: Retrieve all published resources for a project.
+      tags:
+        - Resources
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of project resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResourceCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EnterpriseResources:
+    get:
+      operationId: listEnterpriseResources
+      summary: Microsoft Project List Enterprise Resources
+      description: Retrieve all enterprise resources.
+      tags:
+        - Resources
+      responses:
+        '200':
+          description: List of enterprise resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseResourceCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createEnterpriseResource
+      summary: Microsoft Project Create Enterprise Resource
+      description: Create a new enterprise resource.
+      tags:
+        - Resources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnterpriseResourceCreate'
+      responses:
+        '201':
+          description: Enterprise resource created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseResource'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EnterpriseResources('{resourceId}')/Assignments:
+    get:
+      operationId: listEnterpriseResourceAssignments
+      summary: Microsoft Project List Enterprise Resource Assignments
+      description: Retrieve all assignments for an enterprise resource.
+      tags:
+        - Assignments
+      parameters:
+        - $ref: '#/components/parameters/resourceId'
+      responses:
+        '200':
+          description: List of assignments
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignmentCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Calendars:
+    get:
+      operationId: listCalendars
+      summary: Microsoft Project List Calendars
+      description: Retrieve all enterprise calendars.
+      tags:
+        - Calendars
+      responses:
+        '200':
+          description: List of calendars
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createCalendar
+      summary: Microsoft Project Create Calendar
+      description: Create a new enterprise calendar.
+      tags:
+        - Calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarCreate'
+      responses:
+        '201':
+          description: Calendar created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calendar'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Calendars('{calendarId}'):
+    get:
+      operationId: getCalendar
+      summary: Microsoft Project Get Calendar
+      description: Retrieve a specific calendar by ID.
+      tags:
+        - Calendars
+      parameters:
+        - $ref: '#/components/parameters/calendarId'
+      responses:
+        '200':
+          description: Calendar details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calendar'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteCalendar
+      summary: Microsoft Project Delete Calendar
+      description: Delete a calendar by ID.
+      tags:
+        - Calendars
+      parameters:
+        - $ref: '#/components/parameters/calendarId'
+      responses:
+        '204':
+          description: Calendar deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /CustomFields:
+    get:
+      operationId: listCustomFields
+      summary: Microsoft Project List Custom Fields
+      description: Retrieve all enterprise custom field definitions.
+      tags:
+        - Custom Fields
+      responses:
+        '200':
+          description: List of custom fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomFieldCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createCustomField
+      summary: Microsoft Project Create Custom Field
+      description: Create a new enterprise custom field definition.
+      tags:
+        - Custom Fields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomFieldCreate'
+      responses:
+        '201':
+          description: Custom field created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /CustomFields('{fieldId}'):
+    get:
+      operationId: getCustomField
+      summary: Microsoft Project Get Custom Field
+      description: Retrieve a specific custom field by ID.
+      tags:
+        - Custom Fields
+      parameters:
+        - $ref: '#/components/parameters/fieldId'
+      responses:
+        '200':
+          description: Custom field details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomField'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteCustomField
+      summary: Microsoft Project Delete Custom Field
+      description: Delete a custom field definition.
+      tags:
+        - Custom Fields
+      parameters:
+        - $ref: '#/components/parameters/fieldId'
+      responses:
+        '204':
+          description: Custom field deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /LookupTables:
+    get:
+      operationId: listLookupTables
+      summary: Microsoft Project List Lookup Tables
+      description: Retrieve all lookup table definitions.
+      tags:
+        - Lookup Tables
+      responses:
+        '200':
+          description: List of lookup tables
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTableCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createLookupTable
+      summary: Microsoft Project Create Lookup Table
+      description: Create a new lookup table definition.
+      tags:
+        - Lookup Tables
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableCreate'
+      responses:
+        '201':
+          description: Lookup table created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /LookupTables('{tableId}'):
+    get:
+      operationId: getLookupTable
+      summary: Microsoft Project Get Lookup Table
+      description: Retrieve a specific lookup table by ID.
+      tags:
+        - Lookup Tables
+      parameters:
+        - $ref: '#/components/parameters/tableId'
+      responses:
+        '200':
+          description: Lookup table details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTable'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteLookupTable
+      summary: Microsoft Project Delete Lookup Table
+      description: Delete a lookup table by ID.
+      tags:
+        - Lookup Tables
+      parameters:
+        - $ref: '#/components/parameters/tableId'
+      responses:
+        '204':
+          description: Lookup table deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /LookupTables('{tableId}')/Entries:
+    get:
+      operationId: listLookupTableEntries
+      summary: Microsoft Project List Lookup Table Entries
+      description: Retrieve all entries in a lookup table.
+      tags:
+        - Lookup Tables
+      parameters:
+        - $ref: '#/components/parameters/tableId'
+      responses:
+        '200':
+          description: List of entries
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LookupTableEntryCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createLookupTableEntry
+      summary: Microsoft Project Create Lookup Table Entry
+      description: Create a new entry in a lookup table.
+      tags:
+        - Lookup Tables
+      parameters:
+        - $ref: '#/components/parameters/tableId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LookupTableEntryCreate'
+      responses:
+        '201':
+          description: Entry created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /TimeSheetPeriods:
+    get:
+      operationId: listTimeSheetPeriods
+      summary: Microsoft Project List Timesheet Periods
+      description: Retrieve all timesheet periods.
+      tags:
+        - Timesheets
+      responses:
+        '200':
+          description: List of timesheet periods
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSheetPeriodCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /TimeSheetPeriods('{periodId}')/TimeSheet:
+    get:
+      operationId: getTimeSheet
+      summary: Microsoft Project Get Timesheet
+      description: Retrieve a timesheet for a specific period.
+      tags:
+        - Timesheets
+      parameters:
+        - $ref: '#/components/parameters/periodId'
+      responses:
+        '200':
+          description: Timesheet details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSheet'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /TimeSheetPeriods('{periodId}')/TimeSheet/Lines:
+    get:
+      operationId: listTimeSheetLines
+      summary: Microsoft Project List Timesheet Lines
+      description: Retrieve all lines in a timesheet.
+      tags:
+        - Timesheets
+      parameters:
+        - $ref: '#/components/parameters/periodId'
+      responses:
+        '200':
+          description: List of timesheet lines
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSheetLineCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createTimeSheetLine
+      summary: Microsoft Project Create Timesheet Line
+      description: Create a new line in a timesheet.
+      tags:
+        - Timesheets
+      parameters:
+        - $ref: '#/components/parameters/periodId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSheetLineCreate'
+      responses:
+        '201':
+          description: Timesheet line created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /TimeSheetPeriods('{periodId}')/TimeSheet/submitForApproval():
+    post:
+      operationId: submitTimeSheetForApproval
+      summary: Microsoft Project Submit Timesheet for Approval
+      description: Submit a timesheet for manager approval.
+      tags:
+        - Timesheets
+      parameters:
+        - $ref: '#/components/parameters/periodId'
+      responses:
+        '200':
+          description: Timesheet submitted for approval
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Phases:
+    get:
+      operationId: listPhases
+      summary: Microsoft Project List Phases
+      description: Retrieve all workflow phases.
+      tags:
+        - Phases
+      responses:
+        '200':
+          description: List of phases
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhaseCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createPhase
+      summary: Microsoft Project Create Phase
+      description: Create a new workflow phase.
+      tags:
+        - Phases
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhaseCreate'
+      responses:
+        '201':
+          description: Phase created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Phases('{phaseId}'):
+    get:
+      operationId: getPhase
+      summary: Microsoft Project Get Phase
+      description: Retrieve a specific workflow phase.
+      tags:
+        - Phases
+      parameters:
+        - $ref: '#/components/parameters/phaseId'
+      responses:
+        '200':
+          description: Phase details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Phase'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deletePhase
+      summary: Microsoft Project Delete Phase
+      description: Delete a workflow phase.
+      tags:
+        - Phases
+      parameters:
+        - $ref: '#/components/parameters/phaseId'
+      responses:
+        '204':
+          description: Phase deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Stages:
+    get:
+      operationId: listStages
+      summary: Microsoft Project List Stages
+      description: Retrieve all workflow stages.
+      tags:
+        - Stages
+      responses:
+        '200':
+          description: List of stages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StageCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createStage
+      summary: Microsoft Project Create Stage
+      description: Create a new workflow stage.
+      tags:
+        - Stages
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StageCreate'
+      responses:
+        '201':
+          description: Stage created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Stages('{stageId}'):
+    get:
+      operationId: getStage
+      summary: Microsoft Project Get Stage
+      description: Retrieve a specific workflow stage.
+      tags:
+        - Stages
+      parameters:
+        - $ref: '#/components/parameters/stageId'
+      responses:
+        '200':
+          description: Stage details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stage'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteStage
+      summary: Microsoft Project Delete Stage
+      description: Delete a workflow stage.
+      tags:
+        - Stages
+      parameters:
+        - $ref: '#/components/parameters/stageId'
+      responses:
+        '204':
+          description: Stage deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EnterpriseProjectTypes:
+    get:
+      operationId: listEnterpriseProjectTypes
+      summary: Microsoft Project List Enterprise Project Types
+      description: Retrieve all enterprise project type configurations.
+      tags:
+        - Enterprise Project Types
+      responses:
+        '200':
+          description: List of enterprise project types
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseProjectTypeCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createEnterpriseProjectType
+      summary: Microsoft Project Create Enterprise Project Type
+      description: Create a new enterprise project type.
+      tags:
+        - Enterprise Project Types
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnterpriseProjectTypeCreate'
+      responses:
+        '201':
+          description: Enterprise project type created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EnterpriseProjectTypes('{projectTypeId}'):
+    get:
+      operationId: getEnterpriseProjectType
+      summary: Microsoft Project Get Enterprise Project Type
+      description: Retrieve a specific enterprise project type.
+      tags:
+        - Enterprise Project Types
+      parameters:
+        - $ref: '#/components/parameters/projectTypeId'
+      responses:
+        '200':
+          description: Enterprise project type details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnterpriseProjectType'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteEnterpriseProjectType
+      summary: Microsoft Project Delete Enterprise Project Type
+      description: Delete an enterprise project type.
+      tags:
+        - Enterprise Project Types
+      parameters:
+        - $ref: '#/components/parameters/projectTypeId'
+      responses:
+        '204':
+          description: Enterprise project type deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EventHandlers:
+    get:
+      operationId: listEventHandlers
+      summary: Microsoft Project List Event Handlers
+      description: Retrieve all registered event handlers.
+      tags:
+        - Event Handlers
+      responses:
+        '200':
+          description: List of event handlers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventHandlerCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createEventHandler
+      summary: Microsoft Project Create Event Handler
+      description: Register a new event handler.
+      tags:
+        - Event Handlers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventHandlerCreate'
+      responses:
+        '201':
+          description: Event handler created
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /EventHandlers('{handlerId}'):
+    get:
+      operationId: getEventHandler
+      summary: Microsoft Project Get Event Handler
+      description: Retrieve a specific event handler.
+      tags:
+        - Event Handlers
+      parameters:
+        - $ref: '#/components/parameters/handlerId'
+      responses:
+        '200':
+          description: Event handler details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventHandler'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteEventHandler
+      summary: Microsoft Project Delete Event Handler
+      description: Delete an event handler.
+      tags:
+        - Event Handlers
+      parameters:
+        - $ref: '#/components/parameters/handlerId'
+      responses:
+        '204':
+          description: Event handler deleted
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /WorkflowActivities:
+    get:
+      operationId: listWorkflowActivities
+      summary: Microsoft Project List Workflow Activities
+      description: Retrieve all workflow activities.
+      tags:
+        - Workflow Activities
+      responses:
+        '200':
+          description: List of workflow activities
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowActivityCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Projects('{projectId}')/QueueJobs:
+    get:
+      operationId: listProjectQueueJobs
+      summary: Microsoft Project List Project Queue Jobs
+      description: Retrieve all queue jobs for a project.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+      responses:
+        '200':
+          description: List of queue jobs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueueJobCollection'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication via Azure AD for SharePoint Online
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+          scopes:
+            ProjectServer.Read: Read Project Server data
+            ProjectServer.ReadWrite: Read and write Project Server data
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+    taskId:
+      name: taskId
+      in: path
+      required: true
+      description: The GUID identifier of the task
+      schema:
+        type: string
+        format: uuid
+      example: b1c2d3e4-f5a6-7890-abcd-ef1234567890
+    resourceId:
+      name: resourceId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise resource
+      schema:
+        type: string
+        format: uuid
+      example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
+    assignmentId:
+      name: assignmentId
+      in: path
+      required: true
+      description: The GUID identifier of the assignment
+      schema:
+        type: string
+        format: uuid
+      example: a2eafeb5-437c-e111-92fc-00155d3ba208
+    calendarId:
+      name: calendarId
+      in: path
+      required: true
+      description: The GUID identifier of the calendar
+      schema:
+        type: string
+        format: uuid
+    fieldId:
+      name: fieldId
+      in: path
+      required: true
+      description: The GUID identifier of the custom field
+      schema:
+        type: string
+        format: uuid
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The GUID identifier of the lookup table
+      schema:
+        type: string
+        format: uuid
+    periodId:
+      name: periodId
+      in: path
+      required: true
+      description: The GUID identifier of the timesheet period
+      schema:
+        type: string
+        format: uuid
+    phaseId:
+      name: phaseId
+      in: path
+      required: true
+      description: The GUID identifier of the phase
+      schema:
+        type: string
+        format: uuid
+    stageId:
+      name: stageId
+      in: path
+      required: true
+      description: The GUID identifier of the stage
+      schema:
+        type: string
+        format: uuid
+    projectTypeId:
+      name: projectTypeId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise project type
+      schema:
+        type: string
+        format: uuid
+    handlerId:
+      name: handlerId
+      in: path
+      required: true
+      description: The GUID identifier of the event handler
+      schema:
+        type: string
+        format: uuid
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+              example: InvalidRequest
+            message:
+              type: string
+              description: Error message
+              example: The specified project was not found.
+    Project:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique identifier of the project
+          example: 263fc8d7-427c-e111-92fc-00155d3ba208
+        Name:
+          type: string
+          description: Name of the project
+          example: Enterprise Website Redesign
+        Description:
+          type: string
+          description: Description of the project
+          example: Complete redesign of the corporate website
+        StartDate:
+          type: string
+          format: date-time
+          description: Project start date
+          example: '2026-01-15T00:00:00Z'
+        FinishDate:
+          type: string
+          format: date-time
+          description: Project finish date
+          example: '2026-06-30T00:00:00Z'
+        CreatedDate:
+          type: string
+          format: date-time
+          description: Date the project was created
+          example: '2026-01-10T14:30:00Z'
+        ModifiedDate:
+          type: string
+          format: date-time
+          description: Date the project was last modified
+          example: '2026-04-18T09:15:00Z'
+        IsCheckedOut:
+          type: boolean
+          description: Whether the project is currently checked out
+          example: false
+        CheckedOutBy:
+          type: string
+          description: User who checked out the project
+          example: jsmith@contoso.com
+        PercentComplete:
+          type: integer
+          description: Overall completion percentage
+          example: 45
+        ProjectType:
+          type: integer
+          description: Enterprise project type identifier
+          example: 0
+        ProjectSiteUrl:
+          type: string
+          format: uri
+          description: URL to the project site
+          example: https://contoso.sharepoint.com/sites/pwa/ProjectSite
+    ProjectCreate:
+      type: object
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Name of the project
+          example: New Product Launch
+        Description:
+          type: string
+          description: Description of the project
+          example: Launch plan for Q3 product release
+        StartDate:
+          type: string
+          format: date-time
+          description: Project start date
+          example: '2026-07-01T00:00:00Z'
+    ProjectCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    Task:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique identifier of the task
+          example: b1c2d3e4-f5a6-7890-abcd-ef1234567890
+        Name:
+          type: string
+          description: Name of the task
+          example: Design Review Meeting
+        Start:
+          type: string
+          format: date-time
+          description: Task start date
+          example: '2026-02-01T08:00:00Z'
+        Finish:
+          type: string
+          format: date-time
+          description: Task finish date
+          example: '2026-02-15T17:00:00Z'
+        Duration:
+          type: string
+          description: Task duration in days
+          example: 10d
+        PercentComplete:
+          type: integer
+          description: Task completion percentage
+          example: 75
+        IsSummary:
+          type: boolean
+          description: Whether this is a summary task
+          example: false
+        IsMilestone:
+          type: boolean
+          description: Whether this is a milestone
+          example: false
+        Priority:
+          type: integer
+          description: Task priority (0-1000)
+          example: 500
+        ParentId:
+          type: string
+          format: uuid
+          description: Parent task ID for subtasks
+        Notes:
+          type: string
+          description: Task notes
+          example: Requires all stakeholders present
+        IsManuallyScheduled:
+          type: boolean
+          description: Whether the task is manually scheduled
+          example: false
+        ConstraintType:
+          type: integer
+          description: Scheduling constraint type
+          example: 0
+        ConstraintStartEnd:
+          type: string
+          format: date-time
+          description: Constraint date
+        Work:
+          type: string
+          description: Total scheduled work
+          example: 80h
+        RemainingWork:
+          type: string
+          description: Remaining work
+          example: 20h
+        ActualWork:
+          type: string
+          description: Actual work completed
+          example: 60h
+        Cost:
+          type: number
+          format: double
+          description: Total cost
+          example: 5000.00
+    TaskCreate:
+      type: object
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Task name
+          example: Requirements Gathering
+        Start:
+          type: string
+          format: date-time
+          description: Task start date
+        Duration:
+          type: string
+          description: Task duration
+          example: 5d
+        ParentId:
+          type: string
+          format: uuid
+          description: Parent task ID
+    TaskUpdate:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Updated task name
+        PercentComplete:
+          type: integer
+          description: Updated completion percentage
+        Duration:
+          type: string
+          description: Updated duration
+    TaskCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+    TaskLink:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Task link identifier
+        StartId:
+          type: string
+          format: uuid
+          description: Predecessor task ID
+        EndId:
+          type: string
+          format: uuid
+          description: Successor task ID
+        DependencyType:
+          type: integer
+          description: Dependency type (0=FinishToStart, 1=FinishToFinish, 2=StartToStart, 3=StartToFinish)
+          example: 0
+    TaskLinkCreate:
+      type: object
+      required:
+        - StartId
+        - EndId
+      properties:
+        StartId:
+          type: string
+          format: uuid
+          description: Predecessor task ID
+        EndId:
+          type: string
+          format: uuid
+          description: Successor task ID
+        DependencyType:
+          type: integer
+          description: Dependency type
+          default: 0
+    TaskLinkCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskLink'
+    Assignment:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Assignment identifier
+          example: a2eafeb5-437c-e111-92fc-00155d3ba208
+        ProjectId:
+          type: string
+          format: uuid
+          description: Project identifier
+        TaskId:
+          type: string
+          format: uuid
+          description: Task identifier
+        ResourceId:
+          type: string
+          format: uuid
+          description: Resource identifier
+        ResourceName:
+          type: string
+          description: Name of the assigned resource
+          example: Jane Smith
+        ActualWork:
+          type: string
+          description: Actual work completed
+          example: 40h
+        RemainingWork:
+          type: string
+          description: Remaining work
+          example: 20h
+        PercentWorkComplete:
+          type: integer
+          description: Work completion percentage
+          example: 67
+        Start:
+          type: string
+          format: date-time
+          description: Assignment start date
+        Finish:
+          type: string
+          format: date-time
+          description: Assignment finish date
+    AssignmentCreate:
+      type: object
+      required:
+        - TaskId
+        - ResourceId
+      properties:
+        TaskId:
+          type: string
+          format: uuid
+          description: Task to assign resource to
+        ResourceId:
+          type: string
+          format: uuid
+          description: Resource to assign
+    AssignmentCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assignment'
+    EnterpriseResource:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Resource identifier
+          example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
+        Name:
+          type: string
+          description: Resource name
+          example: Jane Smith
+        Email:
+          type: string
+          format: email
+          description: Resource email address
+          example: jsmith@contoso.com
+        ResourceType:
+          type: integer
+          description: Resource type (0=Material, 1=Work, 2=Cost)
+          example: 1
+        IsActive:
+          type: boolean
+          description: Whether the resource is active
+          example: true
+        IsGeneric:
+          type: boolean
+          description: Whether this is a generic resource
+          example: false
+        MaxUnits:
+          type: number
+          format: double
+          description: Maximum assignment units
+          example: 1.0
+        StandardRate:
+          type: number
+          format: double
+          description: Standard billing rate
+          example: 150.00
+        CostCenter:
+          type: string
+          description: Cost center code
+          example: IT-DEV
+        Group:
+          type: string
+          description: Resource group
+          example: Development
+        BaseCalendar:
+          type: string
+          description: Base calendar name
+          example: Standard
+    EnterpriseResourceCreate:
+      type: object
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Resource name
+          example: John Doe
+        Email:
+          type: string
+          format: email
+          description: Resource email
+        ResourceType:
+          type: integer
+          description: Resource type
+          default: 1
+        IsGeneric:
+          type: boolean
+          default: false
+    EnterpriseResourceCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterpriseResource'
+    ProjectResource:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Resource identifier
+        Name:
+          type: string
+          description: Resource name
+        Email:
+          type: string
+          format: email
+          description: Resource email
+    ProjectResourceCreate:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Enterprise resource ID to add to project
+    ProjectResourceCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectResource'
+    Calendar:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Calendar identifier
+        Name:
+          type: string
+          description: Calendar name
+          example: Standard
+        IsStandardCalendar:
+          type: boolean
+          description: Whether this is the standard calendar
+          example: true
+        Created:
+          type: string
+          format: date-time
+          description: Calendar creation date
+        Modified:
+          type: string
+          format: date-time
+          description: Calendar last modified date
+    CalendarCreate:
+      type: object
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Calendar name
+          example: Night Shift Calendar
+    CalendarCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Calendar'
+    CustomField:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Custom field identifier
+        InternalName:
+          type: string
+          description: Internal name of the custom field
+          example: Custom_x0020_Text1
+        Name:
+          type: string
+          description: Display name of the custom field
+          example: Department Code
+        FieldType:
+          type: integer
+          description: Field data type (0=Cost, 1=Date, 2=Duration, 3=Finish, 4=Flag, 5=Number, 6=Start, 7=Text)
+          example: 7
+        EntityType:
+          type: integer
+          description: Entity type (0=Project, 1=Resource, 2=Task)
+          example: 2
+        Description:
+          type: string
+          description: Field description
+          example: Custom field for department codes
+        LookupTableId:
+          type: string
+          format: uuid
+          description: Associated lookup table ID
+        IsRequired:
+          type: boolean
+          description: Whether the field is required
+          example: false
+        IsMultilineText:
+          type: boolean
+          description: Whether the text field supports multiple lines
+          example: false
+        Formula:
+          type: string
+          description: Calculated field formula
+    CustomFieldCreate:
+      type: object
+      required:
+        - Name
+        - FieldType
+        - EntityType
+      properties:
+        Name:
+          type: string
+          description: Custom field display name
+        FieldType:
+          type: integer
+          description: Field data type
+        EntityType:
+          type: integer
+          description: Entity type
+        Description:
+          type: string
+          description: Field description
+    CustomFieldCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomField'
+    LookupTable:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Lookup table identifier
+        Name:
+          type: string
+          description: Lookup table name
+          example: Priority Levels
+        FieldType:
+          type: integer
+          description: Value field type
+        SortOrder:
+          type: integer
+          description: Sort order for entries
+    LookupTableCreate:
+      type: object
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Lookup table name
+        FieldType:
+          type: integer
+          description: Value field type
+    LookupTableCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTable'
+    LookupTableEntry:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Entry identifier
+        Value:
+          type: string
+          description: Entry value
+          example: High Priority
+        SortIndex:
+          type: integer
+          description: Sort order index
+          example: 1
+        Description:
+          type: string
+          description: Entry description
+    LookupTableEntryCreate:
+      type: object
+      required:
+        - Value
+      properties:
+        Value:
+          type: string
+          description: Entry value
+        Description:
+          type: string
+          description: Entry description
+    LookupTableEntryCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTableEntry'
+    TimeSheetPeriod:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Period identifier
+        Name:
+          type: string
+          description: Period name
+          example: March 2026 - Week 1
+        Start:
+          type: string
+          format: date-time
+          description: Period start date
+        End:
+          type: string
+          format: date-time
+          description: Period end date
+    TimeSheetPeriodCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetPeriod'
+    TimeSheet:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Timesheet identifier
+        Status:
+          type: integer
+          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
+          example: 0
+        PeriodId:
+          type: string
+          format: uuid
+          description: Associated period ID
+        TotalWork:
+          type: string
+          description: Total work reported
+          example: 40h
+        TotalActualWork:
+          type: string
+          description: Total actual work
+          example: 38h
+    TimeSheetLine:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Line identifier
+        LineClass:
+          type: integer
+          description: Line classification (0=StandardLine, 1=SickTimeLine, 2=VacationTimeLine, 3=AdministrativeTimeLine)
+          example: 0
+        ProjectName:
+          type: string
+          description: Associated project name
+          example: Enterprise Website Redesign
+        TaskName:
+          type: string
+          description: Associated task name
+          example: Design Review Meeting
+        TotalWork:
+          type: string
+          description: Total work for this line
+          example: 8h
+        Comment:
+          type: string
+          description: Line comment
+    TimeSheetLineCreate:
+      type: object
+      properties:
+        LineClass:
+          type: integer
+          description: Line classification
+          default: 0
+        ProjectId:
+          type: string
+          format: uuid
+          description: Project ID
+        TaskId:
+          type: string
+          format: uuid
+          description: Task ID
+    TimeSheetLineCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetLine'
+    Phase:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Phase identifier
+        Name:
+          type: string
+          description: Phase name
+          example: Initiation
+        Description:
+          type: string
+          description: Phase description
+          example: Project initiation and planning phase
+    PhaseCreate:
+      type: object
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Phase name
+        Description:
+          type: string
+          description: Phase description
+    PhaseCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Phase'
+    Stage:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Stage identifier
+        Name:
+          type: string
+          description: Stage name
+          example: Requirements Review
+        Description:
+          type: string
+          description: Stage description
+          example: Review and approve project requirements
+        PhaseId:
+          type: string
+          format: uuid
+          description: Parent phase ID
+    StageCreate:
+      type: object
+      required:
+        - Name
+        - PhaseId
+      properties:
+        Name:
+          type: string
+          description: Stage name
+        Description:
+          type: string
+          description: Stage description
+        PhaseId:
+          type: string
+          format: uuid
+          description: Parent phase ID
+    StageCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
+    EnterpriseProjectType:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Project type identifier
+        Name:
+          type: string
+          description: Project type name
+          example: Standard Enterprise Project
+        Description:
+          type: string
+          description: Project type description
+          example: Standard project type for enterprise projects
+        IsDefault:
+          type: boolean
+          description: Whether this is the default project type
+          example: true
+        WorkspaceTemplateName:
+          type: string
+          description: Associated workspace template name
+    EnterpriseProjectTypeCreate:
+      type: object
+      required:
+        - Name
+      properties:
+        Name:
+          type: string
+          description: Project type name
+        Description:
+          type: string
+          description: Project type description
+    EnterpriseProjectTypeCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterpriseProjectType'
+    EventHandler:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Event handler identifier
+        Name:
+          type: string
+          description: Event handler name
+          example: Project Published Handler
+        AssemblyName:
+          type: string
+          description: Assembly containing the handler
+        ClassName:
+          type: string
+          description: Class implementing the handler
+        EventId:
+          type: integer
+          description: Event identifier
+        Order:
+          type: integer
+          description: Handler execution order
+          example: 1
+    EventHandlerCreate:
+      type: object
+      required:
+        - Name
+        - EventId
+      properties:
+        Name:
+          type: string
+          description: Event handler name
+        EventId:
+          type: integer
+          description: Event identifier
+        AssemblyName:
+          type: string
+          description: Assembly name
+        ClassName:
+          type: string
+          description: Class name
+        Order:
+          type: integer
+          description: Execution order
+    EventHandlerCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHandler'
+    WorkflowActivity:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Activity identifier
+        Name:
+          type: string
+          description: Activity name
+        Description:
+          type: string
+          description: Activity description
+    WorkflowActivityCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowActivity'
+    QueueJob:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Queue job identifier
+        JobState:
+          type: integer
+          description: Job state (0=Unknown, 1=ReadyForProcessing, 2=SendIncomplete, 3=Processing, 4=Success, 5=Failed, 6=FailedNotBlocking, 7=ProcessingDeferred, 8=CorrelationBlocked, 9=Canceled, 10=OnHold, 11=Sleeping, 12=ReadyForLaunch)
+          example: 4
+        MessageType:
+          type: integer
+          description: Queue message type
+        PercentComplete:
+          type: integer
+          description: Job completion percentage
+          example: 100
+    QueueJobCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueueJob'

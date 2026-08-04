@@ -1,0 +1,516 @@
+{
+  "info": {
+    "_postman_id": "f6875647-ad34-4810-951b-79d0925a22d4",
+    "name": "Microsoft Project Online REST Assignments Resources API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:38.000Z",
+    "updatedAt": "2026-07-28T02:12:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f6875647-ad34-4810-951b-79d0925a22d4"
+  },
+  "item": [
+    {
+      "name": "Projects('{projectId}')",
+      "item": [
+        {
+          "name": "Draft",
+          "item": [
+            {
+              "name": "ProjectResources",
+              "item": [
+                {
+                  "name": "Microsoft Project List Draft Project Resources",
+                  "id": "31eb284b-2fb7-4ccc-9316-36d4f2d743f4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/ProjectResources",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "ProjectResources"
+                      ]
+                    },
+                    "description": "Retrieve all resources in the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "8fda3f5c-d9b7-4fae-9d56-a8650c2639c5",
+                      "name": "List of project resources",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/ProjectResources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "ProjectResources"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Email\": \"<email>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Email\": \"<email>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:12:38.000Z",
+                      "updatedAt": "2026-07-28T02:12:38.000Z",
+                      "uid": "35240-8fda3f5c-d9b7-4fae-9d56-a8650c2639c5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:38.000Z",
+                  "updatedAt": "2026-07-28T02:12:38.000Z",
+                  "uid": "35240-31eb284b-2fb7-4ccc-9316-36d4f2d743f4"
+                },
+                {
+                  "name": "Microsoft Project Add Draft Project Resource",
+                  "id": "6dd19765-2573-4d75-957b-f9eadb1eb031",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/ProjectResources",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "ProjectResources"
+                      ]
+                    },
+                    "description": "Add a resource to the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "f2ec2d33-c593-4eb7-b5a2-94d4dbb47358",
+                      "name": "Resource added",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/ProjectResources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "ProjectResources"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:38.000Z",
+                      "updatedAt": "2026-07-28T02:12:38.000Z",
+                      "uid": "35240-f2ec2d33-c593-4eb7-b5a2-94d4dbb47358"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:38.000Z",
+                  "updatedAt": "2026-07-28T02:12:38.000Z",
+                  "uid": "35240-6dd19765-2573-4d75-957b-f9eadb1eb031"
+                }
+              ],
+              "id": "9765a428-7513-447b-802e-19cff3280f2b",
+              "createdAt": "2026-07-28T02:12:38.000Z",
+              "updatedAt": "2026-07-28T02:12:38.000Z",
+              "uid": "35240-9765a428-7513-447b-802e-19cff3280f2b"
+            }
+          ],
+          "id": "1104cd25-4566-4c19-8f39-d33bd1c9d89d",
+          "createdAt": "2026-07-28T02:12:38.000Z",
+          "updatedAt": "2026-07-28T02:12:38.000Z",
+          "uid": "35240-1104cd25-4566-4c19-8f39-d33bd1c9d89d"
+        },
+        {
+          "name": "ProjectResources",
+          "item": [
+            {
+              "name": "Microsoft Project List Project Resources",
+              "id": "bf4fa012-4624-428a-a895-b0a273420d06",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')/ProjectResources",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "ProjectResources"
+                  ]
+                },
+                "description": "Retrieve all published resources for a project."
+              },
+              "response": [
+                {
+                  "id": "88174687-3f84-4a1c-9003-565f8692b398",
+                  "name": "List of project resources",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/ProjectResources",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "ProjectResources"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Email\": \"<email>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Email\": \"<email>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:12:38.000Z",
+                  "updatedAt": "2026-07-28T02:12:38.000Z",
+                  "uid": "35240-88174687-3f84-4a1c-9003-565f8692b398"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:38.000Z",
+              "updatedAt": "2026-07-28T02:12:38.000Z",
+              "uid": "35240-bf4fa012-4624-428a-a895-b0a273420d06"
+            }
+          ],
+          "id": "e5013247-c899-4050-9623-d58bf8c7580d",
+          "createdAt": "2026-07-28T02:12:38.000Z",
+          "updatedAt": "2026-07-28T02:12:38.000Z",
+          "uid": "35240-e5013247-c899-4050-9623-d58bf8c7580d"
+        }
+      ],
+      "id": "9e178032-ac6a-45b6-954c-f117c7ab9201",
+      "createdAt": "2026-07-28T02:12:38.000Z",
+      "updatedAt": "2026-07-28T02:12:38.000Z",
+      "uid": "35240-9e178032-ac6a-45b6-954c-f117c7ab9201"
+    },
+    {
+      "name": "EnterpriseResources",
+      "item": [
+        {
+          "name": "Microsoft Project List Enterprise Resources",
+          "id": "4100466c-7f0f-4085-bc9f-ae36767f02d1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/EnterpriseResources",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EnterpriseResources"
+              ]
+            },
+            "description": "Retrieve all enterprise resources."
+          },
+          "response": [
+            {
+              "id": "fdc30111-c266-4396-bacc-0dca3d4a7aac",
+              "name": "List of enterprise resources",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EnterpriseResources",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EnterpriseResources"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Email\": \"<email>\",\n      \"ResourceType\": \"<integer>\",\n      \"IsActive\": \"<boolean>\",\n      \"IsGeneric\": \"<boolean>\",\n      \"MaxUnits\": \"<double>\",\n      \"StandardRate\": \"<double>\",\n      \"CostCenter\": \"<string>\",\n      \"Group\": \"<string>\",\n      \"BaseCalendar\": \"<string>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Email\": \"<email>\",\n      \"ResourceType\": \"<integer>\",\n      \"IsActive\": \"<boolean>\",\n      \"IsGeneric\": \"<boolean>\",\n      \"MaxUnits\": \"<double>\",\n      \"StandardRate\": \"<double>\",\n      \"CostCenter\": \"<string>\",\n      \"Group\": \"<string>\",\n      \"BaseCalendar\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:38.000Z",
+              "updatedAt": "2026-07-28T02:12:38.000Z",
+              "uid": "35240-fdc30111-c266-4396-bacc-0dca3d4a7aac"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:38.000Z",
+          "updatedAt": "2026-07-28T02:12:38.000Z",
+          "uid": "35240-4100466c-7f0f-4085-bc9f-ae36767f02d1"
+        },
+        {
+          "name": "Microsoft Project Create Enterprise Resource",
+          "id": "e1c8bf47-936c-4324-8846-fbfd8f465b09",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Email\": \"<email>\",\n  \"ResourceType\": 1,\n  \"IsGeneric\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/EnterpriseResources",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EnterpriseResources"
+              ]
+            },
+            "description": "Create a new enterprise resource."
+          },
+          "response": [
+            {
+              "id": "9750eda3-bee8-4cf1-a219-bd0e467ff55c",
+              "name": "Enterprise resource created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Email\": \"<email>\",\n  \"ResourceType\": 1,\n  \"IsGeneric\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/EnterpriseResources",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EnterpriseResources"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Email\": \"<email>\",\n  \"ResourceType\": \"<integer>\",\n  \"IsActive\": \"<boolean>\",\n  \"IsGeneric\": \"<boolean>\",\n  \"MaxUnits\": \"<double>\",\n  \"StandardRate\": \"<double>\",\n  \"CostCenter\": \"<string>\",\n  \"Group\": \"<string>\",\n  \"BaseCalendar\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:12:38.000Z",
+              "updatedAt": "2026-07-28T02:12:38.000Z",
+              "uid": "35240-9750eda3-bee8-4cf1-a219-bd0e467ff55c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:38.000Z",
+          "updatedAt": "2026-07-28T02:12:38.000Z",
+          "uid": "35240-e1c8bf47-936c-4324-8846-fbfd8f465b09"
+        }
+      ],
+      "id": "7c751084-49cf-43c0-827f-ec4f221361fc",
+      "createdAt": "2026-07-28T02:12:38.000Z",
+      "updatedAt": "2026-07-28T02:12:38.000Z",
+      "uid": "35240-7c751084-49cf-43c0-827f-ec4f221361fc"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "projectId",
+      "value": "<uuid>"
+    }
+  ]
+}

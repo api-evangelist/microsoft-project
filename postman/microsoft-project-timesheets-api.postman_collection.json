@@ -1,0 +1,478 @@
+{
+  "info": {
+    "_postman_id": "6503bf76-a799-4a7e-ad0d-f6a4fa1ddd41",
+    "name": "Microsoft Project Online REST Assignments Timesheets API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:44.000Z",
+    "updatedAt": "2026-07-28T02:12:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6503bf76-a799-4a7e-ad0d-f6a4fa1ddd41"
+  },
+  "item": [
+    {
+      "name": "TimeSheetPeriods",
+      "item": [
+        {
+          "name": "Microsoft Project List Timesheet Periods",
+          "id": "8c2daba2-a491-43bf-b537-134b8ddcf6c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/TimeSheetPeriods",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "TimeSheetPeriods"
+              ]
+            },
+            "description": "Retrieve all timesheet periods."
+          },
+          "response": [
+            {
+              "id": "d557a8cb-7353-4584-a270-8aee116fa227",
+              "name": "List of timesheet periods",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/TimeSheetPeriods",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "TimeSheetPeriods"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Start\": \"<dateTime>\",\n      \"End\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Start\": \"<dateTime>\",\n      \"End\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:45.000Z",
+              "updatedAt": "2026-07-28T02:12:45.000Z",
+              "uid": "35240-d557a8cb-7353-4584-a270-8aee116fa227"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:45.000Z",
+          "updatedAt": "2026-07-28T02:12:45.000Z",
+          "uid": "35240-8c2daba2-a491-43bf-b537-134b8ddcf6c3"
+        }
+      ],
+      "id": "1930d321-f328-4766-8cf5-6c86d1b4bb06",
+      "createdAt": "2026-07-28T02:12:45.000Z",
+      "updatedAt": "2026-07-28T02:12:45.000Z",
+      "uid": "35240-1930d321-f328-4766-8cf5-6c86d1b4bb06"
+    },
+    {
+      "name": "TimeSheetPeriods('{periodId}')",
+      "item": [
+        {
+          "name": "TimeSheet",
+          "item": [
+            {
+              "name": "Lines",
+              "item": [
+                {
+                  "name": "Microsoft Project List Timesheet Lines",
+                  "id": "0a5c317f-ca79-4328-b7d8-5397c1b141bb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet/Lines",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "TimeSheetPeriods('{{periodId}}')",
+                        "TimeSheet",
+                        "Lines"
+                      ]
+                    },
+                    "description": "Retrieve all lines in a timesheet."
+                  },
+                  "response": [
+                    {
+                      "id": "f7f5126e-35e8-4d70-91e9-9ca3f04aab37",
+                      "name": "List of timesheet lines",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet/Lines",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "TimeSheetPeriods('{{periodId}}')",
+                            "TimeSheet",
+                            "Lines"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"LineClass\": \"<integer>\",\n      \"ProjectName\": \"<string>\",\n      \"TaskName\": \"<string>\",\n      \"TotalWork\": \"<string>\",\n      \"Comment\": \"<string>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"LineClass\": \"<integer>\",\n      \"ProjectName\": \"<string>\",\n      \"TaskName\": \"<string>\",\n      \"TotalWork\": \"<string>\",\n      \"Comment\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:12:45.000Z",
+                      "updatedAt": "2026-07-28T02:12:45.000Z",
+                      "uid": "35240-f7f5126e-35e8-4d70-91e9-9ca3f04aab37"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:45.000Z",
+                  "updatedAt": "2026-07-28T02:12:45.000Z",
+                  "uid": "35240-0a5c317f-ca79-4328-b7d8-5397c1b141bb"
+                },
+                {
+                  "name": "Microsoft Project Create Timesheet Line",
+                  "id": "e4bb6c59-3a89-48e8-985d-e7adbd28ea5f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"LineClass\": 0,\n  \"ProjectId\": \"<uuid>\",\n  \"TaskId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet/Lines",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "TimeSheetPeriods('{{periodId}}')",
+                        "TimeSheet",
+                        "Lines"
+                      ]
+                    },
+                    "description": "Create a new line in a timesheet."
+                  },
+                  "response": [
+                    {
+                      "id": "d49aa3fe-5a3e-4627-9b3d-b034fc91a984",
+                      "name": "Timesheet line created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"LineClass\": 0,\n  \"ProjectId\": \"<uuid>\",\n  \"TaskId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet/Lines",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "TimeSheetPeriods('{{periodId}}')",
+                            "TimeSheet",
+                            "Lines"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:45.000Z",
+                      "updatedAt": "2026-07-28T02:12:45.000Z",
+                      "uid": "35240-d49aa3fe-5a3e-4627-9b3d-b034fc91a984"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:45.000Z",
+                  "updatedAt": "2026-07-28T02:12:45.000Z",
+                  "uid": "35240-e4bb6c59-3a89-48e8-985d-e7adbd28ea5f"
+                }
+              ],
+              "id": "b5ffcf5f-6fad-4d96-a82e-447025f3adc6",
+              "createdAt": "2026-07-28T02:12:45.000Z",
+              "updatedAt": "2026-07-28T02:12:45.000Z",
+              "uid": "35240-b5ffcf5f-6fad-4d96-a82e-447025f3adc6"
+            },
+            {
+              "name": "submitForApproval()",
+              "item": [
+                {
+                  "name": "Microsoft Project Submit Timesheet for Approval",
+                  "id": "c6b71f4c-d71a-4cba-8bf0-c4ef020ddd9c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet/submitForApproval()",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "TimeSheetPeriods('{{periodId}}')",
+                        "TimeSheet",
+                        "submitForApproval()"
+                      ]
+                    },
+                    "description": "Submit a timesheet for manager approval."
+                  },
+                  "response": [
+                    {
+                      "id": "7edef2fe-1b96-4f84-8000-16b8563e6b31",
+                      "name": "Timesheet submitted for approval",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet/submitForApproval()",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "TimeSheetPeriods('{{periodId}}')",
+                            "TimeSheet",
+                            "submitForApproval()"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:45.000Z",
+                      "updatedAt": "2026-07-28T02:12:45.000Z",
+                      "uid": "35240-7edef2fe-1b96-4f84-8000-16b8563e6b31"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:45.000Z",
+                  "updatedAt": "2026-07-28T02:12:45.000Z",
+                  "uid": "35240-c6b71f4c-d71a-4cba-8bf0-c4ef020ddd9c"
+                }
+              ],
+              "id": "51efce72-aab1-4b5c-b98f-bbcba610e099",
+              "createdAt": "2026-07-28T02:12:45.000Z",
+              "updatedAt": "2026-07-28T02:12:45.000Z",
+              "uid": "35240-51efce72-aab1-4b5c-b98f-bbcba610e099"
+            },
+            {
+              "name": "Microsoft Project Get Timesheet",
+              "id": "61683ff3-9e87-4ac4-af37-359422a4d508",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "TimeSheetPeriods('{{periodId}}')",
+                    "TimeSheet"
+                  ]
+                },
+                "description": "Retrieve a timesheet for a specific period."
+              },
+              "response": [
+                {
+                  "id": "b2698512-320e-4669-b621-41e7e56d8008",
+                  "name": "Timesheet details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/TimeSheetPeriods('{{periodId}}')/TimeSheet",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "TimeSheetPeriods('{{periodId}}')",
+                        "TimeSheet"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Id\": \"<uuid>\",\n  \"Status\": \"<integer>\",\n  \"PeriodId\": \"<uuid>\",\n  \"TotalWork\": \"<string>\",\n  \"TotalActualWork\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:12:45.000Z",
+                  "updatedAt": "2026-07-28T02:12:45.000Z",
+                  "uid": "35240-b2698512-320e-4669-b621-41e7e56d8008"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:45.000Z",
+              "updatedAt": "2026-07-28T02:12:45.000Z",
+              "uid": "35240-61683ff3-9e87-4ac4-af37-359422a4d508"
+            }
+          ],
+          "id": "78c47807-1132-4372-a90e-aff62acf2f5a",
+          "createdAt": "2026-07-28T02:12:45.000Z",
+          "updatedAt": "2026-07-28T02:12:45.000Z",
+          "uid": "35240-78c47807-1132-4372-a90e-aff62acf2f5a"
+        }
+      ],
+      "id": "bb03e555-808a-4074-b3ad-1e0bccf0ca26",
+      "createdAt": "2026-07-28T02:12:45.000Z",
+      "updatedAt": "2026-07-28T02:12:45.000Z",
+      "uid": "35240-bb03e555-808a-4074-b3ad-1e0bccf0ca26"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "periodId",
+      "value": "<uuid>"
+    }
+  ]
+}

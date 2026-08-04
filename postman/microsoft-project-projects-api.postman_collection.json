@@ -1,0 +1,1101 @@
+{
+  "info": {
+    "_postman_id": "9e367ca9-f0b6-49ea-922b-e0586f5b3642",
+    "name": "Microsoft Project Online REST Assignments Projects API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:37.000Z",
+    "updatedAt": "2026-07-28T02:12:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9e367ca9-f0b6-49ea-922b-e0586f5b3642"
+  },
+  "item": [
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Microsoft Project List Projects",
+          "id": "530495e7-ec8d-4f4d-8194-6a4aa7a24fa4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Projects"
+              ]
+            },
+            "description": "Retrieve all projects accessible to the current user."
+          },
+          "response": [
+            {
+              "id": "e555c544-ff6c-4371-8ff0-052241edf024",
+              "name": "List of projects",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"FinishDate\": \"<dateTime>\",\n      \"CreatedDate\": \"<dateTime>\",\n      \"ModifiedDate\": \"<dateTime>\",\n      \"IsCheckedOut\": \"<boolean>\",\n      \"CheckedOutBy\": \"<string>\",\n      \"PercentComplete\": \"<integer>\",\n      \"ProjectType\": \"<integer>\",\n      \"ProjectSiteUrl\": \"<uri>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"FinishDate\": \"<dateTime>\",\n      \"CreatedDate\": \"<dateTime>\",\n      \"ModifiedDate\": \"<dateTime>\",\n      \"IsCheckedOut\": \"<boolean>\",\n      \"CheckedOutBy\": \"<string>\",\n      \"PercentComplete\": \"<integer>\",\n      \"ProjectType\": \"<integer>\",\n      \"ProjectSiteUrl\": \"<uri>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-e555c544-ff6c-4371-8ff0-052241edf024"
+            },
+            {
+              "id": "6f9ae4cf-8dd1-4aa2-aba0-55e2a97b81e2",
+              "name": "Unauthorized - authentication required",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-6f9ae4cf-8dd1-4aa2-aba0-55e2a97b81e2"
+            },
+            {
+              "id": "a6af5e74-6806-427b-872f-a40f6fca0605",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-a6af5e74-6806-427b-872f-a40f6fca0605"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-530495e7-ec8d-4f4d-8194-6a4aa7a24fa4"
+        },
+        {
+          "name": "Microsoft Project Create Project",
+          "id": "1e21865e-a2ad-4611-acfc-2b0815ec40ec",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"StartDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Projects"
+              ]
+            },
+            "description": "Create a new project."
+          },
+          "response": [
+            {
+              "id": "32e221c4-d143-4b7b-aba7-75792498555b",
+              "name": "Project created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"StartDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"FinishDate\": \"<dateTime>\",\n  \"CreatedDate\": \"<dateTime>\",\n  \"ModifiedDate\": \"<dateTime>\",\n  \"IsCheckedOut\": \"<boolean>\",\n  \"CheckedOutBy\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"ProjectType\": \"<integer>\",\n  \"ProjectSiteUrl\": \"<uri>\"\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-32e221c4-d143-4b7b-aba7-75792498555b"
+            },
+            {
+              "id": "c7bb3dcc-8260-45b0-98cd-01b8f0cbf79d",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"StartDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-c7bb3dcc-8260-45b0-98cd-01b8f0cbf79d"
+            },
+            {
+              "id": "7e7bb7b6-9b30-4ad3-bf7e-b980054576fc",
+              "name": "Unauthorized - authentication required",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"StartDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Projects",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-7e7bb7b6-9b30-4ad3-bf7e-b980054576fc"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-1e21865e-a2ad-4611-acfc-2b0815ec40ec"
+        }
+      ],
+      "id": "cc914db6-bb17-440f-80cb-a0907835cc94",
+      "createdAt": "2026-07-28T02:12:37.000Z",
+      "updatedAt": "2026-07-28T02:12:37.000Z",
+      "uid": "35240-cc914db6-bb17-440f-80cb-a0907835cc94"
+    },
+    {
+      "name": "Projects('{projectId}')",
+      "item": [
+        {
+          "name": "checkOut()",
+          "item": [
+            {
+              "name": "Microsoft Project Check Out Project",
+              "id": "e9f5e22a-c0dd-497e-af46-a8d4b295c296",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')/checkOut()",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "checkOut()"
+                  ]
+                },
+                "description": "Check out a project for editing."
+              },
+              "response": [
+                {
+                  "id": "166447a7-e0cb-4ca3-9f5d-d9066dbdc306",
+                  "name": "Project checked out",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/checkOut()",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "checkOut()"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:12:37.000Z",
+                  "updatedAt": "2026-07-28T02:12:37.000Z",
+                  "uid": "35240-166447a7-e0cb-4ca3-9f5d-d9066dbdc306"
+                },
+                {
+                  "id": "b988a8dd-58f6-493f-a021-9b544371242b",
+                  "name": "Project already checked out",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/checkOut()",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "checkOut()"
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:12:37.000Z",
+                  "updatedAt": "2026-07-28T02:12:37.000Z",
+                  "uid": "35240-b988a8dd-58f6-493f-a021-9b544371242b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-e9f5e22a-c0dd-497e-af46-a8d4b295c296"
+            }
+          ],
+          "id": "eec89e33-8e93-46a9-90a1-096b7db3fcd2",
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-eec89e33-8e93-46a9-90a1-096b7db3fcd2"
+        },
+        {
+          "name": "Draft",
+          "item": [
+            {
+              "name": "checkIn(force={force})",
+              "item": [
+                {
+                  "name": "Microsoft Project Check in Project Draft",
+                  "id": "a50478d0-a34c-4114-b101-99e2634716e7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/checkIn(force={{force}})?force=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "checkIn(force={{force}})"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to force check-in",
+                          "key": "force",
+                          "value": "false"
+                        }
+                      ]
+                    },
+                    "description": "Check in a project draft. Optionally force check-in."
+                  },
+                  "response": [
+                    {
+                      "id": "8ef2cef9-55f0-432c-919e-2b1d1abce13b",
+                      "name": "Project checked in",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/checkIn(force={{force}})?force=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "checkIn(force={{force}})"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to force check-in",
+                              "key": "force",
+                              "value": "false"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:37.000Z",
+                      "updatedAt": "2026-07-28T02:12:37.000Z",
+                      "uid": "35240-8ef2cef9-55f0-432c-919e-2b1d1abce13b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:37.000Z",
+                  "updatedAt": "2026-07-28T02:12:37.000Z",
+                  "uid": "35240-a50478d0-a34c-4114-b101-99e2634716e7"
+                }
+              ],
+              "id": "e6aeea01-bc6e-42d4-8991-5527d1e93282",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-e6aeea01-bc6e-42d4-8991-5527d1e93282"
+            },
+            {
+              "name": "publish(checkIn={checkIn})",
+              "item": [
+                {
+                  "name": "Microsoft Project Publish Project",
+                  "id": "6929db7f-5515-4f18-a4c2-dac652504e9c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/publish(checkIn={{checkIn}})?checkIn=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "publish(checkIn={{checkIn}})"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether to check in after publishing",
+                          "key": "checkIn",
+                          "value": "true"
+                        }
+                      ]
+                    },
+                    "description": "Publish a project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "3a53dfd1-fdb1-409a-9b59-d6ddc86b18d9",
+                      "name": "Project published",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/publish(checkIn={{checkIn}})?checkIn=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "publish(checkIn={{checkIn}})"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to check in after publishing",
+                              "key": "checkIn",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:37.000Z",
+                      "updatedAt": "2026-07-28T02:12:37.000Z",
+                      "uid": "35240-3a53dfd1-fdb1-409a-9b59-d6ddc86b18d9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:37.000Z",
+                  "updatedAt": "2026-07-28T02:12:37.000Z",
+                  "uid": "35240-6929db7f-5515-4f18-a4c2-dac652504e9c"
+                }
+              ],
+              "id": "6ae003d6-3b46-420f-9b45-9fd759c3d7ef",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-6ae003d6-3b46-420f-9b45-9fd759c3d7ef"
+            }
+          ],
+          "id": "9dc84930-a3ac-4310-9942-4c9a1dc6ac84",
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-9dc84930-a3ac-4310-9942-4c9a1dc6ac84"
+        },
+        {
+          "name": "submitToWorkflow()",
+          "item": [
+            {
+              "name": "Microsoft Project Submit Project to Workflow",
+              "id": "2fcfcbac-c7bf-4896-9ef9-29cce9048942",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')/submitToWorkflow()",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "submitToWorkflow()"
+                  ]
+                },
+                "description": "Submit a project to its associated workflow."
+              },
+              "response": [
+                {
+                  "id": "b91caa79-ccb4-4aff-95df-4033c29a8547",
+                  "name": "Project submitted to workflow",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/submitToWorkflow()",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "submitToWorkflow()"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:12:37.000Z",
+                  "updatedAt": "2026-07-28T02:12:37.000Z",
+                  "uid": "35240-b91caa79-ccb4-4aff-95df-4033c29a8547"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-2fcfcbac-c7bf-4896-9ef9-29cce9048942"
+            }
+          ],
+          "id": "f2d45732-4087-47af-a88b-a1dcdccbb433",
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-f2d45732-4087-47af-a88b-a1dcdccbb433"
+        },
+        {
+          "name": "QueueJobs",
+          "item": [
+            {
+              "name": "Microsoft Project List Project Queue Jobs",
+              "id": "262a240a-544d-4ddc-ab5a-2e18bc5852da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')/QueueJobs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "QueueJobs"
+                  ]
+                },
+                "description": "Retrieve all queue jobs for a project."
+              },
+              "response": [
+                {
+                  "id": "efd92a1c-9afe-4770-896c-3dfac035fb2f",
+                  "name": "List of queue jobs",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/QueueJobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "QueueJobs"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"JobState\": \"<integer>\",\n      \"MessageType\": \"<integer>\",\n      \"PercentComplete\": \"<integer>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"JobState\": \"<integer>\",\n      \"MessageType\": \"<integer>\",\n      \"PercentComplete\": \"<integer>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:12:37.000Z",
+                  "updatedAt": "2026-07-28T02:12:37.000Z",
+                  "uid": "35240-efd92a1c-9afe-4770-896c-3dfac035fb2f"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-262a240a-544d-4ddc-ab5a-2e18bc5852da"
+            }
+          ],
+          "id": "3d158663-e019-4980-829e-ef019fecc808",
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-3d158663-e019-4980-829e-ef019fecc808"
+        },
+        {
+          "name": "Microsoft Project Get Project",
+          "id": "20290580-ffde-4501-9a34-48c20402ca0f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Projects('{{projectId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Projects('{{projectId}}')"
+              ]
+            },
+            "description": "Retrieve a specific project by its ID."
+          },
+          "response": [
+            {
+              "id": "04e91bae-d483-4772-86d5-0102c4c72e5d",
+              "name": "Project details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"FinishDate\": \"<dateTime>\",\n  \"CreatedDate\": \"<dateTime>\",\n  \"ModifiedDate\": \"<dateTime>\",\n  \"IsCheckedOut\": \"<boolean>\",\n  \"CheckedOutBy\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"ProjectType\": \"<integer>\",\n  \"ProjectSiteUrl\": \"<uri>\"\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-04e91bae-d483-4772-86d5-0102c4c72e5d"
+            },
+            {
+              "id": "e4f79701-1c06-4317-9a96-8d3afe958a21",
+              "name": "Resource not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-e4f79701-1c06-4317-9a96-8d3afe958a21"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-20290580-ffde-4501-9a34-48c20402ca0f"
+        },
+        {
+          "name": "Microsoft Project Delete Project",
+          "id": "25ccf91b-6b89-40ab-963d-7e6d8e34d20f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Projects('{{projectId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Projects('{{projectId}}')"
+              ]
+            },
+            "description": "Delete a project by its ID."
+          },
+          "response": [
+            {
+              "id": "8a5f15d1-09f4-40e7-9d45-2d5c46a61e4e",
+              "name": "Project deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-8a5f15d1-09f4-40e7-9d45-2d5c46a61e4e"
+            },
+            {
+              "id": "ec764e65-b3f4-4aa3-84ae-602fb647b3aa",
+              "name": "Resource not found",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:12:37.000Z",
+              "updatedAt": "2026-07-28T02:12:37.000Z",
+              "uid": "35240-ec764e65-b3f4-4aa3-84ae-602fb647b3aa"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:37.000Z",
+          "updatedAt": "2026-07-28T02:12:37.000Z",
+          "uid": "35240-25ccf91b-6b89-40ab-963d-7e6d8e34d20f"
+        }
+      ],
+      "id": "fc8306cb-e61b-4de2-a93c-8cb0031d9937",
+      "createdAt": "2026-07-28T02:12:37.000Z",
+      "updatedAt": "2026-07-28T02:12:37.000Z",
+      "uid": "35240-fc8306cb-e61b-4de2-a93c-8cb0031d9937"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "projectId",
+      "value": "<uuid>"
+    }
+  ]
+}

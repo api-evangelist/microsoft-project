@@ -1,0 +1,377 @@
+{
+  "info": {
+    "_postman_id": "cc9eae08-361c-4783-a829-563478bc3564",
+    "name": "Microsoft Project Online REST Assignments Calendars API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:11.000Z",
+    "updatedAt": "2026-07-28T02:12:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cc9eae08-361c-4783-a829-563478bc3564"
+  },
+  "item": [
+    {
+      "name": "Calendars",
+      "item": [
+        {
+          "name": "Microsoft Project List Calendars",
+          "id": "24ecbe77-c049-41d6-87d8-dad5fc4fc301",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Calendars",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Calendars"
+              ]
+            },
+            "description": "Retrieve all enterprise calendars."
+          },
+          "response": [
+            {
+              "id": "649728b7-a82c-4ca0-a14a-c9e11dd57b75",
+              "name": "List of calendars",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Calendars",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Calendars"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"IsStandardCalendar\": \"<boolean>\",\n      \"Created\": \"<dateTime>\",\n      \"Modified\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"IsStandardCalendar\": \"<boolean>\",\n      \"Created\": \"<dateTime>\",\n      \"Modified\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:12.000Z",
+              "updatedAt": "2026-07-28T02:12:12.000Z",
+              "uid": "35240-649728b7-a82c-4ca0-a14a-c9e11dd57b75"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:12.000Z",
+          "updatedAt": "2026-07-28T02:12:12.000Z",
+          "uid": "35240-24ecbe77-c049-41d6-87d8-dad5fc4fc301"
+        },
+        {
+          "name": "Microsoft Project Create Calendar",
+          "id": "c5b55047-0b27-446a-833c-8c6c40a72d34",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Calendars",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Calendars"
+              ]
+            },
+            "description": "Create a new enterprise calendar."
+          },
+          "response": [
+            {
+              "id": "de362e1a-a38a-41d4-b489-21cde41aad0a",
+              "name": "Calendar created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Calendars",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Calendars"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"IsStandardCalendar\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:12:12.000Z",
+              "updatedAt": "2026-07-28T02:12:12.000Z",
+              "uid": "35240-de362e1a-a38a-41d4-b489-21cde41aad0a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:12.000Z",
+          "updatedAt": "2026-07-28T02:12:12.000Z",
+          "uid": "35240-c5b55047-0b27-446a-833c-8c6c40a72d34"
+        }
+      ],
+      "id": "3528ad41-fc5f-4220-817b-7a70542b05be",
+      "createdAt": "2026-07-28T02:12:12.000Z",
+      "updatedAt": "2026-07-28T02:12:12.000Z",
+      "uid": "35240-3528ad41-fc5f-4220-817b-7a70542b05be"
+    },
+    {
+      "name": "Calendars('{calendarId}')",
+      "item": [
+        {
+          "name": "Microsoft Project Get Calendar",
+          "id": "c36b0cb5-5213-4d76-9d11-53fefeeccb95",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Calendars('{{calendarId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Calendars('{{calendarId}}')"
+              ]
+            },
+            "description": "Retrieve a specific calendar by ID."
+          },
+          "response": [
+            {
+              "id": "d9ef3e60-6202-4981-84af-c262e3b51d4b",
+              "name": "Calendar details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Calendars('{{calendarId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Calendars('{{calendarId}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"IsStandardCalendar\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"Modified\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T02:12:12.000Z",
+              "updatedAt": "2026-07-28T02:12:12.000Z",
+              "uid": "35240-d9ef3e60-6202-4981-84af-c262e3b51d4b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:12.000Z",
+          "updatedAt": "2026-07-28T02:12:12.000Z",
+          "uid": "35240-c36b0cb5-5213-4d76-9d11-53fefeeccb95"
+        },
+        {
+          "name": "Microsoft Project Delete Calendar",
+          "id": "3bf1e224-74f3-45a1-8c79-4b3588c67193",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/Calendars('{{calendarId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Calendars('{{calendarId}}')"
+              ]
+            },
+            "description": "Delete a calendar by ID."
+          },
+          "response": [
+            {
+              "id": "b7420ea8-fc91-4b36-8320-293c85ab6b0a",
+              "name": "Calendar deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Calendars('{{calendarId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Calendars('{{calendarId}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:12.000Z",
+              "updatedAt": "2026-07-28T02:12:12.000Z",
+              "uid": "35240-b7420ea8-fc91-4b36-8320-293c85ab6b0a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:12.000Z",
+          "updatedAt": "2026-07-28T02:12:12.000Z",
+          "uid": "35240-3bf1e224-74f3-45a1-8c79-4b3588c67193"
+        }
+      ],
+      "id": "0796a705-33e3-4b5e-a2d0-6814f851e2e7",
+      "createdAt": "2026-07-28T02:12:12.000Z",
+      "updatedAt": "2026-07-28T02:12:12.000Z",
+      "uid": "35240-0796a705-33e3-4b5e-a2d0-6814f851e2e7"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "calendarId",
+      "value": "<uuid>"
+    }
+  ]
+}

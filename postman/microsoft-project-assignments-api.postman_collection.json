@@ -1,0 +1,519 @@
+{
+  "info": {
+    "_postman_id": "da8529be-0395-4e12-a899-d349ec719737",
+    "name": "Microsoft Project Online REST Assignments API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:10.000Z",
+    "updatedAt": "2026-07-28T02:12:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-da8529be-0395-4e12-a899-d349ec719737"
+  },
+  "item": [
+    {
+      "name": "Projects('{projectId}')",
+      "item": [
+        {
+          "name": "Assignments",
+          "item": [
+            {
+              "name": "Microsoft Project List Project Assignments",
+              "id": "0b8e1536-b5f4-47ce-a1cf-99cc9624b0f9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')/Assignments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Assignments"
+                  ]
+                },
+                "description": "Retrieve all published assignments for a project."
+              },
+              "response": [
+                {
+                  "id": "620176fc-df3e-4c06-9266-4e0ac46a6032",
+                  "name": "List of assignments",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Assignments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Assignments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"ProjectId\": \"<uuid>\",\n      \"TaskId\": \"<uuid>\",\n      \"ResourceId\": \"<uuid>\",\n      \"ResourceName\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"PercentWorkComplete\": \"<integer>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"ProjectId\": \"<uuid>\",\n      \"TaskId\": \"<uuid>\",\n      \"ResourceId\": \"<uuid>\",\n      \"ResourceName\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"PercentWorkComplete\": \"<integer>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:12:11.000Z",
+                  "updatedAt": "2026-07-28T02:12:11.000Z",
+                  "uid": "35240-620176fc-df3e-4c06-9266-4e0ac46a6032"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:11.000Z",
+              "updatedAt": "2026-07-28T02:12:11.000Z",
+              "uid": "35240-0b8e1536-b5f4-47ce-a1cf-99cc9624b0f9"
+            }
+          ],
+          "id": "6ea6ee98-a37a-4776-9b69-4c9c3a1bfa23",
+          "createdAt": "2026-07-28T02:12:11.000Z",
+          "updatedAt": "2026-07-28T02:12:11.000Z",
+          "uid": "35240-6ea6ee98-a37a-4776-9b69-4c9c3a1bfa23"
+        },
+        {
+          "name": "Draft",
+          "item": [
+            {
+              "name": "Assignments",
+              "item": [
+                {
+                  "name": "Microsoft Project List Draft Assignments",
+                  "id": "67d67d89-d6fe-45af-b047-5462afda5f62",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Assignments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "Assignments"
+                      ]
+                    },
+                    "description": "Retrieve all draft assignments for a project."
+                  },
+                  "response": [
+                    {
+                      "id": "d4a728a2-d90a-4785-a2aa-8eca4de0f266",
+                      "name": "List of draft assignments",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Assignments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "Assignments"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"ProjectId\": \"<uuid>\",\n      \"TaskId\": \"<uuid>\",\n      \"ResourceId\": \"<uuid>\",\n      \"ResourceName\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"PercentWorkComplete\": \"<integer>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"ProjectId\": \"<uuid>\",\n      \"TaskId\": \"<uuid>\",\n      \"ResourceId\": \"<uuid>\",\n      \"ResourceName\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"PercentWorkComplete\": \"<integer>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:12:11.000Z",
+                      "updatedAt": "2026-07-28T02:12:11.000Z",
+                      "uid": "35240-d4a728a2-d90a-4785-a2aa-8eca4de0f266"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:11.000Z",
+                  "updatedAt": "2026-07-28T02:12:11.000Z",
+                  "uid": "35240-67d67d89-d6fe-45af-b047-5462afda5f62"
+                },
+                {
+                  "name": "Microsoft Project Create Draft Assignment",
+                  "id": "1927e517-ae01-47b6-9610-36159ecd9798",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"TaskId\": \"<uuid>\",\n  \"ResourceId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Assignments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "Assignments"
+                      ]
+                    },
+                    "description": "Create a new assignment in the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "413216e5-03bf-4646-a3ce-d794b934d30a",
+                      "name": "Assignment created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"TaskId\": \"<uuid>\",\n  \"ResourceId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Assignments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "Assignments"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"ProjectId\": \"<uuid>\",\n  \"TaskId\": \"<uuid>\",\n  \"ResourceId\": \"<uuid>\",\n  \"ResourceName\": \"<string>\",\n  \"ActualWork\": \"<string>\",\n  \"RemainingWork\": \"<string>\",\n  \"PercentWorkComplete\": \"<integer>\",\n  \"Start\": \"<dateTime>\",\n  \"Finish\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:12:11.000Z",
+                      "updatedAt": "2026-07-28T02:12:11.000Z",
+                      "uid": "35240-413216e5-03bf-4646-a3ce-d794b934d30a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:11.000Z",
+                  "updatedAt": "2026-07-28T02:12:11.000Z",
+                  "uid": "35240-1927e517-ae01-47b6-9610-36159ecd9798"
+                }
+              ],
+              "id": "8fe05f2a-627c-4ac4-923e-53271bbf66f6",
+              "createdAt": "2026-07-28T02:12:11.000Z",
+              "updatedAt": "2026-07-28T02:12:11.000Z",
+              "uid": "35240-8fe05f2a-627c-4ac4-923e-53271bbf66f6"
+            },
+            {
+              "name": "Assignments('{assignmentId}')",
+              "item": [
+                {
+                  "name": "Microsoft Project Delete Draft Assignment",
+                  "id": "ecbcc127-84cd-4467-ac38-3975b1879d20",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Assignments('{{assignmentId}}')",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "Assignments('{{assignmentId}}')"
+                      ]
+                    },
+                    "description": "Delete an assignment from the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "40d62c52-2253-40aa-9bf0-7d25845a6286",
+                      "name": "Assignment deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Assignments('{{assignmentId}}')",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "Assignments('{{assignmentId}}')"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:11.000Z",
+                      "updatedAt": "2026-07-28T02:12:11.000Z",
+                      "uid": "35240-40d62c52-2253-40aa-9bf0-7d25845a6286"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:11.000Z",
+                  "updatedAt": "2026-07-28T02:12:11.000Z",
+                  "uid": "35240-ecbcc127-84cd-4467-ac38-3975b1879d20"
+                }
+              ],
+              "id": "5840b538-ee3d-4af5-a79b-8406c6e127e2",
+              "createdAt": "2026-07-28T02:12:11.000Z",
+              "updatedAt": "2026-07-28T02:12:11.000Z",
+              "uid": "35240-5840b538-ee3d-4af5-a79b-8406c6e127e2"
+            }
+          ],
+          "id": "a9c401cc-b3cc-4fcb-a1a5-a917b28e13e6",
+          "createdAt": "2026-07-28T02:12:11.000Z",
+          "updatedAt": "2026-07-28T02:12:11.000Z",
+          "uid": "35240-a9c401cc-b3cc-4fcb-a1a5-a917b28e13e6"
+        }
+      ],
+      "id": "72eb3369-cc33-4929-8c79-92e0fe28a331",
+      "createdAt": "2026-07-28T02:12:11.000Z",
+      "updatedAt": "2026-07-28T02:12:11.000Z",
+      "uid": "35240-72eb3369-cc33-4929-8c79-92e0fe28a331"
+    },
+    {
+      "name": "EnterpriseResources('{resourceId}')",
+      "item": [
+        {
+          "name": "Assignments",
+          "item": [
+            {
+              "name": "Microsoft Project List Enterprise Resource Assignments",
+              "id": "c7d92895-d476-4fd4-a7ad-eb6f5244ab9b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EnterpriseResources('{{resourceId}}')/Assignments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EnterpriseResources('{{resourceId}}')",
+                    "Assignments"
+                  ]
+                },
+                "description": "Retrieve all assignments for an enterprise resource."
+              },
+              "response": [
+                {
+                  "id": "08e93f34-b122-414a-8758-5e672000fc4a",
+                  "name": "List of assignments",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/EnterpriseResources('{{resourceId}}')/Assignments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "EnterpriseResources('{{resourceId}}')",
+                        "Assignments"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"ProjectId\": \"<uuid>\",\n      \"TaskId\": \"<uuid>\",\n      \"ResourceId\": \"<uuid>\",\n      \"ResourceName\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"PercentWorkComplete\": \"<integer>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"ProjectId\": \"<uuid>\",\n      \"TaskId\": \"<uuid>\",\n      \"ResourceId\": \"<uuid>\",\n      \"ResourceName\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"PercentWorkComplete\": \"<integer>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:12:11.000Z",
+                  "updatedAt": "2026-07-28T02:12:11.000Z",
+                  "uid": "35240-08e93f34-b122-414a-8758-5e672000fc4a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:11.000Z",
+              "updatedAt": "2026-07-28T02:12:11.000Z",
+              "uid": "35240-c7d92895-d476-4fd4-a7ad-eb6f5244ab9b"
+            }
+          ],
+          "id": "53f8c8be-e7bb-405d-81ec-dcdeeddb08e4",
+          "createdAt": "2026-07-28T02:12:11.000Z",
+          "updatedAt": "2026-07-28T02:12:11.000Z",
+          "uid": "35240-53f8c8be-e7bb-405d-81ec-dcdeeddb08e4"
+        }
+      ],
+      "id": "fced925b-72de-4e0e-94cc-5b3a58c30bc1",
+      "createdAt": "2026-07-28T02:12:11.000Z",
+      "updatedAt": "2026-07-28T02:12:11.000Z",
+      "uid": "35240-fced925b-72de-4e0e-94cc-5b3a58c30bc1"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "projectId",
+      "value": "<uuid>"
+    },
+    {
+      "key": "assignmentId",
+      "value": "<uuid>"
+    },
+    {
+      "key": "resourceId",
+      "value": "<uuid>"
+    }
+  ]
+}

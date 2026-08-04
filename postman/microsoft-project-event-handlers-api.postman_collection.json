@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "c609d7f5-d55a-425d-9b52-9ee906d78450",
+    "name": "Microsoft Project Online REST Assignments Event Handlers API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:33.000Z",
+    "updatedAt": "2026-07-28T02:12:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c609d7f5-d55a-425d-9b52-9ee906d78450"
+  },
+  "item": [
+    {
+      "name": "EventHandlers",
+      "item": [
+        {
+          "name": "Microsoft Project List Event Handlers",
+          "id": "7abc3a8b-51eb-4557-a270-47fcaf59dcc1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/EventHandlers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EventHandlers"
+              ]
+            },
+            "description": "Retrieve all registered event handlers."
+          },
+          "response": [
+            {
+              "id": "3bf47656-08be-4569-ab59-f6798c7a98bc",
+              "name": "List of event handlers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EventHandlers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EventHandlers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"AssemblyName\": \"<string>\",\n      \"ClassName\": \"<string>\",\n      \"EventId\": \"<integer>\",\n      \"Order\": \"<integer>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"AssemblyName\": \"<string>\",\n      \"ClassName\": \"<string>\",\n      \"EventId\": \"<integer>\",\n      \"Order\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:33.000Z",
+              "updatedAt": "2026-07-28T02:12:33.000Z",
+              "uid": "35240-3bf47656-08be-4569-ab59-f6798c7a98bc"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:33.000Z",
+          "updatedAt": "2026-07-28T02:12:33.000Z",
+          "uid": "35240-7abc3a8b-51eb-4557-a270-47fcaf59dcc1"
+        },
+        {
+          "name": "Microsoft Project Create Event Handler",
+          "id": "65f87fc4-bd3c-4295-b969-7729c29e17f4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"AssemblyName\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"Order\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/EventHandlers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EventHandlers"
+              ]
+            },
+            "description": "Register a new event handler."
+          },
+          "response": [
+            {
+              "id": "983f576a-105f-49ad-b302-e15fa0ef35ca",
+              "name": "Event handler created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"AssemblyName\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"Order\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/EventHandlers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EventHandlers"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:33.000Z",
+              "updatedAt": "2026-07-28T02:12:33.000Z",
+              "uid": "35240-983f576a-105f-49ad-b302-e15fa0ef35ca"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:33.000Z",
+          "updatedAt": "2026-07-28T02:12:33.000Z",
+          "uid": "35240-65f87fc4-bd3c-4295-b969-7729c29e17f4"
+        }
+      ],
+      "id": "e99e73f7-5bbb-477b-921e-da1a1c76b7c4",
+      "createdAt": "2026-07-28T02:12:33.000Z",
+      "updatedAt": "2026-07-28T02:12:33.000Z",
+      "uid": "35240-e99e73f7-5bbb-477b-921e-da1a1c76b7c4"
+    },
+    {
+      "name": "EventHandlers('{handlerId}')",
+      "item": [
+        {
+          "name": "Microsoft Project Get Event Handler",
+          "id": "97df5ebd-92da-41c0-8080-5a7c56a8b5c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/EventHandlers('{{handlerId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EventHandlers('{{handlerId}}')"
+              ]
+            },
+            "description": "Retrieve a specific event handler."
+          },
+          "response": [
+            {
+              "id": "730b45ab-33fe-4c6e-a2b6-c86a236d52b6",
+              "name": "Event handler details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EventHandlers('{{handlerId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EventHandlers('{{handlerId}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"AssemblyName\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"Order\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:12:33.000Z",
+              "updatedAt": "2026-07-28T02:12:33.000Z",
+              "uid": "35240-730b45ab-33fe-4c6e-a2b6-c86a236d52b6"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:33.000Z",
+          "updatedAt": "2026-07-28T02:12:33.000Z",
+          "uid": "35240-97df5ebd-92da-41c0-8080-5a7c56a8b5c3"
+        },
+        {
+          "name": "Microsoft Project Delete Event Handler",
+          "id": "c8b2a36d-aa18-4985-9a8f-259cda32b186",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/EventHandlers('{{handlerId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EventHandlers('{{handlerId}}')"
+              ]
+            },
+            "description": "Delete an event handler."
+          },
+          "response": [
+            {
+              "id": "bf251670-74d3-4fbf-9654-e42e9fdd4e21",
+              "name": "Event handler deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EventHandlers('{{handlerId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EventHandlers('{{handlerId}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:33.000Z",
+              "updatedAt": "2026-07-28T02:12:33.000Z",
+              "uid": "35240-bf251670-74d3-4fbf-9654-e42e9fdd4e21"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:33.000Z",
+          "updatedAt": "2026-07-28T02:12:33.000Z",
+          "uid": "35240-c8b2a36d-aa18-4985-9a8f-259cda32b186"
+        }
+      ],
+      "id": "cd968fad-75e0-4a85-a29f-1e4809b81440",
+      "createdAt": "2026-07-28T02:12:33.000Z",
+      "updatedAt": "2026-07-28T02:12:33.000Z",
+      "uid": "35240-cd968fad-75e0-4a85-a29f-1e4809b81440"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "handlerId",
+      "value": "<uuid>"
+    }
+  ]
+}

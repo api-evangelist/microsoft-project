@@ -1,0 +1,538 @@
+{
+  "info": {
+    "_postman_id": "eb27fbd1-3d7d-4246-b729-c24697280fd0",
+    "name": "Microsoft Project Online REST Assignments Lookup Tables API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:35.000Z",
+    "updatedAt": "2026-07-28T02:12:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-eb27fbd1-3d7d-4246-b729-c24697280fd0"
+  },
+  "item": [
+    {
+      "name": "LookupTables",
+      "item": [
+        {
+          "name": "Microsoft Project List Lookup Tables",
+          "id": "0cb9e77a-e0e9-47e4-bd76-4884ca92e69c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/LookupTables",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LookupTables"
+              ]
+            },
+            "description": "Retrieve all lookup table definitions."
+          },
+          "response": [
+            {
+              "id": "517eac1a-2e9e-4c8a-9bf6-a2cbe44a1818",
+              "name": "List of lookup tables",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LookupTables",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LookupTables"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"FieldType\": \"<integer>\",\n      \"SortOrder\": \"<integer>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"FieldType\": \"<integer>\",\n      \"SortOrder\": \"<integer>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-517eac1a-2e9e-4c8a-9bf6-a2cbe44a1818"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-0cb9e77a-e0e9-47e4-bd76-4884ca92e69c"
+        },
+        {
+          "name": "Microsoft Project Create Lookup Table",
+          "id": "5de23914-2031-42a6-9d86-28688c7274a0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/LookupTables",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LookupTables"
+              ]
+            },
+            "description": "Create a new lookup table definition."
+          },
+          "response": [
+            {
+              "id": "ece5a7b1-4062-4566-a4f0-122d3a41d04c",
+              "name": "Lookup table created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LookupTables",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LookupTables"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-ece5a7b1-4062-4566-a4f0-122d3a41d04c"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-5de23914-2031-42a6-9d86-28688c7274a0"
+        }
+      ],
+      "id": "e7b5e128-8c3d-4778-a634-398198b41fa1",
+      "createdAt": "2026-07-28T02:12:35.000Z",
+      "updatedAt": "2026-07-28T02:12:35.000Z",
+      "uid": "35240-e7b5e128-8c3d-4778-a634-398198b41fa1"
+    },
+    {
+      "name": "LookupTables('{tableId}')",
+      "item": [
+        {
+          "name": "Entries",
+          "item": [
+            {
+              "name": "Microsoft Project List Lookup Table Entries",
+              "id": "0ab3f622-71ee-44a4-bfd9-6806eef6b718",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LookupTables('{{tableId}}')/Entries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LookupTables('{{tableId}}')",
+                    "Entries"
+                  ]
+                },
+                "description": "Retrieve all entries in a lookup table."
+              },
+              "response": [
+                {
+                  "id": "2ad50012-0aec-47c1-9b41-59af188e08d3",
+                  "name": "List of entries",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/LookupTables('{{tableId}}')/Entries",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LookupTables('{{tableId}}')",
+                        "Entries"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Value\": \"<string>\",\n      \"SortIndex\": \"<integer>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Value\": \"<string>\",\n      \"SortIndex\": \"<integer>\",\n      \"Description\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:12:36.000Z",
+                  "updatedAt": "2026-07-28T02:12:36.000Z",
+                  "uid": "35240-2ad50012-0aec-47c1-9b41-59af188e08d3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-0ab3f622-71ee-44a4-bfd9-6806eef6b718"
+            },
+            {
+              "name": "Microsoft Project Create Lookup Table Entry",
+              "id": "2328525c-bfdc-45f2-be3f-701c1e48b3b3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Value\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LookupTables('{{tableId}}')/Entries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LookupTables('{{tableId}}')",
+                    "Entries"
+                  ]
+                },
+                "description": "Create a new entry in a lookup table."
+              },
+              "response": [
+                {
+                  "id": "35443f62-e40a-456d-bdbe-20387da80c21",
+                  "name": "Entry created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Value\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/LookupTables('{{tableId}}')/Entries",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LookupTables('{{tableId}}')",
+                        "Entries"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:12:36.000Z",
+                  "updatedAt": "2026-07-28T02:12:36.000Z",
+                  "uid": "35240-35443f62-e40a-456d-bdbe-20387da80c21"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-2328525c-bfdc-45f2-be3f-701c1e48b3b3"
+            }
+          ],
+          "id": "8f8e3e1b-abb3-4bde-9229-eb0f16f4bc90",
+          "createdAt": "2026-07-28T02:12:35.000Z",
+          "updatedAt": "2026-07-28T02:12:35.000Z",
+          "uid": "35240-8f8e3e1b-abb3-4bde-9229-eb0f16f4bc90"
+        },
+        {
+          "name": "Microsoft Project Get Lookup Table",
+          "id": "25fb4da1-e04a-42fb-91bd-0b92ecda067d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/LookupTables('{{tableId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LookupTables('{{tableId}}')"
+              ]
+            },
+            "description": "Retrieve a specific lookup table by ID."
+          },
+          "response": [
+            {
+              "id": "e72b9340-8268-47c5-847a-ac56aa82141e",
+              "name": "Lookup table details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LookupTables('{{tableId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LookupTables('{{tableId}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\",\n  \"SortOrder\": \"<integer>\"\n}",
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-e72b9340-8268-47c5-847a-ac56aa82141e"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-25fb4da1-e04a-42fb-91bd-0b92ecda067d"
+        },
+        {
+          "name": "Microsoft Project Delete Lookup Table",
+          "id": "6818d3ac-edbc-4e5b-b181-ff19c8d91176",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/LookupTables('{{tableId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LookupTables('{{tableId}}')"
+              ]
+            },
+            "description": "Delete a lookup table by ID."
+          },
+          "response": [
+            {
+              "id": "dadb00c6-001a-46ad-ad8a-1b3273d99c59",
+              "name": "Lookup table deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LookupTables('{{tableId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LookupTables('{{tableId}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-dadb00c6-001a-46ad-ad8a-1b3273d99c59"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-6818d3ac-edbc-4e5b-b181-ff19c8d91176"
+        }
+      ],
+      "id": "4dbd9bcc-9057-49c3-8b0c-c5727543f244",
+      "createdAt": "2026-07-28T02:12:35.000Z",
+      "updatedAt": "2026-07-28T02:12:35.000Z",
+      "uid": "35240-4dbd9bcc-9057-49c3-8b0c-c5727543f244"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "tableId",
+      "value": "<uuid>"
+    }
+  ]
+}

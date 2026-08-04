@@ -1,0 +1,862 @@
+{
+  "info": {
+    "_postman_id": "dfc509f2-1ced-4332-b3bf-f04418cc1ae8",
+    "name": "Microsoft Project Online REST Assignments Tasks API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:40.000Z",
+    "updatedAt": "2026-07-28T02:12:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dfc509f2-1ced-4332-b3bf-f04418cc1ae8"
+  },
+  "item": [
+    {
+      "name": "Projects('{projectId}')",
+      "item": [
+        {
+          "name": "Tasks",
+          "item": [
+            {
+              "name": "Microsoft Project List Project Tasks",
+              "id": "1b05f5b9-5539-4e6f-8ff8-bcae24a0cac5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')/Tasks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Tasks"
+                  ]
+                },
+                "description": "Retrieve all published tasks for a project."
+              },
+              "response": [
+                {
+                  "id": "8b42975d-a007-46f5-8ced-7fb13ba85f86",
+                  "name": "List of tasks",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Tasks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Tasks"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\",\n      \"Duration\": \"<string>\",\n      \"PercentComplete\": \"<integer>\",\n      \"IsSummary\": \"<boolean>\",\n      \"IsMilestone\": \"<boolean>\",\n      \"Priority\": \"<integer>\",\n      \"ParentId\": \"<uuid>\",\n      \"Notes\": \"<string>\",\n      \"IsManuallyScheduled\": \"<boolean>\",\n      \"ConstraintType\": \"<integer>\",\n      \"ConstraintStartEnd\": \"<dateTime>\",\n      \"Work\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"Cost\": \"<double>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\",\n      \"Duration\": \"<string>\",\n      \"PercentComplete\": \"<integer>\",\n      \"IsSummary\": \"<boolean>\",\n      \"IsMilestone\": \"<boolean>\",\n      \"Priority\": \"<integer>\",\n      \"ParentId\": \"<uuid>\",\n      \"Notes\": \"<string>\",\n      \"IsManuallyScheduled\": \"<boolean>\",\n      \"ConstraintType\": \"<integer>\",\n      \"ConstraintStartEnd\": \"<dateTime>\",\n      \"Work\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"Cost\": \"<double>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-8b42975d-a007-46f5-8ced-7fb13ba85f86"
+                },
+                {
+                  "id": "ba7dac80-df4c-4f5a-bf17-8142eb3d3083",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Tasks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Tasks"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-ba7dac80-df4c-4f5a-bf17-8142eb3d3083"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:40.000Z",
+              "updatedAt": "2026-07-28T02:12:40.000Z",
+              "uid": "35240-1b05f5b9-5539-4e6f-8ff8-bcae24a0cac5"
+            }
+          ],
+          "id": "07bfdbd3-d57a-4ddb-85de-b203da602a4b",
+          "createdAt": "2026-07-28T02:12:40.000Z",
+          "updatedAt": "2026-07-28T02:12:40.000Z",
+          "uid": "35240-07bfdbd3-d57a-4ddb-85de-b203da602a4b"
+        },
+        {
+          "name": "Tasks('{taskId}')",
+          "item": [
+            {
+              "name": "Microsoft Project Get Project Task",
+              "id": "27a7e5bc-ffa4-44e4-9675-bc563fe8c470",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Projects('{{projectId}}')/Tasks('{{taskId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Tasks('{{taskId}}')"
+                  ]
+                },
+                "description": "Retrieve a specific task from a project."
+              },
+              "response": [
+                {
+                  "id": "1edc0e20-a798-4027-8fb0-f1bf6f0a6a5c",
+                  "name": "Task details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Tasks('{{taskId}}')",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Tasks('{{taskId}}')"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Start\": \"<dateTime>\",\n  \"Finish\": \"<dateTime>\",\n  \"Duration\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"IsSummary\": \"<boolean>\",\n  \"IsMilestone\": \"<boolean>\",\n  \"Priority\": \"<integer>\",\n  \"ParentId\": \"<uuid>\",\n  \"Notes\": \"<string>\",\n  \"IsManuallyScheduled\": \"<boolean>\",\n  \"ConstraintType\": \"<integer>\",\n  \"ConstraintStartEnd\": \"<dateTime>\",\n  \"Work\": \"<string>\",\n  \"RemainingWork\": \"<string>\",\n  \"ActualWork\": \"<string>\",\n  \"Cost\": \"<double>\"\n}",
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-1edc0e20-a798-4027-8fb0-f1bf6f0a6a5c"
+                },
+                {
+                  "id": "6af76361-6849-4a66-a4d9-956e6df6229c",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Tasks('{{taskId}}')",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Tasks('{{taskId}}')"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-6af76361-6849-4a66-a4d9-956e6df6229c"
+                }
+              ],
+              "createdAt": "2026-07-28T02:12:40.000Z",
+              "updatedAt": "2026-07-28T02:12:40.000Z",
+              "uid": "35240-27a7e5bc-ffa4-44e4-9675-bc563fe8c470"
+            }
+          ],
+          "id": "f25baaec-de51-4054-9941-e4ef03907141",
+          "createdAt": "2026-07-28T02:12:40.000Z",
+          "updatedAt": "2026-07-28T02:12:40.000Z",
+          "uid": "35240-f25baaec-de51-4054-9941-e4ef03907141"
+        },
+        {
+          "name": "Draft",
+          "item": [
+            {
+              "name": "Tasks",
+              "item": [
+                {
+                  "name": "Microsoft Project List Draft Tasks",
+                  "id": "12785a5e-3163-4dbe-bacf-9b7c274620ef",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "Tasks"
+                      ]
+                    },
+                    "description": "Retrieve all draft tasks for a project."
+                  },
+                  "response": [
+                    {
+                      "id": "b8aec6d3-0575-43d8-a0dc-ee5b53e24aa5",
+                      "name": "List of draft tasks",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "Tasks"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\",\n      \"Duration\": \"<string>\",\n      \"PercentComplete\": \"<integer>\",\n      \"IsSummary\": \"<boolean>\",\n      \"IsMilestone\": \"<boolean>\",\n      \"Priority\": \"<integer>\",\n      \"ParentId\": \"<uuid>\",\n      \"Notes\": \"<string>\",\n      \"IsManuallyScheduled\": \"<boolean>\",\n      \"ConstraintType\": \"<integer>\",\n      \"ConstraintStartEnd\": \"<dateTime>\",\n      \"Work\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"Cost\": \"<double>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Start\": \"<dateTime>\",\n      \"Finish\": \"<dateTime>\",\n      \"Duration\": \"<string>\",\n      \"PercentComplete\": \"<integer>\",\n      \"IsSummary\": \"<boolean>\",\n      \"IsMilestone\": \"<boolean>\",\n      \"Priority\": \"<integer>\",\n      \"ParentId\": \"<uuid>\",\n      \"Notes\": \"<string>\",\n      \"IsManuallyScheduled\": \"<boolean>\",\n      \"ConstraintType\": \"<integer>\",\n      \"ConstraintStartEnd\": \"<dateTime>\",\n      \"Work\": \"<string>\",\n      \"RemainingWork\": \"<string>\",\n      \"ActualWork\": \"<string>\",\n      \"Cost\": \"<double>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:12:40.000Z",
+                      "updatedAt": "2026-07-28T02:12:40.000Z",
+                      "uid": "35240-b8aec6d3-0575-43d8-a0dc-ee5b53e24aa5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-12785a5e-3163-4dbe-bacf-9b7c274620ef"
+                },
+                {
+                  "name": "Microsoft Project Create Draft Task",
+                  "id": "41aed3f9-135b-49df-a1de-2939c2055154",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"Start\": \"<dateTime>\",\n  \"Duration\": \"<string>\",\n  \"ParentId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "Tasks"
+                      ]
+                    },
+                    "description": "Create a new task in the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "13ff40b2-a2a8-4043-bd30-8d2d4e18c7f2",
+                      "name": "Task created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Name\": \"<string>\",\n  \"Start\": \"<dateTime>\",\n  \"Duration\": \"<string>\",\n  \"ParentId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "Tasks"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Start\": \"<dateTime>\",\n  \"Finish\": \"<dateTime>\",\n  \"Duration\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"IsSummary\": \"<boolean>\",\n  \"IsMilestone\": \"<boolean>\",\n  \"Priority\": \"<integer>\",\n  \"ParentId\": \"<uuid>\",\n  \"Notes\": \"<string>\",\n  \"IsManuallyScheduled\": \"<boolean>\",\n  \"ConstraintType\": \"<integer>\",\n  \"ConstraintStartEnd\": \"<dateTime>\",\n  \"Work\": \"<string>\",\n  \"RemainingWork\": \"<string>\",\n  \"ActualWork\": \"<string>\",\n  \"Cost\": \"<double>\"\n}",
+                      "createdAt": "2026-07-28T02:12:40.000Z",
+                      "updatedAt": "2026-07-28T02:12:40.000Z",
+                      "uid": "35240-13ff40b2-a2a8-4043-bd30-8d2d4e18c7f2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-41aed3f9-135b-49df-a1de-2939c2055154"
+                }
+              ],
+              "id": "c146b58b-c450-4184-8b6a-b17bf38fecff",
+              "createdAt": "2026-07-28T02:12:40.000Z",
+              "updatedAt": "2026-07-28T02:12:40.000Z",
+              "uid": "35240-c146b58b-c450-4184-8b6a-b17bf38fecff"
+            },
+            {
+              "name": "Tasks('{taskId}')",
+              "item": [
+                {
+                  "name": "Microsoft Project Delete Draft Task",
+                  "id": "3ff27c8b-c690-4f06-b6aa-bc5401458e84",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks('{{taskId}}')",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "Tasks('{{taskId}}')"
+                      ]
+                    },
+                    "description": "Delete a task from the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "e70aa686-81a5-41e2-ad8d-8ca788e25764",
+                      "name": "Task deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks('{{taskId}}')",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "Tasks('{{taskId}}')"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:40.000Z",
+                      "updatedAt": "2026-07-28T02:12:40.000Z",
+                      "uid": "35240-e70aa686-81a5-41e2-ad8d-8ca788e25764"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-3ff27c8b-c690-4f06-b6aa-bc5401458e84"
+                },
+                {
+                  "name": "Microsoft Project Update Draft Task",
+                  "id": "20929b2d-a1fc-4634-a27b-238aa39eb697",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Name\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"Duration\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks('{{taskId}}')",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "Tasks('{{taskId}}')"
+                      ]
+                    },
+                    "description": "Update a task in the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "d4efd2ff-44cf-4f10-b7a0-557b435b7701",
+                      "name": "Task updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Name\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"Duration\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/Tasks('{{taskId}}')",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "Tasks('{{taskId}}')"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:40.000Z",
+                      "updatedAt": "2026-07-28T02:12:40.000Z",
+                      "uid": "35240-d4efd2ff-44cf-4f10-b7a0-557b435b7701"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-20929b2d-a1fc-4634-a27b-238aa39eb697"
+                }
+              ],
+              "id": "00b087c3-f8b6-46cf-8e0f-c6ac0717552f",
+              "createdAt": "2026-07-28T02:12:40.000Z",
+              "updatedAt": "2026-07-28T02:12:40.000Z",
+              "uid": "35240-00b087c3-f8b6-46cf-8e0f-c6ac0717552f"
+            },
+            {
+              "name": "TaskLinks",
+              "item": [
+                {
+                  "name": "Microsoft Project List Draft Task Links",
+                  "id": "44085352-cd28-45e5-ac42-df315b9b34fe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/TaskLinks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "TaskLinks"
+                      ]
+                    },
+                    "description": "Retrieve all task dependency links in the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "bf1e1f6c-1450-4e0c-bec6-faf07eaea660",
+                      "name": "List of task links",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/TaskLinks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "TaskLinks"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"StartId\": \"<uuid>\",\n      \"EndId\": \"<uuid>\",\n      \"DependencyType\": \"<integer>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"StartId\": \"<uuid>\",\n      \"EndId\": \"<uuid>\",\n      \"DependencyType\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:12:40.000Z",
+                      "updatedAt": "2026-07-28T02:12:40.000Z",
+                      "uid": "35240-bf1e1f6c-1450-4e0c-bec6-faf07eaea660"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-44085352-cd28-45e5-ac42-df315b9b34fe"
+                },
+                {
+                  "name": "Microsoft Project Create Draft Task Link",
+                  "id": "31dc4372-a937-4479-afe9-67b272977e68",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"StartId\": \"<uuid>\",\n  \"EndId\": \"<uuid>\",\n  \"DependencyType\": 0\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/TaskLinks",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Projects('{{projectId}}')",
+                        "Draft",
+                        "TaskLinks"
+                      ]
+                    },
+                    "description": "Create a task dependency link in the project draft."
+                  },
+                  "response": [
+                    {
+                      "id": "62d1dee0-da47-4a50-81e6-0b1b11df7d87",
+                      "name": "Task link created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"StartId\": \"<uuid>\",\n  \"EndId\": \"<uuid>\",\n  \"DependencyType\": 0\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Projects('{{projectId}}')/Draft/TaskLinks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Projects('{{projectId}}')",
+                            "Draft",
+                            "TaskLinks"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:12:40.000Z",
+                      "updatedAt": "2026-07-28T02:12:40.000Z",
+                      "uid": "35240-62d1dee0-da47-4a50-81e6-0b1b11df7d87"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:12:40.000Z",
+                  "updatedAt": "2026-07-28T02:12:40.000Z",
+                  "uid": "35240-31dc4372-a937-4479-afe9-67b272977e68"
+                }
+              ],
+              "id": "03fffb08-70ce-4882-b3eb-2899cb10ca4d",
+              "createdAt": "2026-07-28T02:12:40.000Z",
+              "updatedAt": "2026-07-28T02:12:40.000Z",
+              "uid": "35240-03fffb08-70ce-4882-b3eb-2899cb10ca4d"
+            }
+          ],
+          "id": "877b84de-12e3-4ab8-a44c-1c7b1e69cc07",
+          "createdAt": "2026-07-28T02:12:40.000Z",
+          "updatedAt": "2026-07-28T02:12:40.000Z",
+          "uid": "35240-877b84de-12e3-4ab8-a44c-1c7b1e69cc07"
+        }
+      ],
+      "id": "ee9bf9c6-d6bd-44e1-8363-d1e9da3749e7",
+      "createdAt": "2026-07-28T02:12:40.000Z",
+      "updatedAt": "2026-07-28T02:12:40.000Z",
+      "uid": "35240-ee9bf9c6-d6bd-44e1-8363-d1e9da3749e7"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "projectId",
+      "value": "<uuid>"
+    },
+    {
+      "key": "taskId",
+      "value": "<uuid>"
+    }
+  ]
+}

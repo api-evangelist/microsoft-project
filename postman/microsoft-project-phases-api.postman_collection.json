@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "390e22b7-fb88-4025-bda9-0a463deba5aa",
+    "name": "Microsoft Project Online REST Assignments Phases API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:36.000Z",
+    "updatedAt": "2026-07-28T02:12:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-390e22b7-fb88-4025-bda9-0a463deba5aa"
+  },
+  "item": [
+    {
+      "name": "Phases",
+      "item": [
+        {
+          "name": "Microsoft Project List Phases",
+          "id": "65661868-0599-4d3a-81bf-75f3d7474570",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Phases",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Phases"
+              ]
+            },
+            "description": "Retrieve all workflow phases."
+          },
+          "response": [
+            {
+              "id": "3ad9e0e9-8aca-41c6-a7fa-49ace090419a",
+              "name": "List of phases",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Phases",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Phases"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-3ad9e0e9-8aca-41c6-a7fa-49ace090419a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-65661868-0599-4d3a-81bf-75f3d7474570"
+        },
+        {
+          "name": "Microsoft Project Create Phase",
+          "id": "f0342620-edbd-409b-be05-ece1e9ee13d6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Phases",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Phases"
+              ]
+            },
+            "description": "Create a new workflow phase."
+          },
+          "response": [
+            {
+              "id": "43195d97-7a1b-4e8e-b3df-eac651a487d7",
+              "name": "Phase created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Phases",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Phases"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-43195d97-7a1b-4e8e-b3df-eac651a487d7"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-f0342620-edbd-409b-be05-ece1e9ee13d6"
+        }
+      ],
+      "id": "3b128812-6755-497b-82c4-ebcb1c6e3920",
+      "createdAt": "2026-07-28T02:12:36.000Z",
+      "updatedAt": "2026-07-28T02:12:36.000Z",
+      "uid": "35240-3b128812-6755-497b-82c4-ebcb1c6e3920"
+    },
+    {
+      "name": "Phases('{phaseId}')",
+      "item": [
+        {
+          "name": "Microsoft Project Get Phase",
+          "id": "cef72448-3e1f-4995-8cd3-99b78cabaad3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Phases('{{phaseId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Phases('{{phaseId}}')"
+              ]
+            },
+            "description": "Retrieve a specific workflow phase."
+          },
+          "response": [
+            {
+              "id": "e64c2960-aa5e-453a-911f-0fe328068154",
+              "name": "Phase details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Phases('{{phaseId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Phases('{{phaseId}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-e64c2960-aa5e-453a-911f-0fe328068154"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-cef72448-3e1f-4995-8cd3-99b78cabaad3"
+        },
+        {
+          "name": "Microsoft Project Delete Phase",
+          "id": "e1990502-1c8a-42cb-8038-49b5811b56d6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/Phases('{{phaseId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Phases('{{phaseId}}')"
+              ]
+            },
+            "description": "Delete a workflow phase."
+          },
+          "response": [
+            {
+              "id": "7649ea1d-65b8-46b9-8853-778b347d4995",
+              "name": "Phase deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Phases('{{phaseId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Phases('{{phaseId}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:36.000Z",
+              "updatedAt": "2026-07-28T02:12:36.000Z",
+              "uid": "35240-7649ea1d-65b8-46b9-8853-778b347d4995"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:36.000Z",
+          "updatedAt": "2026-07-28T02:12:36.000Z",
+          "uid": "35240-e1990502-1c8a-42cb-8038-49b5811b56d6"
+        }
+      ],
+      "id": "57754c59-1689-4550-8074-1e255e2fe5fe",
+      "createdAt": "2026-07-28T02:12:36.000Z",
+      "updatedAt": "2026-07-28T02:12:36.000Z",
+      "uid": "35240-57754c59-1689-4550-8074-1e255e2fe5fe"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "phaseId",
+      "value": "<uuid>"
+    }
+  ]
+}

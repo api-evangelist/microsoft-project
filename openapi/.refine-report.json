@@ -1,0 +1,38 @@
+{
+  "provider": "microsoft-project",
+  "sources": [
+    "microsoft-project-assignments-api-openapi.yml",
+    "microsoft-project-calendars-api-openapi.yml",
+    "microsoft-project-custom-fields-api-openapi.yml",
+    "microsoft-project-enterprise-project-types-api-openapi.yml",
+    "microsoft-project-event-handlers-api-openapi.yml",
+    "microsoft-project-lookup-tables-api-openapi.yml",
+    "microsoft-project-phases-api-openapi.yml",
+    "microsoft-project-projects-api-openapi.yml",
+    "microsoft-project-resources-api-openapi.yml",
+    "microsoft-project-stages-api-openapi.yml",
+    "microsoft-project-tasks-api-openapi.yml",
+    "microsoft-project-timesheets-api-openapi.yml",
+    "microsoft-project-workflow-activities-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-project-assignments-api-openapi.yml",
+    "microsoft-project-calendars-api-openapi.yml",
+    "microsoft-project-custom-fields-api-openapi.yml",
+    "microsoft-project-enterprise-project-types-api-openapi.yml",
+    "microsoft-project-event-handlers-api-openapi.yml",
+    "microsoft-project-lookup-tables-api-openapi.yml",
+    "microsoft-project-phases-api-openapi.yml",
+    "microsoft-project-projects-api-openapi.yml",
+    "microsoft-project-resources-api-openapi.yml",
+    "microsoft-project-stages-api-openapi.yml",
+    "microsoft-project-tasks-api-openapi.yml",
+    "microsoft-project-timesheets-api-openapi.yml",
+    "microsoft-project-workflow-activities-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

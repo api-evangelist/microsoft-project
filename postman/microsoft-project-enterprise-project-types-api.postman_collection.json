@@ -1,0 +1,364 @@
+{
+  "info": {
+    "_postman_id": "0766e7ae-50cf-4dca-b65f-03d548d69809",
+    "name": "Microsoft Project Online REST Assignments Enterprise Project Types API",
+    "description": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:12:32.000Z",
+    "updatedAt": "2026-07-28T02:12:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0766e7ae-50cf-4dca-b65f-03d548d69809"
+  },
+  "item": [
+    {
+      "name": "EnterpriseProjectTypes",
+      "item": [
+        {
+          "name": "Microsoft Project List Enterprise Project Types",
+          "id": "096adf73-6512-4d5a-911c-b249b87467bf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/EnterpriseProjectTypes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EnterpriseProjectTypes"
+              ]
+            },
+            "description": "Retrieve all enterprise project type configurations."
+          },
+          "response": [
+            {
+              "id": "0951d644-6c88-4110-8e83-c335fe47e101",
+              "name": "List of enterprise project types",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EnterpriseProjectTypes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EnterpriseProjectTypes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"WorkspaceTemplateName\": \"<string>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"IsDefault\": \"<boolean>\",\n      \"WorkspaceTemplateName\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:12:32.000Z",
+              "updatedAt": "2026-07-28T02:12:32.000Z",
+              "uid": "35240-0951d644-6c88-4110-8e83-c335fe47e101"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:32.000Z",
+          "updatedAt": "2026-07-28T02:12:32.000Z",
+          "uid": "35240-096adf73-6512-4d5a-911c-b249b87467bf"
+        },
+        {
+          "name": "Microsoft Project Create Enterprise Project Type",
+          "id": "3af11121-248a-45ce-801f-0cc1c0f2c75f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/EnterpriseProjectTypes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EnterpriseProjectTypes"
+              ]
+            },
+            "description": "Create a new enterprise project type."
+          },
+          "response": [
+            {
+              "id": "cdb582cb-3a78-4ce1-abe3-d2d3f25baee9",
+              "name": "Enterprise project type created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/EnterpriseProjectTypes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EnterpriseProjectTypes"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:32.000Z",
+              "updatedAt": "2026-07-28T02:12:32.000Z",
+              "uid": "35240-cdb582cb-3a78-4ce1-abe3-d2d3f25baee9"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:32.000Z",
+          "updatedAt": "2026-07-28T02:12:32.000Z",
+          "uid": "35240-3af11121-248a-45ce-801f-0cc1c0f2c75f"
+        }
+      ],
+      "id": "d93946ed-b979-4707-b746-512e09d4c94b",
+      "createdAt": "2026-07-28T02:12:32.000Z",
+      "updatedAt": "2026-07-28T02:12:32.000Z",
+      "uid": "35240-d93946ed-b979-4707-b746-512e09d4c94b"
+    },
+    {
+      "name": "EnterpriseProjectTypes('{projectTypeId}')",
+      "item": [
+        {
+          "name": "Microsoft Project Get Enterprise Project Type",
+          "id": "832930ba-ff39-439c-9423-26bd105cb1c0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/EnterpriseProjectTypes('{{projectTypeId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EnterpriseProjectTypes('{{projectTypeId}}')"
+              ]
+            },
+            "description": "Retrieve a specific enterprise project type."
+          },
+          "response": [
+            {
+              "id": "3b10044d-6fa6-41c8-b608-6326edb0542d",
+              "name": "Enterprise project type details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EnterpriseProjectTypes('{{projectTypeId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EnterpriseProjectTypes('{{projectTypeId}}')"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"IsDefault\": \"<boolean>\",\n  \"WorkspaceTemplateName\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:12:32.000Z",
+              "updatedAt": "2026-07-28T02:12:32.000Z",
+              "uid": "35240-3b10044d-6fa6-41c8-b608-6326edb0542d"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:32.000Z",
+          "updatedAt": "2026-07-28T02:12:32.000Z",
+          "uid": "35240-832930ba-ff39-439c-9423-26bd105cb1c0"
+        },
+        {
+          "name": "Microsoft Project Delete Enterprise Project Type",
+          "id": "5f684b36-e3f3-4419-8030-82907aae9438",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/EnterpriseProjectTypes('{{projectTypeId}}')",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EnterpriseProjectTypes('{{projectTypeId}}')"
+              ]
+            },
+            "description": "Delete an enterprise project type."
+          },
+          "response": [
+            {
+              "id": "0e03dd79-e358-4a0d-8d19-533147f4d069",
+              "name": "Enterprise project type deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EnterpriseProjectTypes('{{projectTypeId}}')",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EnterpriseProjectTypes('{{projectTypeId}}')"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:12:32.000Z",
+              "updatedAt": "2026-07-28T02:12:32.000Z",
+              "uid": "35240-0e03dd79-e358-4a0d-8d19-533147f4d069"
+            }
+          ],
+          "createdAt": "2026-07-28T02:12:32.000Z",
+          "updatedAt": "2026-07-28T02:12:32.000Z",
+          "uid": "35240-5f684b36-e3f3-4419-8030-82907aae9438"
+        }
+      ],
+      "id": "9cb5c93a-d907-4cb0-9b8a-65aaaa01e143",
+      "createdAt": "2026-07-28T02:12:32.000Z",
+      "updatedAt": "2026-07-28T02:12:32.000Z",
+      "uid": "35240-9cb5c93a-d907-4cb0-9b8a-65aaaa01e143"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "tenant",
+      "value": "contoso"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer"
+    },
+    {
+      "key": "projectTypeId",
+      "value": "<uuid>"
+    }
+  ]
+}
