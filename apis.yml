@@ -174,32 +174,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-calendars-api
   name: Microsoft Project Calendars API
   description: Manage enterprise calendars
@@ -268,32 +242,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-custom-fields-api
   name: Microsoft Project Custom Fields API
   description: Manage enterprise custom field definitions
@@ -362,32 +310,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-enterprise-project-types-api
   name: Microsoft Project Enterprise Project Types API
   description: Manage enterprise project type configurations
@@ -456,32 +378,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-event-handlers-api
   name: Microsoft Project Event Handlers API
   description: Manage event handler subscriptions
@@ -550,32 +446,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-lookup-tables-api
   name: Microsoft Project Lookup Tables API
   description: Manage lookup table definitions and entries
@@ -644,32 +514,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-phases-api
   name: Microsoft Project Phases API
   description: Manage workflow phases
@@ -738,32 +582,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-projects-api
   name: Microsoft Project Projects API
   description: Manage projects and project lifecycle operations
@@ -832,32 +650,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-resources-api
   name: Microsoft Project Resources API
   description: Manage enterprise resources and project resources
@@ -926,32 +718,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-stages-api
   name: Microsoft Project Stages API
   description: Manage workflow stages
@@ -1020,32 +786,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-tasks-api
   name: Microsoft Project Tasks API
   description: Manage project tasks and subtasks
@@ -1114,32 +854,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-timesheets-api
   name: Microsoft Project Timesheets API
   description: Manage timesheet periods, lines, and work entries
@@ -1208,32 +922,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 - aid: microsoft-project:microsoft-project-workflow-activities-api
   name: Microsoft Project Workflow Activities API
   description: Manage workflow activities
@@ -1302,32 +990,6 @@ apis:
     url: examples/rest-api-custom-field-example.json
   - type: Examples
     url: examples/rest-api-time-sheet-example.json
-  - type: X-NaftikoCapability
-    url: capabilities/rest-assignments.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-calendars.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-custom-fields.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-enterprise-project-types.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-event-handlers.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-lookup-tables.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-phases.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-projects.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-resources.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-stages.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-tasks.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-timesheets.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-workflow-activities.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/microsoft-project/overview
