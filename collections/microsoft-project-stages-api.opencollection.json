@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Stages API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Stages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Stages"
+          },
+          "docs": "Retrieve all workflow stages."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Stages",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new workflow stage."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Stages(':stageId')",
+            "params": [
+              {
+                "name": "stageId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the stage"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific workflow stage."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Stage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Stages(':stageId')",
+            "params": [
+              {
+                "name": "stageId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the stage"
+              }
+            ]
+          },
+          "docs": "Delete a workflow stage."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

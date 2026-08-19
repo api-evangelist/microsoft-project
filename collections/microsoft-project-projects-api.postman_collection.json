@@ -1,0 +1,1278 @@
+{
+  "item": [
+    {
+      "id": "96db01c9-02db-4501-826f-84b94e8cff21",
+      "name": "Projects",
+      "description": {
+        "content": "Manage projects and project lifecycle operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3d77fd46-22b3-48fc-9658-87e895c647df",
+          "name": "Microsoft Project List Projects",
+          "request": {
+            "name": "Microsoft Project List Projects",
+            "description": {
+              "content": "Retrieve all projects accessible to the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a2cda38-f1e0-4cf5-a196-b41953335792",
+              "name": "List of projects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"263fc8d7-427c-e111-92fc-00155d3ba208\",\n      \"Name\": \"Enterprise Website Redesign\",\n      \"Description\": \"Complete redesign of the corporate website\",\n      \"StartDate\": \"2026-01-15T00:00:00Z\",\n      \"FinishDate\": \"2026-06-30T00:00:00Z\",\n      \"CreatedDate\": \"2026-01-10T14:30:00Z\",\n      \"ModifiedDate\": \"2026-04-18T09:15:00Z\",\n      \"IsCheckedOut\": false,\n      \"CheckedOutBy\": \"jsmith@contoso.com\",\n      \"PercentComplete\": 45,\n      \"ProjectType\": 0,\n      \"ProjectSiteUrl\": \"https://contoso.sharepoint.com/sites/pwa/ProjectSite\"\n    },\n    {\n      \"Id\": \"263fc8d7-427c-e111-92fc-00155d3ba208\",\n      \"Name\": \"Enterprise Website Redesign\",\n      \"Description\": \"Complete redesign of the corporate website\",\n      \"StartDate\": \"2026-01-15T00:00:00Z\",\n      \"FinishDate\": \"2026-06-30T00:00:00Z\",\n      \"CreatedDate\": \"2026-01-10T14:30:00Z\",\n      \"ModifiedDate\": \"2026-04-18T09:15:00Z\",\n      \"IsCheckedOut\": false,\n      \"CheckedOutBy\": \"jsmith@contoso.com\",\n      \"PercentComplete\": 45,\n      \"ProjectType\": 0,\n      \"ProjectSiteUrl\": \"https://contoso.sharepoint.com/sites/pwa/ProjectSite\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3547cc4c-f0ed-4ff8-88ab-60edba6668bc",
+              "name": "Unauthorized - authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3320c883-d071-462d-9df3-0a179aec75fa",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cad2ffb-4eab-42ee-9997-86e039e76010",
+          "name": "Microsoft Project Create Project",
+          "request": {
+            "name": "Microsoft Project Create Project",
+            "description": {
+              "content": "Create a new project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"StartDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "94f6def4-ad05-4315-b13a-b3a35fb42e11",
+              "name": "Project created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"New Product Launch\",\n  \"Description\": \"Launch plan for Q3 product release\",\n  \"StartDate\": \"2026-07-01T00:00:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"263fc8d7-427c-e111-92fc-00155d3ba208\",\n  \"Name\": \"Enterprise Website Redesign\",\n  \"Description\": \"Complete redesign of the corporate website\",\n  \"StartDate\": \"2026-01-15T00:00:00Z\",\n  \"FinishDate\": \"2026-06-30T00:00:00Z\",\n  \"CreatedDate\": \"2026-01-10T14:30:00Z\",\n  \"ModifiedDate\": \"2026-04-18T09:15:00Z\",\n  \"IsCheckedOut\": false,\n  \"CheckedOutBy\": \"jsmith@contoso.com\",\n  \"PercentComplete\": 45,\n  \"ProjectType\": 0,\n  \"ProjectSiteUrl\": \"https://contoso.sharepoint.com/sites/pwa/ProjectSite\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bf8aef0-9095-446a-8ec7-cab86109050d",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"New Product Launch\",\n  \"Description\": \"Launch plan for Q3 product release\",\n  \"StartDate\": \"2026-07-01T00:00:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2724b203-4c88-4494-8078-cdc8d5d854a3",
+              "name": "Unauthorized - authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"New Product Launch\",\n  \"Description\": \"Launch plan for Q3 product release\",\n  \"StartDate\": \"2026-07-01T00:00:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b67f8fb7-355a-4bb6-a42d-21eee01a381f",
+          "name": "Microsoft Project Get Project",
+          "request": {
+            "name": "Microsoft Project Get Project",
+            "description": {
+              "content": "Retrieve a specific project by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "feff7eee-ba14-43d7-ad7e-ac97c2c84371",
+              "name": "Project details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"263fc8d7-427c-e111-92fc-00155d3ba208\",\n  \"Name\": \"Enterprise Website Redesign\",\n  \"Description\": \"Complete redesign of the corporate website\",\n  \"StartDate\": \"2026-01-15T00:00:00Z\",\n  \"FinishDate\": \"2026-06-30T00:00:00Z\",\n  \"CreatedDate\": \"2026-01-10T14:30:00Z\",\n  \"ModifiedDate\": \"2026-04-18T09:15:00Z\",\n  \"IsCheckedOut\": false,\n  \"CheckedOutBy\": \"jsmith@contoso.com\",\n  \"PercentComplete\": 45,\n  \"ProjectType\": 0,\n  \"ProjectSiteUrl\": \"https://contoso.sharepoint.com/sites/pwa/ProjectSite\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61815b73-c02c-4263-9b1f-9ed70acf7497",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fdd0a9a-0947-4ec9-bebf-2cec725355b0",
+          "name": "Microsoft Project Delete Project",
+          "request": {
+            "name": "Microsoft Project Delete Project",
+            "description": {
+              "content": "Delete a project by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "565615af-31eb-40e8-bc3b-873a58b41418",
+              "name": "Project deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d23b692c-a8d3-4f75-8904-d25ad662a9e8",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de83c20a-e42b-45cc-8367-b9e92fca98b5",
+          "name": "Microsoft Project Check Out Project",
+          "request": {
+            "name": "Microsoft Project Check Out Project",
+            "description": {
+              "content": "Check out a project for editing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "checkOut()"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8c7b84f-4a57-4b02-9b8c-f724a168e6da",
+              "name": "Project checked out",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "checkOut()"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d23cdc4d-fc8e-4fc2-8c21-dcb567c308a5",
+              "name": "Project already checked out",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "checkOut()"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c61749b2-333b-4fbe-b47d-6aa1ec7992c4",
+          "name": "Microsoft Project Check in Project Draft",
+          "request": {
+            "name": "Microsoft Project Check in Project Draft",
+            "description": {
+              "content": "Check in a project draft. Optionally force check-in.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "checkIn(force={{force}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "force",
+                  "value": "false",
+                  "description": "Whether to force check-in"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9d7dbf3-9f46-4ecc-9956-b20b6b152a51",
+              "name": "Project checked in",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "checkIn(force={{force}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b90b67d-2565-44d2-b1f6-884766ff4ed8",
+          "name": "Microsoft Project Publish Project",
+          "request": {
+            "name": "Microsoft Project Publish Project",
+            "description": {
+              "content": "Publish a project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "publish(checkIn={{checkIn}})"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "checkIn",
+                  "value": "true",
+                  "description": "Whether to check in after publishing"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43312c8e-fd04-40ac-ab03-897b4b5c4d28",
+              "name": "Project published",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "publish(checkIn={{checkIn}})"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "checkIn",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc4c1072-07c2-4881-84e9-40b00ad26406",
+          "name": "Microsoft Project Submit Project to Workflow",
+          "request": {
+            "name": "Microsoft Project Submit Project to Workflow",
+            "description": {
+              "content": "Submit a project to its associated workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "submitToWorkflow()"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e026b4a-9fef-4df3-b709-e989187961d3",
+              "name": "Project submitted to workflow",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "submitToWorkflow()"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12e5d9e5-6aa2-4c5e-878c-92da98fa32fe",
+          "name": "Microsoft Project List Project Queue Jobs",
+          "request": {
+            "name": "Microsoft Project List Project Queue Jobs",
+            "description": {
+              "content": "Retrieve all queue jobs for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "QueueJobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85f31ffd-e745-4b58-a60e-31794e455818",
+              "name": "List of queue jobs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "QueueJobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"4ceb21da-c3d8-91ef-abab-2dd2f1bfba42\",\n      \"JobState\": 4,\n      \"MessageType\": 4758,\n      \"PercentComplete\": 100\n    },\n    {\n      \"Id\": \"ffacec79-7f77-f889-9660-77c719f94dfd\",\n      \"JobState\": 4,\n      \"MessageType\": 1116,\n      \"PercentComplete\": 100\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the project",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "projectId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "48980afb-087e-48ab-a709-56fbffeebe93",
+    "name": "Microsoft Project Online REST Assignments Projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

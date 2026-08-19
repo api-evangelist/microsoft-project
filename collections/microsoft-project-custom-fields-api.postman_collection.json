@@ -1,0 +1,451 @@
+{
+  "item": [
+    {
+      "id": "6844268c-a80e-46e1-b3f2-369af8ab2c04",
+      "name": "Custom Fields",
+      "description": {
+        "content": "Manage enterprise custom field definitions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08824ccc-84f8-4ece-a15a-afd06310f1dd",
+          "name": "Microsoft Project List Custom Fields",
+          "request": {
+            "name": "Microsoft Project List Custom Fields",
+            "description": {
+              "content": "Retrieve all enterprise custom field definitions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CustomFields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2105524-8a08-4778-8463-2d5c3b2da87b",
+              "name": "List of custom fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CustomFields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"e1dfb5b3-3262-a0f5-8660-ef298a913777\",\n      \"InternalName\": \"Custom_x0020_Text1\",\n      \"Name\": \"Department Code\",\n      \"FieldType\": 7,\n      \"EntityType\": 2,\n      \"Description\": \"Custom field for department codes\",\n      \"LookupTableId\": \"cd305d5c-f61d-1ea3-fda8-23cec62655c9\",\n      \"IsRequired\": false,\n      \"IsMultilineText\": false,\n      \"Formula\": \"string\"\n    },\n    {\n      \"Id\": \"fdab5e6e-3a47-e650-9f03-0c71c7562bae\",\n      \"InternalName\": \"Custom_x0020_Text1\",\n      \"Name\": \"Department Code\",\n      \"FieldType\": 7,\n      \"EntityType\": 2,\n      \"Description\": \"Custom field for department codes\",\n      \"LookupTableId\": \"dd1628d8-8b5b-da8c-edc1-bd4e5e557d06\",\n      \"IsRequired\": false,\n      \"IsMultilineText\": false,\n      \"Formula\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e60e240-6c63-4938-9f86-5e5613e1bb3c",
+          "name": "Microsoft Project Create Custom Field",
+          "request": {
+            "name": "Microsoft Project Create Custom Field",
+            "description": {
+              "content": "Create a new enterprise custom field definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CustomFields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\",\n  \"EntityType\": \"<integer>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7a66b89-2e0b-4fff-ba62-5a7e19d5935b",
+              "name": "Custom field created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CustomFields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\",\n  \"EntityType\": \"<integer>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"3751a411-017c-bb37-621b-22ecbfb349fd\",\n  \"InternalName\": \"Custom_x0020_Text1\",\n  \"Name\": \"Department Code\",\n  \"FieldType\": 7,\n  \"EntityType\": 2,\n  \"Description\": \"Custom field for department codes\",\n  \"LookupTableId\": \"45d1ae64-5947-20eb-7cd0-cd517778c9f8\",\n  \"IsRequired\": false,\n  \"IsMultilineText\": false,\n  \"Formula\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c43d3160-2284-4b37-92d5-3b8cb8446e61",
+          "name": "Microsoft Project Get Custom Field",
+          "request": {
+            "name": "Microsoft Project Get Custom Field",
+            "description": {
+              "content": "Retrieve a specific custom field by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CustomFields('{{fieldId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b01acbc4-cb85-4e1b-9872-552c8e42e1d8",
+              "name": "Custom field details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CustomFields('{{fieldId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"3751a411-017c-bb37-621b-22ecbfb349fd\",\n  \"InternalName\": \"Custom_x0020_Text1\",\n  \"Name\": \"Department Code\",\n  \"FieldType\": 7,\n  \"EntityType\": 2,\n  \"Description\": \"Custom field for department codes\",\n  \"LookupTableId\": \"45d1ae64-5947-20eb-7cd0-cd517778c9f8\",\n  \"IsRequired\": false,\n  \"IsMultilineText\": false,\n  \"Formula\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81884f1c-f845-4ea5-92b2-8b0510b66ca7",
+          "name": "Microsoft Project Delete Custom Field",
+          "request": {
+            "name": "Microsoft Project Delete Custom Field",
+            "description": {
+              "content": "Delete a custom field definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CustomFields('{{fieldId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "424e6637-e3f9-49c3-8c97-fec4df9a3ec1",
+              "name": "Custom field deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CustomFields('{{fieldId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the custom field",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "fieldId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f5055fdc-95cc-4f64-b115-7db3803bfff0",
+    "name": "Microsoft Project Online REST Assignments Custom Fields API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

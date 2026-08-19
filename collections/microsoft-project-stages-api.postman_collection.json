@@ -1,0 +1,443 @@
+{
+  "item": [
+    {
+      "id": "b0f1b485-2401-4f93-ae03-33ca9e63bbc0",
+      "name": "Stages",
+      "description": {
+        "content": "Manage workflow stages",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93a02f17-81e6-4b1c-b600-5c9033f5ed9e",
+          "name": "Microsoft Project List Stages",
+          "request": {
+            "name": "Microsoft Project List Stages",
+            "description": {
+              "content": "Retrieve all workflow stages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Stages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ff3d7e9-23c1-411c-9385-60be2aeee1f9",
+              "name": "List of stages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Stages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"ba56f84c-0489-f944-580b-30a479068038\",\n      \"Name\": \"Requirements Review\",\n      \"Description\": \"Review and approve project requirements\",\n      \"PhaseId\": \"fee455e5-dd9f-0808-975b-be6459356668\"\n    },\n    {\n      \"Id\": \"49364444-6e39-ed67-c590-b6ad584b4e6a\",\n      \"Name\": \"Requirements Review\",\n      \"Description\": \"Review and approve project requirements\",\n      \"PhaseId\": \"0e3f25c7-b7b3-9118-02a1-1d61a4c21baf\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d6a5efd-49ac-414f-9db1-2db500031cd5",
+          "name": "Microsoft Project Create Stage",
+          "request": {
+            "name": "Microsoft Project Create Stage",
+            "description": {
+              "content": "Create a new workflow stage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Stages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"PhaseId\": \"<uuid>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "851049f8-63e6-4ae6-927c-d002a4114b3d",
+              "name": "Stage created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Stages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PhaseId\": \"<uuid>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6239498-bc02-4bd1-9208-7b0cb7ee9e6b",
+          "name": "Microsoft Project Get Stage",
+          "request": {
+            "name": "Microsoft Project Get Stage",
+            "description": {
+              "content": "Retrieve a specific workflow stage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Stages('{{stageId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19fe74fe-2b51-41a5-81e4-c29eb0885145",
+              "name": "Stage details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Stages('{{stageId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"753d5297-8dcd-26f8-cffd-9860000ad4c1\",\n  \"Name\": \"Requirements Review\",\n  \"Description\": \"Review and approve project requirements\",\n  \"PhaseId\": \"2227b90d-952f-b832-4156-003b0e238f65\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fc26c7b-7e08-4ee2-ab4c-4c4c9fecf1ff",
+          "name": "Microsoft Project Delete Stage",
+          "request": {
+            "name": "Microsoft Project Delete Stage",
+            "description": {
+              "content": "Delete a workflow stage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Stages('{{stageId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cb12e00-67a4-42b7-b0fb-15c3308e3f7d",
+              "name": "Stage deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Stages('{{stageId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the stage",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "stageId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2533a2eb-0ed5-472a-9920-3d8a9d30c590",
+    "name": "Microsoft Project Online REST Assignments Stages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

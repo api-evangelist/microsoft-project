@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Resources API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Draft Project Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/ProjectResources",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all resources in the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Add Draft Project Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/ProjectResources",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a resource to the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Project Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/ProjectResources",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all published resources for a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Enterprise Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EnterpriseResources"
+          },
+          "docs": "Retrieve all enterprise resources."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Enterprise Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EnterpriseResources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new enterprise resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

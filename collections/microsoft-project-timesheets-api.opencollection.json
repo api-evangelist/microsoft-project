@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Timesheets API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Timesheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Timesheet Periods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/TimeSheetPeriods"
+          },
+          "docs": "Retrieve all timesheet periods."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Timesheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/TimeSheetPeriods(':periodId')/TimeSheet",
+            "params": [
+              {
+                "name": "periodId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the timesheet period"
+              }
+            ]
+          },
+          "docs": "Retrieve a timesheet for a specific period."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Timesheet Lines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/TimeSheetPeriods(':periodId')/TimeSheet/Lines",
+            "params": [
+              {
+                "name": "periodId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the timesheet period"
+              }
+            ]
+          },
+          "docs": "Retrieve all lines in a timesheet."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Timesheet Line",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/TimeSheetPeriods(':periodId')/TimeSheet/Lines",
+            "params": [
+              {
+                "name": "periodId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the timesheet period"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new line in a timesheet."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Submit Timesheet for Approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/TimeSheetPeriods(':periodId')/TimeSheet/submitForApproval()",
+            "params": [
+              {
+                "name": "periodId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the timesheet period"
+              }
+            ]
+          },
+          "docs": "Submit a timesheet for manager approval."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

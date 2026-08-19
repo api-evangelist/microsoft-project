@@ -1,0 +1,443 @@
+{
+  "item": [
+    {
+      "id": "68fa8c01-10ac-4ff5-92e6-a73f95588cf7",
+      "name": "Event Handlers",
+      "description": {
+        "content": "Manage event handler subscriptions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b391f0f-be99-4d5b-a1f8-2bd3b3c6e1ed",
+          "name": "Microsoft Project List Event Handlers",
+          "request": {
+            "name": "Microsoft Project List Event Handlers",
+            "description": {
+              "content": "Retrieve all registered event handlers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EventHandlers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de5da753-50b0-430e-87cc-ad64166ee58e",
+              "name": "List of event handlers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EventHandlers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"9a11b274-2570-8ec1-5391-4d1eb37f1ad9\",\n      \"Name\": \"Project Published Handler\",\n      \"AssemblyName\": \"string\",\n      \"ClassName\": \"string\",\n      \"EventId\": 3879,\n      \"Order\": 1\n    },\n    {\n      \"Id\": \"cf9fea85-652d-9da2-ea16-4903a61686c0\",\n      \"Name\": \"Project Published Handler\",\n      \"AssemblyName\": \"string\",\n      \"ClassName\": \"string\",\n      \"EventId\": 3274,\n      \"Order\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "adf1136e-1dad-462b-b1a7-a15139d2fd7c",
+          "name": "Microsoft Project Create Event Handler",
+          "request": {
+            "name": "Microsoft Project Create Event Handler",
+            "description": {
+              "content": "Register a new event handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EventHandlers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"AssemblyName\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"Order\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42c9656e-68c1-4e15-be0e-779c066a778a",
+              "name": "Event handler created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EventHandlers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"AssemblyName\": \"<string>\",\n  \"ClassName\": \"<string>\",\n  \"Order\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5ae84d0e-fddf-4360-8c60-52700a72b125",
+          "name": "Microsoft Project Get Event Handler",
+          "request": {
+            "name": "Microsoft Project Get Event Handler",
+            "description": {
+              "content": "Retrieve a specific event handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EventHandlers('{{handlerId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4158050-7919-4882-8cfb-31137b3a1dbc",
+              "name": "Event handler details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EventHandlers('{{handlerId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"08dbdfea-4245-49e5-066b-cbf706b47242\",\n  \"Name\": \"Project Published Handler\",\n  \"AssemblyName\": \"string\",\n  \"ClassName\": \"string\",\n  \"EventId\": 7645,\n  \"Order\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a791f650-af25-400a-b835-fcd9544e1db2",
+          "name": "Microsoft Project Delete Event Handler",
+          "request": {
+            "name": "Microsoft Project Delete Event Handler",
+            "description": {
+              "content": "Delete an event handler.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EventHandlers('{{handlerId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a2518cb2-a760-4c5e-828e-f42029eeda79",
+              "name": "Event handler deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EventHandlers('{{handlerId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the event handler",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "handlerId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0f11e322-7a3f-443e-aacd-a03f35961e37",
+    "name": "Microsoft Project Online REST Assignments Event Handlers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

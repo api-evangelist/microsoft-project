@@ -1,0 +1,644 @@
+{
+  "item": [
+    {
+      "id": "5c548bba-bc5b-4960-806e-fd9b33d65e9c",
+      "name": "Lookup Tables",
+      "description": {
+        "content": "Manage lookup table definitions and entries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3ff0c1e-0255-4185-b860-f79433309408",
+          "name": "Microsoft Project List Lookup Tables",
+          "request": {
+            "name": "Microsoft Project List Lookup Tables",
+            "description": {
+              "content": "Retrieve all lookup table definitions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "LookupTables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "346dd12c-75d1-4693-999a-8104cb11c326",
+              "name": "List of lookup tables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "LookupTables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"c16a8510-db19-2428-e691-ca17d501af4c\",\n      \"Name\": \"Priority Levels\",\n      \"FieldType\": 7121,\n      \"SortOrder\": 3382\n    },\n    {\n      \"Id\": \"c77b3197-b10a-3e16-5f22-4a39d52d32f8\",\n      \"Name\": \"Priority Levels\",\n      \"FieldType\": 7005,\n      \"SortOrder\": 4304\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da674bdf-eeca-469f-bfc5-3aea7da63e82",
+          "name": "Microsoft Project Create Lookup Table",
+          "request": {
+            "name": "Microsoft Project Create Lookup Table",
+            "description": {
+              "content": "Create a new lookup table definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "LookupTables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d76f069e-bd08-4125-a775-a4bbca2fb1f7",
+              "name": "Lookup table created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "LookupTables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"FieldType\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54e0398f-3c46-4d1c-aeca-024faed976be",
+          "name": "Microsoft Project Get Lookup Table",
+          "request": {
+            "name": "Microsoft Project Get Lookup Table",
+            "description": {
+              "content": "Retrieve a specific lookup table by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "LookupTables('{{tableId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c55e5ff-9806-4987-99ea-0c3cd6600f56",
+              "name": "Lookup table details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "LookupTables('{{tableId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"e9572edb-7e5a-48e8-4ed5-3728b02e2eaf\",\n  \"Name\": \"Priority Levels\",\n  \"FieldType\": 8839,\n  \"SortOrder\": 3587\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50d3790f-b73a-498a-a04e-25aa0dbd05e9",
+          "name": "Microsoft Project Delete Lookup Table",
+          "request": {
+            "name": "Microsoft Project Delete Lookup Table",
+            "description": {
+              "content": "Delete a lookup table by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "LookupTables('{{tableId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "449f6cef-e669-46a5-902a-3ed36a4dc8f6",
+              "name": "Lookup table deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "LookupTables('{{tableId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23cc341d-0a86-47b5-af87-3b7de18fa8d6",
+          "name": "Microsoft Project List Lookup Table Entries",
+          "request": {
+            "name": "Microsoft Project List Lookup Table Entries",
+            "description": {
+              "content": "Retrieve all entries in a lookup table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "LookupTables('{{tableId}}')",
+                "Entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "487be4ff-c3f0-4b6a-a637-a50d3d0a8f81",
+              "name": "List of entries",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "LookupTables('{{tableId}}')",
+                    "Entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"4199c640-536d-4af0-8f1c-8686a16c5fa9\",\n      \"Value\": \"High Priority\",\n      \"SortIndex\": 1,\n      \"Description\": \"string\"\n    },\n    {\n      \"Id\": \"db0b3513-4315-c990-0d32-7fe37d14fcfa\",\n      \"Value\": \"High Priority\",\n      \"SortIndex\": 1,\n      \"Description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4020490f-2202-4f8d-aee1-14ba68707c58",
+          "name": "Microsoft Project Create Lookup Table Entry",
+          "request": {
+            "name": "Microsoft Project Create Lookup Table Entry",
+            "description": {
+              "content": "Create a new entry in a lookup table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "LookupTables('{{tableId}}')",
+                "Entries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Value\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5fc6ed9-c9d3-41b0-b02a-4f62267eefc3",
+              "name": "Entry created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "LookupTables('{{tableId}}')",
+                    "Entries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Value\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the lookup table",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "tableId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c91406ea-ef05-44cc-a903-4a506f3cd468",
+    "name": "Microsoft Project Online REST Assignments Lookup Tables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

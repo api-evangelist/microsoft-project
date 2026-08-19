@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Custom Fields API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Fields",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Custom Fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/CustomFields"
+          },
+          "docs": "Retrieve all enterprise custom field definitions."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/CustomFields",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new enterprise custom field definition."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/CustomFields(':fieldId')",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the custom field"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific custom field by ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Custom Field",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/CustomFields(':fieldId')",
+            "params": [
+              {
+                "name": "fieldId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the custom field"
+              }
+            ]
+          },
+          "docs": "Delete a custom field definition."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

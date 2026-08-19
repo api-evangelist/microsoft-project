@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Calendars API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Calendars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Calendars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Calendars"
+          },
+          "docs": "Retrieve all enterprise calendars."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Calendars",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new enterprise calendar."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Calendars(':calendarId')",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the calendar"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific calendar by ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Calendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Calendars(':calendarId')",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the calendar"
+              }
+            ]
+          },
+          "docs": "Delete a calendar by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

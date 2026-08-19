@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Assignments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Project Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Assignments",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all published assignments for a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Draft Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/Assignments",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all draft assignments for a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Draft Assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/Assignments",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new assignment in the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Draft Assignment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/Assignments(':assignmentId')",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              },
+              {
+                "name": "assignmentId",
+                "value": "a2eafeb5-437c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the assignment"
+              }
+            ]
+          },
+          "docs": "Delete an assignment from the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Enterprise Resource Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EnterpriseResources(':resourceId')/Assignments",
+            "params": [
+              {
+                "name": "resourceId",
+                "value": "28eeb2b5-fe74-4efc-aa35-6a64514d1526",
+                "type": "path",
+                "description": "The GUID identifier of the enterprise resource"
+              }
+            ]
+          },
+          "docs": "Retrieve all assignments for an enterprise resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

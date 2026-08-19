@@ -1,0 +1,985 @@
+{
+  "item": [
+    {
+      "id": "5cbc9df4-b55a-45e1-a6f9-8123a66436be",
+      "name": "Tasks",
+      "description": {
+        "content": "Manage project tasks and subtasks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd4d34c5-3ac2-443d-b749-26f4b679e82d",
+          "name": "Microsoft Project List Project Tasks",
+          "request": {
+            "name": "Microsoft Project List Project Tasks",
+            "description": {
+              "content": "Retrieve all published tasks for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbed9622-3223-4a06-ab4a-b14980e8095f",
+              "name": "List of tasks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"b1c2d3e4-f5a6-7890-abcd-ef1234567890\",\n      \"Name\": \"Design Review Meeting\",\n      \"Start\": \"2026-02-01T08:00:00Z\",\n      \"Finish\": \"2026-02-15T17:00:00Z\",\n      \"Duration\": \"10d\",\n      \"PercentComplete\": 75,\n      \"IsSummary\": false,\n      \"IsMilestone\": false,\n      \"Priority\": 500,\n      \"ParentId\": \"3397e4e7-205a-05d7-2d38-db98e359cc03\",\n      \"Notes\": \"Requires all stakeholders present\",\n      \"IsManuallyScheduled\": false,\n      \"ConstraintType\": 0,\n      \"ConstraintStartEnd\": \"1973-05-06T19:34:07.469Z\",\n      \"Work\": \"80h\",\n      \"RemainingWork\": \"20h\",\n      \"ActualWork\": \"60h\",\n      \"Cost\": 5000\n    },\n    {\n      \"Id\": \"b1c2d3e4-f5a6-7890-abcd-ef1234567890\",\n      \"Name\": \"Design Review Meeting\",\n      \"Start\": \"2026-02-01T08:00:00Z\",\n      \"Finish\": \"2026-02-15T17:00:00Z\",\n      \"Duration\": \"10d\",\n      \"PercentComplete\": 75,\n      \"IsSummary\": false,\n      \"IsMilestone\": false,\n      \"Priority\": 500,\n      \"ParentId\": \"962daba3-a234-a4aa-288f-1005ce1e663e\",\n      \"Notes\": \"Requires all stakeholders present\",\n      \"IsManuallyScheduled\": false,\n      \"ConstraintType\": 0,\n      \"ConstraintStartEnd\": \"2004-10-31T01:39:23.474Z\",\n      \"Work\": \"80h\",\n      \"RemainingWork\": \"20h\",\n      \"ActualWork\": \"60h\",\n      \"Cost\": 5000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bcb0324-c0b1-4860-bae2-854f3bcb97ed",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd6f870f-f3a8-453b-9cd2-2dfec75b815d",
+          "name": "Microsoft Project Get Project Task",
+          "request": {
+            "name": "Microsoft Project Get Project Task",
+            "description": {
+              "content": "Retrieve a specific task from a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Tasks('{{taskId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73d21ca8-7c6e-4a67-b11b-a1a5e821c70a",
+              "name": "Task details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Tasks('{{taskId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"b1c2d3e4-f5a6-7890-abcd-ef1234567890\",\n  \"Name\": \"Design Review Meeting\",\n  \"Start\": \"2026-02-01T08:00:00Z\",\n  \"Finish\": \"2026-02-15T17:00:00Z\",\n  \"Duration\": \"10d\",\n  \"PercentComplete\": 75,\n  \"IsSummary\": false,\n  \"IsMilestone\": false,\n  \"Priority\": 500,\n  \"ParentId\": \"9cd59f2e-ad68-a761-c08e-ed2bdb6d5a87\",\n  \"Notes\": \"Requires all stakeholders present\",\n  \"IsManuallyScheduled\": false,\n  \"ConstraintType\": 0,\n  \"ConstraintStartEnd\": \"2011-09-08T06:23:05.348Z\",\n  \"Work\": \"80h\",\n  \"RemainingWork\": \"20h\",\n  \"ActualWork\": \"60h\",\n  \"Cost\": 5000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab9257c9-c6f6-4aeb-b51f-02e40705ae65",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Tasks('{{taskId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"InvalidRequest\",\n    \"message\": \"The specified project was not found.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04fb9149-c525-4579-b7ab-9adef2db0d09",
+          "name": "Microsoft Project List Draft Tasks",
+          "request": {
+            "name": "Microsoft Project List Draft Tasks",
+            "description": {
+              "content": "Retrieve all draft tasks for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "Tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f87f008-0739-4f72-9af9-376daaeb132e",
+              "name": "List of draft tasks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "Tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"b1c2d3e4-f5a6-7890-abcd-ef1234567890\",\n      \"Name\": \"Design Review Meeting\",\n      \"Start\": \"2026-02-01T08:00:00Z\",\n      \"Finish\": \"2026-02-15T17:00:00Z\",\n      \"Duration\": \"10d\",\n      \"PercentComplete\": 75,\n      \"IsSummary\": false,\n      \"IsMilestone\": false,\n      \"Priority\": 500,\n      \"ParentId\": \"d9905fd2-70d6-cee9-323c-a08863a18de7\",\n      \"Notes\": \"Requires all stakeholders present\",\n      \"IsManuallyScheduled\": false,\n      \"ConstraintType\": 0,\n      \"ConstraintStartEnd\": \"1969-04-01T05:51:03.184Z\",\n      \"Work\": \"80h\",\n      \"RemainingWork\": \"20h\",\n      \"ActualWork\": \"60h\",\n      \"Cost\": 5000\n    },\n    {\n      \"Id\": \"b1c2d3e4-f5a6-7890-abcd-ef1234567890\",\n      \"Name\": \"Design Review Meeting\",\n      \"Start\": \"2026-02-01T08:00:00Z\",\n      \"Finish\": \"2026-02-15T17:00:00Z\",\n      \"Duration\": \"10d\",\n      \"PercentComplete\": 75,\n      \"IsSummary\": false,\n      \"IsMilestone\": false,\n      \"Priority\": 500,\n      \"ParentId\": \"0911cd5f-7207-4e2e-fc68-4fa1045c9de0\",\n      \"Notes\": \"Requires all stakeholders present\",\n      \"IsManuallyScheduled\": false,\n      \"ConstraintType\": 0,\n      \"ConstraintStartEnd\": \"2017-09-10T00:19:55.472Z\",\n      \"Work\": \"80h\",\n      \"RemainingWork\": \"20h\",\n      \"ActualWork\": \"60h\",\n      \"Cost\": 5000\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61dac74b-001b-4336-9938-8836cf8de2d4",
+          "name": "Microsoft Project Create Draft Task",
+          "request": {
+            "name": "Microsoft Project Create Draft Task",
+            "description": {
+              "content": "Create a new task in the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "Tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Start\": \"<dateTime>\",\n  \"Duration\": \"<string>\",\n  \"ParentId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e648446-7ea3-493e-9ea2-c1cae1daf8b4",
+              "name": "Task created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "Tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"Requirements Gathering\",\n  \"Start\": \"<dateTime>\",\n  \"Duration\": \"5d\",\n  \"ParentId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"b1c2d3e4-f5a6-7890-abcd-ef1234567890\",\n  \"Name\": \"Design Review Meeting\",\n  \"Start\": \"2026-02-01T08:00:00Z\",\n  \"Finish\": \"2026-02-15T17:00:00Z\",\n  \"Duration\": \"10d\",\n  \"PercentComplete\": 75,\n  \"IsSummary\": false,\n  \"IsMilestone\": false,\n  \"Priority\": 500,\n  \"ParentId\": \"9cd59f2e-ad68-a761-c08e-ed2bdb6d5a87\",\n  \"Notes\": \"Requires all stakeholders present\",\n  \"IsManuallyScheduled\": false,\n  \"ConstraintType\": 0,\n  \"ConstraintStartEnd\": \"2011-09-08T06:23:05.348Z\",\n  \"Work\": \"80h\",\n  \"RemainingWork\": \"20h\",\n  \"ActualWork\": \"60h\",\n  \"Cost\": 5000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c1f9924-4bde-4601-8729-4087120bd6c7",
+          "name": "Microsoft Project Delete Draft Task",
+          "request": {
+            "name": "Microsoft Project Delete Draft Task",
+            "description": {
+              "content": "Delete a task from the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "Tasks('{{taskId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2ccd7d2-71c8-469c-8fd5-fd01562b705e",
+              "name": "Task deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "Tasks('{{taskId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67280a50-17ac-4650-9dfd-d7930b37f512",
+          "name": "Microsoft Project Update Draft Task",
+          "request": {
+            "name": "Microsoft Project Update Draft Task",
+            "description": {
+              "content": "Update a task in the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "Tasks('{{taskId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"Duration\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3730dcb8-c8a5-4d30-b442-36f278a53ffb",
+              "name": "Task updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "Tasks('{{taskId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PercentComplete\": \"<integer>\",\n  \"Duration\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad7e5fca-ab48-49b7-9a80-d99591de60db",
+          "name": "Microsoft Project List Draft Task Links",
+          "request": {
+            "name": "Microsoft Project List Draft Task Links",
+            "description": {
+              "content": "Retrieve all task dependency links in the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "TaskLinks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1f3eeaf-c898-4def-b052-eb1b34e921fd",
+              "name": "List of task links",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "TaskLinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"9c16c0a0-0220-bac3-29ce-7329e29b1067\",\n      \"StartId\": \"bf798a4a-e944-b116-a18c-5f20260fb2a0\",\n      \"EndId\": \"0baf9d40-399c-6fc1-ed71-b30544be1491\",\n      \"DependencyType\": 0\n    },\n    {\n      \"Id\": \"c6db8f21-d68f-3ddc-bf3f-b5e0dc076ea9\",\n      \"StartId\": \"0115eb10-e476-ac09-b2b6-6e5d8a2f61bc\",\n      \"EndId\": \"a4e45b01-35a5-7b01-181d-b54533f24b96\",\n      \"DependencyType\": 0\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4291210e-1089-4e7d-8818-0f9e58b9b03c",
+          "name": "Microsoft Project Create Draft Task Link",
+          "request": {
+            "name": "Microsoft Project Create Draft Task Link",
+            "description": {
+              "content": "Create a task dependency link in the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "TaskLinks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartId\": \"<uuid>\",\n  \"EndId\": \"<uuid>\",\n  \"DependencyType\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9ad90b6-038a-4b5b-ab21-84e120edbc91",
+              "name": "Task link created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "TaskLinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartId\": \"<uuid>\",\n  \"EndId\": \"<uuid>\",\n  \"DependencyType\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the project",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "projectId"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the task",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "taskId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "851d2fea-6dda-4861-9874-6199b541d061",
+    "name": "Microsoft Project Online REST Assignments Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Tasks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Project Tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Tasks",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all published tasks for a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Project Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Tasks(':taskId')",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              },
+              {
+                "name": "taskId",
+                "value": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+                "type": "path",
+                "description": "The GUID identifier of the task"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific task from a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Draft Tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/Tasks",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all draft tasks for a project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Draft Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/Tasks",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new task in the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Update Draft Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/Tasks(':taskId')",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              },
+              {
+                "name": "taskId",
+                "value": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+                "type": "path",
+                "description": "The GUID identifier of the task"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a task in the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Draft Task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/Tasks(':taskId')",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              },
+              {
+                "name": "taskId",
+                "value": "b1c2d3e4-f5a6-7890-abcd-ef1234567890",
+                "type": "path",
+                "description": "The GUID identifier of the task"
+              }
+            ]
+          },
+          "docs": "Delete a task from the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Draft Task Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/TaskLinks",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all task dependency links in the project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Draft Task Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/TaskLinks",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a task dependency link in the project draft."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

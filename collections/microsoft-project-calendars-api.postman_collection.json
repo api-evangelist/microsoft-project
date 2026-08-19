@@ -1,0 +1,451 @@
+{
+  "item": [
+    {
+      "id": "d78b6040-4783-450f-aa7a-fe8089b6d837",
+      "name": "Calendars",
+      "description": {
+        "content": "Manage enterprise calendars",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4bc08998-d190-4fa3-8f3b-6d0586f46e79",
+          "name": "Microsoft Project List Calendars",
+          "request": {
+            "name": "Microsoft Project List Calendars",
+            "description": {
+              "content": "Retrieve all enterprise calendars.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Calendars"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43b44a61-4442-411d-8d01-61a32f29e082",
+              "name": "List of calendars",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Calendars"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"9ccf656d-650b-4110-1bd7-8a10c6401a89\",\n      \"Name\": \"Standard\",\n      \"IsStandardCalendar\": true,\n      \"Created\": \"1954-03-07T04:57:01.922Z\",\n      \"Modified\": \"1993-08-14T06:29:00.118Z\"\n    },\n    {\n      \"Id\": \"e3bdc81e-bb76-4ea2-dcad-755fabe69675\",\n      \"Name\": \"Standard\",\n      \"IsStandardCalendar\": true,\n      \"Created\": \"1968-12-21T02:36:01.947Z\",\n      \"Modified\": \"1990-05-08T18:57:02.232Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b99106f-6924-4a28-a314-c82765fb10cc",
+          "name": "Microsoft Project Create Calendar",
+          "request": {
+            "name": "Microsoft Project Create Calendar",
+            "description": {
+              "content": "Create a new enterprise calendar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Calendars"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "748a440b-fc03-4f6d-89a0-f9d25b7e31c0",
+              "name": "Calendar created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Calendars"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"Night Shift Calendar\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"118b9a8a-9480-05d4-b874-fa293f123087\",\n  \"Name\": \"Standard\",\n  \"IsStandardCalendar\": true,\n  \"Created\": \"1973-11-07T04:56:08.311Z\",\n  \"Modified\": \"2004-11-19T04:55:17.553Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "347b49bf-3e41-4b57-a49a-aebcc6287c9a",
+          "name": "Microsoft Project Get Calendar",
+          "request": {
+            "name": "Microsoft Project Get Calendar",
+            "description": {
+              "content": "Retrieve a specific calendar by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Calendars('{{calendarId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "abb95de0-6df1-4367-bf13-a308e632a4cc",
+              "name": "Calendar details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Calendars('{{calendarId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"118b9a8a-9480-05d4-b874-fa293f123087\",\n  \"Name\": \"Standard\",\n  \"IsStandardCalendar\": true,\n  \"Created\": \"1973-11-07T04:56:08.311Z\",\n  \"Modified\": \"2004-11-19T04:55:17.553Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9bf54ec-36e9-4faa-b597-bf1e22539cf1",
+          "name": "Microsoft Project Delete Calendar",
+          "request": {
+            "name": "Microsoft Project Delete Calendar",
+            "description": {
+              "content": "Delete a calendar by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Calendars('{{calendarId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8887a6c0-2c24-444f-bddc-0ae7cd7a1454",
+              "name": "Calendar deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Calendars('{{calendarId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the calendar",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "calendarId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e4e85c02-a4a0-467f-93d3-7b8caf0dbd09",
+    "name": "Microsoft Project Online REST Assignments Calendars API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

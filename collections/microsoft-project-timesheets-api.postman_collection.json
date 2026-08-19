@@ -1,0 +1,549 @@
+{
+  "item": [
+    {
+      "id": "a094da24-159f-4259-afce-f02fe6b7772e",
+      "name": "Timesheets",
+      "description": {
+        "content": "Manage timesheet periods, lines, and work entries",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33463ef1-fa7f-4009-b4dd-55f252b2bf19",
+          "name": "Microsoft Project List Timesheet Periods",
+          "request": {
+            "name": "Microsoft Project List Timesheet Periods",
+            "description": {
+              "content": "Retrieve all timesheet periods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TimeSheetPeriods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ead85468-eed4-42af-bc06-43dbd3fed6ca",
+              "name": "List of timesheet periods",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TimeSheetPeriods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"3fb71bd3-54b2-15fe-fe98-6f4bbd1bb02d\",\n      \"Name\": \"March 2026 - Week 1\",\n      \"Start\": \"1963-03-14T09:20:12.071Z\",\n      \"End\": \"1946-10-13T22:55:32.192Z\"\n    },\n    {\n      \"Id\": \"2ee7c67b-08c7-3966-b8ce-360fd304dba9\",\n      \"Name\": \"March 2026 - Week 1\",\n      \"Start\": \"2003-10-20T19:15:07.953Z\",\n      \"End\": \"1967-11-29T21:38:14.593Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80e140db-56d1-4708-869f-3368ec703b56",
+          "name": "Microsoft Project Get Timesheet",
+          "request": {
+            "name": "Microsoft Project Get Timesheet",
+            "description": {
+              "content": "Retrieve a timesheet for a specific period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TimeSheetPeriods('{{periodId}}')",
+                "TimeSheet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "504c97f3-d130-493b-987d-eb83accf39af",
+              "name": "Timesheet details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TimeSheetPeriods('{{periodId}}')",
+                    "TimeSheet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"710e4f45-0346-e38d-fd1f-68b9af5606f8\",\n  \"Status\": 0,\n  \"PeriodId\": \"89267302-ada6-0ed8-86f8-d4affe69526a\",\n  \"TotalWork\": \"40h\",\n  \"TotalActualWork\": \"38h\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80131e2e-deb7-497d-acff-ce3be56c3c97",
+          "name": "Microsoft Project List Timesheet Lines",
+          "request": {
+            "name": "Microsoft Project List Timesheet Lines",
+            "description": {
+              "content": "Retrieve all lines in a timesheet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TimeSheetPeriods('{{periodId}}')",
+                "TimeSheet",
+                "Lines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6ea45445-882e-40b8-971c-79d8232cf04e",
+              "name": "List of timesheet lines",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TimeSheetPeriods('{{periodId}}')",
+                    "TimeSheet",
+                    "Lines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"1c447cdf-fa26-cb61-9319-b078d4f9befb\",\n      \"LineClass\": 0,\n      \"ProjectName\": \"Enterprise Website Redesign\",\n      \"TaskName\": \"Design Review Meeting\",\n      \"TotalWork\": \"8h\",\n      \"Comment\": \"string\"\n    },\n    {\n      \"Id\": \"5f8159b1-2d6c-931a-d931-a27a203b9a0b\",\n      \"LineClass\": 0,\n      \"ProjectName\": \"Enterprise Website Redesign\",\n      \"TaskName\": \"Design Review Meeting\",\n      \"TotalWork\": \"8h\",\n      \"Comment\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "121e296e-9c12-45aa-a61b-5b231881c422",
+          "name": "Microsoft Project Create Timesheet Line",
+          "request": {
+            "name": "Microsoft Project Create Timesheet Line",
+            "description": {
+              "content": "Create a new line in a timesheet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TimeSheetPeriods('{{periodId}}')",
+                "TimeSheet",
+                "Lines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"LineClass\": 0,\n  \"ProjectId\": \"<uuid>\",\n  \"TaskId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0153b1a9-53a8-42a2-adf6-38676a606503",
+              "name": "Timesheet line created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TimeSheetPeriods('{{periodId}}')",
+                    "TimeSheet",
+                    "Lines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"LineClass\": 0,\n  \"ProjectId\": \"<uuid>\",\n  \"TaskId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c9c2794-1532-47f7-9bbe-8654333a7eb0",
+          "name": "Microsoft Project Submit Timesheet for Approval",
+          "request": {
+            "name": "Microsoft Project Submit Timesheet for Approval",
+            "description": {
+              "content": "Submit a timesheet for manager approval.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TimeSheetPeriods('{{periodId}}')",
+                "TimeSheet",
+                "submitForApproval()"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "782d5e08-4670-43b0-b8e2-59f008d21758",
+              "name": "Timesheet submitted for approval",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TimeSheetPeriods('{{periodId}}')",
+                    "TimeSheet",
+                    "submitForApproval()"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the timesheet period",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "periodId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4dc9a7ab-7a57-4482-815e-a2d8b78950f5",
+    "name": "Microsoft Project Online REST Assignments Timesheets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

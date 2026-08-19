@@ -1,0 +1,201 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Projects API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects"
+          },
+          "docs": "Retrieve all projects accessible to the current user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new project."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific project by its ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Delete a project by its ID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Check Out Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/checkOut()",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Check out a project for editing."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Check in Project Draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/checkIn(force=:force)",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "Whether to force check-in"
+              }
+            ]
+          },
+          "docs": "Check in a project draft. Optionally force check-in."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Publish Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/Draft/publish(checkIn=:checkIn)",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              },
+              {
+                "name": "checkIn",
+                "value": "",
+                "type": "query",
+                "description": "Whether to check in after publishing"
+              }
+            ]
+          },
+          "docs": "Publish a project draft."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Submit Project to Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/submitToWorkflow()",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Submit a project to its associated workflow."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project List Project Queue Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Projects(':projectId')/QueueJobs",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "263fc8d7-427c-e111-92fc-00155d3ba208",
+                "type": "path",
+                "description": "The GUID identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve all queue jobs for a project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

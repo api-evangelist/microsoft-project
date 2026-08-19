@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Enterprise Project Types API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Enterprise Project Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Enterprise Project Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EnterpriseProjectTypes"
+          },
+          "docs": "Retrieve all enterprise project type configurations."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Enterprise Project Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EnterpriseProjectTypes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new enterprise project type."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Enterprise Project Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EnterpriseProjectTypes(':projectTypeId')",
+            "params": [
+              {
+                "name": "projectTypeId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the enterprise project type"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific enterprise project type."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Enterprise Project Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EnterpriseProjectTypes(':projectTypeId')",
+            "params": [
+              {
+                "name": "projectTypeId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the enterprise project type"
+              }
+            ]
+          },
+          "docs": "Delete an enterprise project type."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

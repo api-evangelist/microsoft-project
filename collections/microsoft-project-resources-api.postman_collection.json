@@ -1,0 +1,576 @@
+{
+  "item": [
+    {
+      "id": "d6667aa8-e33c-4b89-8024-eea48944e4b0",
+      "name": "Resources",
+      "description": {
+        "content": "Manage enterprise resources and project resources",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91a97226-a1ec-4ab9-a507-71acbb35a9da",
+          "name": "Microsoft Project List Draft Project Resources",
+          "request": {
+            "name": "Microsoft Project List Draft Project Resources",
+            "description": {
+              "content": "Retrieve all resources in the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "ProjectResources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb1037d9-765d-4a2c-9238-2659acb1c9c0",
+              "name": "List of project resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "ProjectResources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"2d372581-bf05-d7c8-b931-f94937b97d11\",\n      \"Name\": \"string\",\n      \"Email\": \"EXq1H8TSdr@ANIagMMdAJMREmkPGzad.hp\"\n    },\n    {\n      \"Id\": \"566be5cd-ca79-e603-430d-a13d4ade0535\",\n      \"Name\": \"string\",\n      \"Email\": \"SZgkd8rsJgb1e@UTEywXuIplzeTjxNrY.lrkq\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "254223fc-2a3d-4ae6-b285-3d81736e1d2b",
+          "name": "Microsoft Project Add Draft Project Resource",
+          "request": {
+            "name": "Microsoft Project Add Draft Project Resource",
+            "description": {
+              "content": "Add a resource to the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "ProjectResources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "33348586-da9a-4906-9b62-4d306d3f9d7d",
+              "name": "Resource added",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "ProjectResources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40a05959-94ff-46d0-b6d6-b68d8c459455",
+          "name": "Microsoft Project List Project Resources",
+          "request": {
+            "name": "Microsoft Project List Project Resources",
+            "description": {
+              "content": "Retrieve all published resources for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "ProjectResources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df0ae1d5-5dc0-463c-b4dc-82f22d20df79",
+              "name": "List of project resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "ProjectResources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"8527d395-72cc-fd20-f580-c6af6cfb376c\",\n      \"Name\": \"string\",\n      \"Email\": \"QBR@kUQEdzEt.mi\"\n    },\n    {\n      \"Id\": \"c83c479f-74ab-cfaa-3fe7-6dd071fcd229\",\n      \"Name\": \"string\",\n      \"Email\": \"sggC0@hfSFxTzzGzxYjhOFKMpJFxmInpJu.keks\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b130c2f-c165-4252-82b5-06bb004e2822",
+          "name": "Microsoft Project List Enterprise Resources",
+          "request": {
+            "name": "Microsoft Project List Enterprise Resources",
+            "description": {
+              "content": "Retrieve all enterprise resources.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EnterpriseResources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e9da107-a843-4539-a009-ad1b1380f747",
+              "name": "List of enterprise resources",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EnterpriseResources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"28eeb2b5-fe74-4efc-aa35-6a64514d1526\",\n      \"Name\": \"Jane Smith\",\n      \"Email\": \"jsmith@contoso.com\",\n      \"ResourceType\": 1,\n      \"IsActive\": true,\n      \"IsGeneric\": false,\n      \"MaxUnits\": 1,\n      \"StandardRate\": 150,\n      \"CostCenter\": \"IT-DEV\",\n      \"Group\": \"Development\",\n      \"BaseCalendar\": \"Standard\"\n    },\n    {\n      \"Id\": \"28eeb2b5-fe74-4efc-aa35-6a64514d1526\",\n      \"Name\": \"Jane Smith\",\n      \"Email\": \"jsmith@contoso.com\",\n      \"ResourceType\": 1,\n      \"IsActive\": true,\n      \"IsGeneric\": false,\n      \"MaxUnits\": 1,\n      \"StandardRate\": 150,\n      \"CostCenter\": \"IT-DEV\",\n      \"Group\": \"Development\",\n      \"BaseCalendar\": \"Standard\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c0d0d58-716f-46c5-948f-48b1db770e5e",
+          "name": "Microsoft Project Create Enterprise Resource",
+          "request": {
+            "name": "Microsoft Project Create Enterprise Resource",
+            "description": {
+              "content": "Create a new enterprise resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EnterpriseResources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Email\": \"<email>\",\n  \"ResourceType\": 1,\n  \"IsGeneric\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "096881eb-d1ee-47dc-8bbe-019fd9773896",
+              "name": "Enterprise resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EnterpriseResources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"John Doe\",\n  \"Email\": \"<email>\",\n  \"ResourceType\": 1,\n  \"IsGeneric\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"28eeb2b5-fe74-4efc-aa35-6a64514d1526\",\n  \"Name\": \"Jane Smith\",\n  \"Email\": \"jsmith@contoso.com\",\n  \"ResourceType\": 1,\n  \"IsActive\": true,\n  \"IsGeneric\": false,\n  \"MaxUnits\": 1,\n  \"StandardRate\": 150,\n  \"CostCenter\": \"IT-DEV\",\n  \"Group\": \"Development\",\n  \"BaseCalendar\": \"Standard\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the project",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "projectId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5c2fd2a8-b232-462b-b732-623b33828dde",
+    "name": "Microsoft Project Online REST Assignments Resources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

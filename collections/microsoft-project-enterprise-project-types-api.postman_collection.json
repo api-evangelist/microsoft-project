@@ -1,0 +1,443 @@
+{
+  "item": [
+    {
+      "id": "42e6449c-4f41-488a-bc7b-afa0182efb04",
+      "name": "Enterprise Project Types",
+      "description": {
+        "content": "Manage enterprise project type configurations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "883d2f84-32f2-4709-9949-5aa69fcc5bb5",
+          "name": "Microsoft Project List Enterprise Project Types",
+          "request": {
+            "name": "Microsoft Project List Enterprise Project Types",
+            "description": {
+              "content": "Retrieve all enterprise project type configurations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EnterpriseProjectTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f87920bd-a239-49dd-b4d8-d3fb4992dc36",
+              "name": "List of enterprise project types",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EnterpriseProjectTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"9f897d98-0c57-ed57-1356-faab94420dff\",\n      \"Name\": \"Standard Enterprise Project\",\n      \"Description\": \"Standard project type for enterprise projects\",\n      \"IsDefault\": true,\n      \"WorkspaceTemplateName\": \"string\"\n    },\n    {\n      \"Id\": \"f97b7d88-1440-8309-e228-a7ac9d4e8140\",\n      \"Name\": \"Standard Enterprise Project\",\n      \"Description\": \"Standard project type for enterprise projects\",\n      \"IsDefault\": true,\n      \"WorkspaceTemplateName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3a487c30-f351-4947-84bd-0f935ec8da32",
+          "name": "Microsoft Project Create Enterprise Project Type",
+          "request": {
+            "name": "Microsoft Project Create Enterprise Project Type",
+            "description": {
+              "content": "Create a new enterprise project type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EnterpriseProjectTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4843afc6-e140-4f27-81a8-17f02b7a3050",
+              "name": "Enterprise project type created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EnterpriseProjectTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e92c21a-89c6-4d71-9f42-63022331bbcd",
+          "name": "Microsoft Project Get Enterprise Project Type",
+          "request": {
+            "name": "Microsoft Project Get Enterprise Project Type",
+            "description": {
+              "content": "Retrieve a specific enterprise project type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EnterpriseProjectTypes('{{projectTypeId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a516bfd1-80df-4ea7-ac3c-b1646ddffaa1",
+              "name": "Enterprise project type details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EnterpriseProjectTypes('{{projectTypeId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"f25f5998-caeb-23d3-07f3-e542d8b1767a\",\n  \"Name\": \"Standard Enterprise Project\",\n  \"Description\": \"Standard project type for enterprise projects\",\n  \"IsDefault\": true,\n  \"WorkspaceTemplateName\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64aa4ce9-ab24-4c9b-bb86-7fad39e2f670",
+          "name": "Microsoft Project Delete Enterprise Project Type",
+          "request": {
+            "name": "Microsoft Project Delete Enterprise Project Type",
+            "description": {
+              "content": "Delete an enterprise project type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EnterpriseProjectTypes('{{projectTypeId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5ace07c-2aca-4db1-a93f-8977bea464ec",
+              "name": "Enterprise project type deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EnterpriseProjectTypes('{{projectTypeId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the enterprise project type",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "projectTypeId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "27dccfdc-8c34-4b7d-a6c8-635c92b352f6",
+    "name": "Microsoft Project Online REST Assignments Enterprise Project Types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}

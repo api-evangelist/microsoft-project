@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Event Handlers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Event Handlers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Event Handlers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EventHandlers"
+          },
+          "docs": "Retrieve all registered event handlers."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Event Handler",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EventHandlers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Register a new event handler."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Event Handler",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EventHandlers(':handlerId')",
+            "params": [
+              {
+                "name": "handlerId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the event handler"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific event handler."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Event Handler",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/EventHandlers(':handlerId')",
+            "params": [
+              {
+                "name": "handlerId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the event handler"
+              }
+            ]
+          },
+          "docs": "Delete an event handler."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

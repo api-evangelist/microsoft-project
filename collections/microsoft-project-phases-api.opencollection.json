@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Project Online REST Assignments Phases API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Phases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Project List Phases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Phases"
+          },
+          "docs": "Retrieve all workflow phases."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Create Phase",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Phases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new workflow phase."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Get Phase",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Phases(':phaseId')",
+            "params": [
+              {
+                "name": "phaseId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the phase"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific workflow phase."
+        },
+        {
+          "info": {
+            "name": "Microsoft Project Delete Phase",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer/Phases(':phaseId')",
+            "params": [
+              {
+                "name": "phaseId",
+                "value": "",
+                "type": "path",
+                "description": "The GUID identifier of the phase"
+              }
+            ]
+          },
+          "docs": "Delete a workflow phase."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

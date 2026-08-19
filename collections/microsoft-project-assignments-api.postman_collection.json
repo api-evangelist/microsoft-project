@@ -1,0 +1,579 @@
+{
+  "item": [
+    {
+      "id": "25fda397-fd82-447a-9cfa-dc5564ffdf9c",
+      "name": "Assignments",
+      "description": {
+        "content": "Manage resource assignments to tasks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25fa30ed-ccda-468a-a744-1d78dcc5d8ee",
+          "name": "Microsoft Project List Project Assignments",
+          "request": {
+            "name": "Microsoft Project List Project Assignments",
+            "description": {
+              "content": "Retrieve all published assignments for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Assignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36fa46d9-052f-4299-b504-0002d1701653",
+              "name": "List of assignments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Assignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"a2eafeb5-437c-e111-92fc-00155d3ba208\",\n      \"ProjectId\": \"648a70b1-dca1-6432-5d3f-5b3f27d36741\",\n      \"TaskId\": \"34d2cc8d-a547-b9bc-da43-6d2211dd1a79\",\n      \"ResourceId\": \"aed6c16a-ff0a-29b1-02ee-cc2e00318f37\",\n      \"ResourceName\": \"Jane Smith\",\n      \"ActualWork\": \"40h\",\n      \"RemainingWork\": \"20h\",\n      \"PercentWorkComplete\": 67,\n      \"Start\": \"1961-02-14T12:23:27.115Z\",\n      \"Finish\": \"1991-12-06T13:21:39.263Z\"\n    },\n    {\n      \"Id\": \"a2eafeb5-437c-e111-92fc-00155d3ba208\",\n      \"ProjectId\": \"5c8d2f4d-a54c-3fd3-09ff-06d42de2c989\",\n      \"TaskId\": \"84320ece-a4b4-e622-796b-b25d2deec39b\",\n      \"ResourceId\": \"ab1f4f41-4026-eb40-c6f4-391a7eaa521f\",\n      \"ResourceName\": \"Jane Smith\",\n      \"ActualWork\": \"40h\",\n      \"RemainingWork\": \"20h\",\n      \"PercentWorkComplete\": 67,\n      \"Start\": \"1972-09-27T19:14:23.921Z\",\n      \"Finish\": \"1986-02-04T02:51:39.214Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f3a0120-69b7-4da2-8f4b-aa240e1ad82a",
+          "name": "Microsoft Project List Draft Assignments",
+          "request": {
+            "name": "Microsoft Project List Draft Assignments",
+            "description": {
+              "content": "Retrieve all draft assignments for a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "Assignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6edb6892-a145-4ba0-806f-abda4b3ce443",
+              "name": "List of draft assignments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "Assignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"a2eafeb5-437c-e111-92fc-00155d3ba208\",\n      \"ProjectId\": \"3189fc28-1823-2620-f588-be8d4c49b518\",\n      \"TaskId\": \"29acc8af-36db-0f8b-eb87-4bc51624f47f\",\n      \"ResourceId\": \"2cf5beef-adb1-f289-c6ed-fef2d8ad8785\",\n      \"ResourceName\": \"Jane Smith\",\n      \"ActualWork\": \"40h\",\n      \"RemainingWork\": \"20h\",\n      \"PercentWorkComplete\": 67,\n      \"Start\": \"1988-08-15T08:08:29.344Z\",\n      \"Finish\": \"2003-12-30T17:50:08.380Z\"\n    },\n    {\n      \"Id\": \"a2eafeb5-437c-e111-92fc-00155d3ba208\",\n      \"ProjectId\": \"0f71293b-620c-cbfb-fa24-4964ae1f2191\",\n      \"TaskId\": \"d01e5bff-a559-849d-0290-2f8c73df01b5\",\n      \"ResourceId\": \"9b3edec9-5a7c-b083-2a9e-6caba5894dd4\",\n      \"ResourceName\": \"Jane Smith\",\n      \"ActualWork\": \"40h\",\n      \"RemainingWork\": \"20h\",\n      \"PercentWorkComplete\": 67,\n      \"Start\": \"2004-04-25T14:24:05.015Z\",\n      \"Finish\": \"1962-08-21T20:19:58.336Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01eff68c-5ff9-48d7-8dcf-72dafa5ccad4",
+          "name": "Microsoft Project Create Draft Assignment",
+          "request": {
+            "name": "Microsoft Project Create Draft Assignment",
+            "description": {
+              "content": "Create a new assignment in the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "Assignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TaskId\": \"<uuid>\",\n  \"ResourceId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f502cb47-c299-4a55-983e-de34daecbae4",
+              "name": "Assignment created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "Assignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TaskId\": \"<uuid>\",\n  \"ResourceId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Id\": \"a2eafeb5-437c-e111-92fc-00155d3ba208\",\n  \"ProjectId\": \"8f3f81ee-29fd-2a40-b911-8fbafc2a3400\",\n  \"TaskId\": \"122acacd-472e-c542-bbe7-105adb1f6000\",\n  \"ResourceId\": \"46c77485-d887-b950-3126-a4742bac858d\",\n  \"ResourceName\": \"Jane Smith\",\n  \"ActualWork\": \"40h\",\n  \"RemainingWork\": \"20h\",\n  \"PercentWorkComplete\": 67,\n  \"Start\": \"2023-03-12T02:45:56.610Z\",\n  \"Finish\": \"1982-05-22T16:02:11.458Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cb3bd6a-b394-4516-9410-62783f208615",
+          "name": "Microsoft Project Delete Draft Assignment",
+          "request": {
+            "name": "Microsoft Project Delete Draft Assignment",
+            "description": {
+              "content": "Delete an assignment from the project draft.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Projects('{{projectId}}')",
+                "Draft",
+                "Assignments('{{assignmentId}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c90ecf6c-6a12-4f71-b5b5-a9936df67a16",
+              "name": "Assignment deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Projects('{{projectId}}')",
+                    "Draft",
+                    "Assignments('{{assignmentId}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d485c3a3-ebba-43d1-bd49-678fe927210c",
+          "name": "Microsoft Project List Enterprise Resource Assignments",
+          "request": {
+            "name": "Microsoft Project List Enterprise Resource Assignments",
+            "description": {
+              "content": "Retrieve all assignments for an enterprise resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EnterpriseResources('{{resourceId}}')",
+                "Assignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "SharePoint tenant name",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd948f67-3d5f-4835-9024-57082a362631",
+              "name": "List of assignments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EnterpriseResources('{{resourceId}}')",
+                    "Assignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "SharePoint tenant name",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"Id\": \"a2eafeb5-437c-e111-92fc-00155d3ba208\",\n      \"ProjectId\": \"3189fc28-1823-2620-f588-be8d4c49b518\",\n      \"TaskId\": \"29acc8af-36db-0f8b-eb87-4bc51624f47f\",\n      \"ResourceId\": \"2cf5beef-adb1-f289-c6ed-fef2d8ad8785\",\n      \"ResourceName\": \"Jane Smith\",\n      \"ActualWork\": \"40h\",\n      \"RemainingWork\": \"20h\",\n      \"PercentWorkComplete\": 67,\n      \"Start\": \"1988-08-15T08:08:29.344Z\",\n      \"Finish\": \"2003-12-30T17:50:08.380Z\"\n    },\n    {\n      \"Id\": \"a2eafeb5-437c-e111-92fc-00155d3ba208\",\n      \"ProjectId\": \"0f71293b-620c-cbfb-fa24-4964ae1f2191\",\n      \"TaskId\": \"d01e5bff-a559-849d-0290-2f8c73df01b5\",\n      \"ResourceId\": \"9b3edec9-5a7c-b083-2a9e-6caba5894dd4\",\n      \"ResourceName\": \"Jane Smith\",\n      \"ActualWork\": \"40h\",\n      \"RemainingWork\": \"20h\",\n      \"PercentWorkComplete\": 67,\n      \"Start\": \"2004-04-25T14:24:05.015Z\",\n      \"Finish\": \"1962-08-21T20:19:58.336Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "SharePoint tenant name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "contoso",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.sharepoint.com/sites/pwa/_api/ProjectServer",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the project",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "projectId"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the assignment",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "assignmentId"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The GUID identifier of the enterprise resource",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<uuid>",
+      "key": "resourceId"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "ProjectServer.Read ProjectServer.ReadWrite"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "40f46df4-164b-4e3b-b4be-02fa6a41faa7",
+    "name": "Microsoft Project Online REST Assignments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.\n\nContact Support:\n Name: Microsoft Project Support",
+      "type": "text/plain"
+    }
+  }
+}
