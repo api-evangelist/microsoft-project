@@ -23,6 +23,15 @@ tags:
 - Budgeting
 - Gantt Charts
 - Microsoft
+- Portfolio-Management
+- Project Management
+- Resource Management
+- Scheduling
+- Task Management
+tags_raw:
+- Budgeting
+- Gantt Charts
+- Microsoft
 - Portfolio Management
 - Project Management
 - Resource Management
@@ -44,6 +53,14 @@ apis:
     https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
   tags:
+  - .NET
+  - Client Library
+  - CSOM
+  - JavaScript
+  - Project
+  - Resources
+  - Task
+  tags_raw:
   - .NET
   - Client Library
   - CSOM
@@ -72,6 +89,12 @@ apis:
     https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture
   baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectData
   tags:
+  - OData
+  - Project
+  - Reporting
+  - Resources
+  - Task
+  tags_raw:
   - OData
   - Projects
   - Reporting
@@ -589,6 +612,8 @@ apis:
     https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -793,6 +818,8 @@ apis:
     https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
