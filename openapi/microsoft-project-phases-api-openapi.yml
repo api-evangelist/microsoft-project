@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Phases API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -92,18 +92,16 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    phaseId:
+      name: phaseId
+      in: path
+      required: true
+      description: The GUID identifier of the phase
+      schema:
+        type: string
+        format: uuid
   schemas:
-    PhaseCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Phase name
-        Description:
-          type: string
-          description: Phase description
     Phase:
       type: object
       properties:
@@ -126,15 +124,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Phase'
-  parameters:
-    phaseId:
-      name: phaseId
-      in: path
-      required: true
-      description: The GUID identifier of the phase
-      schema:
-        type: string
-        format: uuid
+    PhaseCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Phase name
+        Description:
+          type: string
+          description: Phase description
   securitySchemes:
     oauth2:
       type: oauth2

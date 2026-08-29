@@ -33,6 +33,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "microsoft-project-assignments-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-calendars-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-custom-fields-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-enterprise-project-types-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-event-handlers-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-lookup-tables-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-phases-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-projects-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-resources-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-stages-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-tasks-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-timesheets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "microsoft-project-workflow-activities-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

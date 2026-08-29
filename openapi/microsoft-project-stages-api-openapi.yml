@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Stages API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -92,30 +92,16 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    stageId:
+      name: stageId
+      in: path
+      required: true
+      description: The GUID identifier of the stage
+      schema:
+        type: string
+        format: uuid
   schemas:
-    StageCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stage'
-    StageCreate:
-      type: object
-      required:
-      - Name
-      - PhaseId
-      properties:
-        Name:
-          type: string
-          description: Stage name
-        Description:
-          type: string
-          description: Stage description
-        PhaseId:
-          type: string
-          format: uuid
-          description: Parent phase ID
     Stage:
       type: object
       properties:
@@ -135,15 +121,29 @@ components:
           type: string
           format: uuid
           description: Parent phase ID
-  parameters:
-    stageId:
-      name: stageId
-      in: path
-      required: true
-      description: The GUID identifier of the stage
-      schema:
-        type: string
-        format: uuid
+    StageCreate:
+      type: object
+      required:
+      - Name
+      - PhaseId
+      properties:
+        Name:
+          type: string
+          description: Stage name
+        Description:
+          type: string
+          description: Stage description
+        PhaseId:
+          type: string
+          format: uuid
+          description: Parent phase ID
+    StageCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
   securitySchemes:
     oauth2:
       type: oauth2

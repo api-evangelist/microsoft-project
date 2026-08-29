@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Timesheets API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -114,14 +114,16 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    periodId:
+      name: periodId
+      in: path
+      required: true
+      description: The GUID identifier of the timesheet period
+      schema:
+        type: string
+        format: uuid
   schemas:
-    TimeSheetLineCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeSheetLine'
     TimeSheetLineCreate:
       type: object
       properties:
@@ -137,6 +139,13 @@ components:
           type: string
           format: uuid
           description: Task ID
+    TimeSheetLineCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetLine'
     TimeSheetLine:
       type: object
       properties:
@@ -163,6 +172,29 @@ components:
         Comment:
           type: string
           description: Line comment
+    TimeSheet:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Timesheet identifier
+        Status:
+          type: integer
+          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
+          example: 0
+        PeriodId:
+          type: string
+          format: uuid
+          description: Associated period ID
+        TotalWork:
+          type: string
+          description: Total work reported
+          example: 40h
+        TotalActualWork:
+          type: string
+          description: Total actual work
+          example: 38h
     TimeSheetPeriodCollection:
       type: object
       properties:
@@ -189,38 +221,6 @@ components:
           type: string
           format: date-time
           description: Period end date
-    TimeSheet:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Timesheet identifier
-        Status:
-          type: integer
-          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
-          example: 0
-        PeriodId:
-          type: string
-          format: uuid
-          description: Associated period ID
-        TotalWork:
-          type: string
-          description: Total work reported
-          example: 40h
-        TotalActualWork:
-          type: string
-          description: Total actual work
-          example: 38h
-  parameters:
-    periodId:
-      name: periodId
-      in: path
-      required: true
-      description: The GUID identifier of the timesheet period
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

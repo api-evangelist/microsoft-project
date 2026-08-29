@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Event Handlers API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -93,13 +93,27 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    EventHandlerCollection:
+    EventHandlerCreate:
       type: object
+      required:
+      - Name
+      - EventId
       properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventHandler'
+        Name:
+          type: string
+          description: Event handler name
+        EventId:
+          type: integer
+          description: Event identifier
+        AssemblyName:
+          type: string
+          description: Assembly name
+        ClassName:
+          type: string
+          description: Class name
+        Order:
+          type: integer
+          description: Execution order
     EventHandler:
       type: object
       properties:
@@ -124,27 +138,13 @@ components:
           type: integer
           description: Handler execution order
           example: 1
-    EventHandlerCreate:
+    EventHandlerCollection:
       type: object
-      required:
-      - Name
-      - EventId
       properties:
-        Name:
-          type: string
-          description: Event handler name
-        EventId:
-          type: integer
-          description: Event identifier
-        AssemblyName:
-          type: string
-          description: Assembly name
-        ClassName:
-          type: string
-          description: Class name
-        Order:
-          type: integer
-          description: Execution order
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHandler'
   parameters:
     handlerId:
       name: handlerId

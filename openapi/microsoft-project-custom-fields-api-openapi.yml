@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Custom Fields API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -96,26 +96,23 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    fieldId:
+      name: fieldId
+      in: path
+      required: true
+      description: The GUID identifier of the custom field
+      schema:
+        type: string
+        format: uuid
   schemas:
-    CustomFieldCreate:
+    CustomFieldCollection:
       type: object
-      required:
-      - Name
-      - FieldType
-      - EntityType
       properties:
-        Name:
-          type: string
-          description: Custom field display name
-        FieldType:
-          type: integer
-          description: Field data type
-        EntityType:
-          type: integer
-          description: Entity type
-        Description:
-          type: string
-          description: Field description
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomField'
     CustomField:
       type: object
       properties:
@@ -158,22 +155,25 @@ components:
         Formula:
           type: string
           description: Calculated field formula
-    CustomFieldCollection:
+    CustomFieldCreate:
       type: object
+      required:
+      - Name
+      - FieldType
+      - EntityType
       properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomField'
-  parameters:
-    fieldId:
-      name: fieldId
-      in: path
-      required: true
-      description: The GUID identifier of the custom field
-      schema:
-        type: string
-        format: uuid
+        Name:
+          type: string
+          description: Custom field display name
+        FieldType:
+          type: integer
+          description: Field data type
+        EntityType:
+          type: integer
+          description: Entity type
+        Description:
+          type: string
+          description: Field description
   securitySchemes:
     oauth2:
       type: oauth2

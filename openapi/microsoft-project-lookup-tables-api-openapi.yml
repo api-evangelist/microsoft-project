@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Lookup Tables API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -131,17 +131,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    LookupTableCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Lookup table name
-        FieldType:
-          type: integer
-          description: Value field type
     LookupTableEntry:
       type: object
       properties:
@@ -157,6 +146,24 @@ components:
           type: integer
           description: Sort order index
           example: 1
+        Description:
+          type: string
+          description: Entry description
+    LookupTableCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTable'
+    LookupTableEntryCreate:
+      type: object
+      required:
+      - Value
+      properties:
+        Value:
+          type: string
+          description: Entry value
         Description:
           type: string
           description: Entry description
@@ -184,24 +191,17 @@ components:
         SortOrder:
           type: integer
           description: Sort order for entries
-    LookupTableCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/LookupTable'
-    LookupTableEntryCreate:
+    LookupTableCreate:
       type: object
       required:
-      - Value
+      - Name
       properties:
-        Value:
+        Name:
           type: string
-          description: Entry value
-        Description:
-          type: string
-          description: Entry description
+          description: Lookup table name
+        FieldType:
+          type: integer
+          description: Value field type
   parameters:
     tableId:
       name: tableId

@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Tasks API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -185,61 +185,26 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+    taskId:
+      name: taskId
+      in: path
+      required: true
+      description: The GUID identifier of the task
+      schema:
+        type: string
+        format: uuid
+      example: b1c2d3e4-f5a6-7890-abcd-ef1234567890
   schemas:
-    TaskUpdate:
-      type: object
-      properties:
-        Name:
-          type: string
-          description: Updated task name
-        PercentComplete:
-          type: integer
-          description: Updated completion percentage
-        Duration:
-          type: string
-          description: Updated duration
-    TaskCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Task'
-    TaskCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Task name
-          example: Requirements Gathering
-        Start:
-          type: string
-          format: date-time
-          description: Task start date
-        Duration:
-          type: string
-          description: Task duration
-          example: 5d
-        ParentId:
-          type: string
-          format: uuid
-          description: Parent task ID
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-              example: InvalidRequest
-            message:
-              type: string
-              description: Error message
-              example: The specified project was not found.
     Task:
       type: object
       properties:
@@ -319,13 +284,27 @@ components:
           format: double
           description: Total cost
           example: 5000.0
-    TaskLinkCollection:
+    TaskCreate:
       type: object
+      required:
+      - Name
       properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaskLink'
+        Name:
+          type: string
+          description: Task name
+          example: Requirements Gathering
+        Start:
+          type: string
+          format: date-time
+          description: Task start date
+        Duration:
+          type: string
+          description: Task duration
+          example: 5d
+        ParentId:
+          type: string
+          format: uuid
+          description: Parent task ID
     TaskLink:
       type: object
       properties:
@@ -345,6 +324,18 @@ components:
           type: integer
           description: Dependency type (0=FinishToStart, 1=FinishToFinish, 2=StartToStart, 3=StartToFinish)
           example: 0
+    TaskUpdate:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Updated task name
+        PercentComplete:
+          type: integer
+          description: Updated completion percentage
+        Duration:
+          type: string
+          description: Updated duration
     TaskLinkCreate:
       type: object
       required:
@@ -363,6 +354,34 @@ components:
           type: integer
           description: Dependency type
           default: 0
+    TaskCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task'
+    TaskLinkCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskLink'
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+              example: InvalidRequest
+            message:
+              type: string
+              description: Error message
+              example: The specified project was not found.
   responses:
     NotFound:
       description: Resource not found
@@ -370,25 +389,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    taskId:
-      name: taskId
-      in: path
-      required: true
-      description: The GUID identifier of the task
-      schema:
-        type: string
-        format: uuid
-      example: b1c2d3e4-f5a6-7890-abcd-ef1234567890
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The GUID identifier of the project
-      schema:
-        type: string
-        format: uuid
-      example: 263fc8d7-427c-e111-92fc-00155d3ba208
   securitySchemes:
     oauth2:
       type: oauth2

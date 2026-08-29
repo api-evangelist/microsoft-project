@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments Resources API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -121,6 +121,34 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ProjectResource:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Resource identifier
+        Name:
+          type: string
+          description: Resource name
+        Email:
+          type: string
+          format: email
+          description: Resource email
+    ProjectResourceCreate:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Enterprise resource ID to add to project
+    ProjectResourceCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectResource'
     EnterpriseResource:
       type: object
       properties:
@@ -172,27 +200,6 @@ components:
           type: string
           description: Base calendar name
           example: Standard
-    ProjectResourceCreate:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Enterprise resource ID to add to project
-    ProjectResource:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Resource identifier
-        Name:
-          type: string
-          description: Resource name
-        Email:
-          type: string
-          format: email
-          description: Resource email
     EnterpriseResourceCreate:
       type: object
       required:
@@ -220,13 +227,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EnterpriseResource'
-    ProjectResourceCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectResource'
   parameters:
     projectId:
       name: projectId

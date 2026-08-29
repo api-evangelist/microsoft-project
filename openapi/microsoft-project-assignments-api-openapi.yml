@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Project Online REST Assignments API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
@@ -121,7 +121,56 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    assignmentId:
+      name: assignmentId
+      in: path
+      required: true
+      description: The GUID identifier of the assignment
+      schema:
+        type: string
+        format: uuid
+      example: a2eafeb5-437c-e111-92fc-00155d3ba208
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+    resourceId:
+      name: resourceId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise resource
+      schema:
+        type: string
+        format: uuid
+      example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
   schemas:
+    AssignmentCreate:
+      type: object
+      required:
+      - TaskId
+      - ResourceId
+      properties:
+        TaskId:
+          type: string
+          format: uuid
+          description: Task to assign resource to
+        ResourceId:
+          type: string
+          format: uuid
+          description: Resource to assign
+    AssignmentCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assignment'
     Assignment:
       type: object
       properties:
@@ -166,55 +215,6 @@ components:
           type: string
           format: date-time
           description: Assignment finish date
-    AssignmentCreate:
-      type: object
-      required:
-      - TaskId
-      - ResourceId
-      properties:
-        TaskId:
-          type: string
-          format: uuid
-          description: Task to assign resource to
-        ResourceId:
-          type: string
-          format: uuid
-          description: Resource to assign
-    AssignmentCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Assignment'
-  parameters:
-    resourceId:
-      name: resourceId
-      in: path
-      required: true
-      description: The GUID identifier of the enterprise resource
-      schema:
-        type: string
-        format: uuid
-      example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
-    assignmentId:
-      name: assignmentId
-      in: path
-      required: true
-      description: The GUID identifier of the assignment
-      schema:
-        type: string
-        format: uuid
-      example: a2eafeb5-437c-e111-92fc-00155d3ba208
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The GUID identifier of the project
-      schema:
-        type: string
-        format: uuid
-      example: 263fc8d7-427c-e111-92fc-00155d3ba208
   securitySchemes:
     oauth2:
       type: oauth2
