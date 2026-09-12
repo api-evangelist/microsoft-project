@@ -2,20 +2,18 @@
   "repo": "microsoft-project",
   "feeds": [
     {
+      "source": "https://learn.microsoft.com/en-us/office/client-developer/project/project-programming-tasks",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=ProjectBlog",
       "feed_url": "https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=ProjectBlog",
       "title": "",
       "saved": 0,
-      "method": "feed",
-      "nature": "vendor-blog",
-      "nature_basis": "khoros_blog"
-    },
-    {
-      "source": "https://learn.microsoft.com/en-us/office/client-developer/project/project-programming-tasks",
-      "error": "HTTPError"
+      "method": "feed"
     }
   ],
-  "fetched": "2026-08-30T22:33:40Z",
+  "fetched": "2026-09-06T19:17:18Z",
   "post_count": 20,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "khoros_blog",
