@@ -194,6 +194,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013
   baseURL: https://{tenant}.sharepoint.com/sites/pwa/_api/ProjectServer
   tags:
+  - Calendar
+  tags_raw:
   - Calendars
   properties:
   - type: OpenAPI
