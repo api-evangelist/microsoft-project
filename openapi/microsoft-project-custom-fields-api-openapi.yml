@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Project Online REST Assignments Custom Fields API
+  title: Microsoft Project Online REST Custom Fields API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
   version: '1.0'
   contact:
@@ -96,15 +96,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    fieldId:
-      name: fieldId
-      in: path
-      required: true
-      description: The GUID identifier of the custom field
-      schema:
-        type: string
-        format: uuid
   schemas:
     CustomFieldCollection:
       type: object
@@ -174,6 +165,15 @@ components:
         Description:
           type: string
           description: Field description
+  parameters:
+    fieldId:
+      name: fieldId
+      in: path
+      required: true
+      description: The GUID identifier of the custom field
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

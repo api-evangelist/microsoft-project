@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Project Online REST Assignments Timesheets API
+  title: Microsoft Project Online REST Timesheets API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
   version: '1.0'
   contact:
@@ -124,28 +124,48 @@ components:
         type: string
         format: uuid
   schemas:
-    TimeSheetLineCreate:
+    TimeSheet:
       type: object
       properties:
-        LineClass:
+        Id:
+          type: string
+          format: uuid
+          description: Timesheet identifier
+        Status:
           type: integer
-          description: Line classification
-          default: 0
-        ProjectId:
+          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
+          example: 0
+        PeriodId:
           type: string
           format: uuid
-          description: Project ID
-        TaskId:
+          description: Associated period ID
+        TotalWork:
           type: string
-          format: uuid
-          description: Task ID
-    TimeSheetLineCollection:
+          description: Total work reported
+          example: 40h
+        TotalActualWork:
+          type: string
+          description: Total actual work
+          example: 38h
+    TimeSheetPeriod:
       type: object
       properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeSheetLine'
+        Id:
+          type: string
+          format: uuid
+          description: Period identifier
+        Name:
+          type: string
+          description: Period name
+          example: March 2026 - Week 1
+        Start:
+          type: string
+          format: date-time
+          description: Period start date
+        End:
+          type: string
+          format: date-time
+          description: Period end date
     TimeSheetLine:
       type: object
       properties:
@@ -172,29 +192,6 @@ components:
         Comment:
           type: string
           description: Line comment
-    TimeSheet:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Timesheet identifier
-        Status:
-          type: integer
-          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
-          example: 0
-        PeriodId:
-          type: string
-          format: uuid
-          description: Associated period ID
-        TotalWork:
-          type: string
-          description: Total work reported
-          example: 40h
-        TotalActualWork:
-          type: string
-          description: Total actual work
-          example: 38h
     TimeSheetPeriodCollection:
       type: object
       properties:
@@ -202,25 +199,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimeSheetPeriod'
-    TimeSheetPeriod:
+    TimeSheetLineCreate:
       type: object
       properties:
-        Id:
+        LineClass:
+          type: integer
+          description: Line classification
+          default: 0
+        ProjectId:
           type: string
           format: uuid
-          description: Period identifier
-        Name:
+          description: Project ID
+        TaskId:
           type: string
-          description: Period name
-          example: March 2026 - Week 1
-        Start:
-          type: string
-          format: date-time
-          description: Period start date
-        End:
-          type: string
-          format: date-time
-          description: Period end date
+          format: uuid
+          description: Task ID
+    TimeSheetLineCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetLine'
   securitySchemes:
     oauth2:
       type: oauth2

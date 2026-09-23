@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Project Online REST Assignments Calendars API
+  title: Microsoft Project Online REST Calendars API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
   version: '1.0'
   contact:
@@ -97,15 +97,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CalendarCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Calendar name
-          example: Night Shift Calendar
     Calendar:
       type: object
       properties:
@@ -136,6 +127,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Calendar'
+    CalendarCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Calendar name
+          example: Night Shift Calendar
   parameters:
     calendarId:
       name: calendarId

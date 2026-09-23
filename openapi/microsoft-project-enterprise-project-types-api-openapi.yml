@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Project Online REST Assignments Enterprise Project Types API
+  title: Microsoft Project Online REST Enterprise Project Types API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
   version: '1.0'
   contact:
@@ -92,6 +92,15 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    projectTypeId:
+      name: projectTypeId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise project type
+      schema:
+        type: string
+        format: uuid
   schemas:
     EnterpriseProjectType:
       type: object
@@ -133,15 +142,6 @@ components:
         Description:
           type: string
           description: Project type description
-  parameters:
-    projectTypeId:
-      name: projectTypeId
-      in: path
-      required: true
-      description: The GUID identifier of the enterprise project type
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

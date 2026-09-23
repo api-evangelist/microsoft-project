@@ -1,19 +1,7 @@
 {
   "provider": "microsoft-project",
   "sources": [
-    "microsoft-project-assignments-api-openapi.yml",
-    "microsoft-project-calendars-api-openapi.yml",
-    "microsoft-project-custom-fields-api-openapi.yml",
-    "microsoft-project-enterprise-project-types-api-openapi.yml",
-    "microsoft-project-event-handlers-api-openapi.yml",
-    "microsoft-project-lookup-tables-api-openapi.yml",
-    "microsoft-project-phases-api-openapi.yml",
-    "microsoft-project-projects-api-openapi.yml",
-    "microsoft-project-resources-api-openapi.yml",
-    "microsoft-project-stages-api-openapi.yml",
-    "microsoft-project-tasks-api-openapi.yml",
-    "microsoft-project-timesheets-api-openapi.yml",
-    "microsoft-project-workflow-activities-api-openapi.yml"
+    "_ae-authored/microsoft-project-rest-api.yaml"
   ],
   "outputs": [
     "microsoft-project-assignments-api-openapi.yml",
@@ -34,20 +22,23 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "microsoft-project-assignments-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-calendars-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-custom-fields-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-enterprise-project-types-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-event-handlers-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-lookup-tables-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-phases-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-projects-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-resources-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-stages-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-tasks-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-timesheets-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "microsoft-project-workflow-activities-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "microsoft-project-rest-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "microsoft-project-assignments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-calendars-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-custom-fields-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-enterprise-project-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-event-handlers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-lookup-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-phases-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-stages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-tasks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-timesheets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-project-workflow-activities-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

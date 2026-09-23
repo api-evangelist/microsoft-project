@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Project Online REST Assignments Lookup Tables API
+  title: Microsoft Project Online REST Lookup Tables API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
   version: '1.0'
   contact:
@@ -131,6 +131,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    LookupTableEntryCreate:
+      type: object
+      required:
+      - Value
+      properties:
+        Value:
+          type: string
+          description: Entry value
+        Description:
+          type: string
+          description: Entry description
+    LookupTableEntryCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTableEntry'
     LookupTableEntry:
       type: object
       properties:
@@ -156,24 +174,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LookupTable'
-    LookupTableEntryCreate:
-      type: object
-      required:
-      - Value
-      properties:
-        Value:
-          type: string
-          description: Entry value
-        Description:
-          type: string
-          description: Entry description
-    LookupTableEntryCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/LookupTableEntry'
     LookupTable:
       type: object
       properties:

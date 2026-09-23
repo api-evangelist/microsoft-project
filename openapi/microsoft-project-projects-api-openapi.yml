@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Project Online REST Assignments Projects API
+  title: Microsoft Project Online REST Projects API
   description: REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
   version: '1.0'
   contact:
@@ -202,14 +202,39 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    QueueJobCollection:
+    ProjectCollection:
       type: object
       properties:
         value:
           type: array
           items:
-            $ref: '#/components/schemas/QueueJob'
+            $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -267,31 +292,6 @@ components:
           format: uri
           description: URL to the project site
           example: https://contoso.sharepoint.com/sites/pwa/ProjectSite
-    ProjectCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Name of the project
-          example: New Product Launch
-        Description:
-          type: string
-          description: Description of the project
-          example: Launch plan for Q3 product release
-        StartDate:
-          type: string
-          format: date-time
-          description: Project start date
-          example: '2026-07-01T00:00:00Z'
-    ProjectCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
     QueueJob:
       type: object
       properties:
@@ -310,6 +310,31 @@ components:
           type: integer
           description: Job completion percentage
           example: 100
+    ProjectCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Name of the project
+          example: New Product Launch
+        Description:
+          type: string
+          description: Description of the project
+          example: Launch plan for Q3 product release
+        StartDate:
+          type: string
+          format: date-time
+          description: Project start date
+          example: '2026-07-01T00:00:00Z'
+    QueueJobCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueueJob'
     Error:
       type: object
       properties:
@@ -334,31 +359,6 @@ components:
         type: string
         format: uuid
       example: 263fc8d7-427c-e111-92fc-00155d3ba208
-  responses:
-    Unauthorized:
-      description: Unauthorized - authentication required
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad request - invalid parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: Forbidden - insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     oauth2:
       type: oauth2

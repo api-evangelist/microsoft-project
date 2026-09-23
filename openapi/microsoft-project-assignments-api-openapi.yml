@@ -122,24 +122,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    assignmentId:
-      name: assignmentId
-      in: path
-      required: true
-      description: The GUID identifier of the assignment
-      schema:
-        type: string
-        format: uuid
-      example: a2eafeb5-437c-e111-92fc-00155d3ba208
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The GUID identifier of the project
-      schema:
-        type: string
-        format: uuid
-      example: 263fc8d7-427c-e111-92fc-00155d3ba208
     resourceId:
       name: resourceId
       in: path
@@ -149,21 +131,25 @@ components:
         type: string
         format: uuid
       example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+    assignmentId:
+      name: assignmentId
+      in: path
+      required: true
+      description: The GUID identifier of the assignment
+      schema:
+        type: string
+        format: uuid
+      example: a2eafeb5-437c-e111-92fc-00155d3ba208
   schemas:
-    AssignmentCreate:
-      type: object
-      required:
-      - TaskId
-      - ResourceId
-      properties:
-        TaskId:
-          type: string
-          format: uuid
-          description: Task to assign resource to
-        ResourceId:
-          type: string
-          format: uuid
-          description: Resource to assign
     AssignmentCollection:
       type: object
       properties:
@@ -215,6 +201,20 @@ components:
           type: string
           format: date-time
           description: Assignment finish date
+    AssignmentCreate:
+      type: object
+      required:
+      - TaskId
+      - ResourceId
+      properties:
+        TaskId:
+          type: string
+          format: uuid
+          description: Task to assign resource to
+        ResourceId:
+          type: string
+          format: uuid
+          description: Resource to assign
   securitySchemes:
     oauth2:
       type: oauth2
