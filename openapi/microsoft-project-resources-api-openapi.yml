@@ -121,6 +121,40 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    EnterpriseResourceCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Resource name
+          example: John Doe
+        Email:
+          type: string
+          format: email
+          description: Resource email
+        ResourceType:
+          type: integer
+          description: Resource type
+          default: 1
+        IsGeneric:
+          type: boolean
+          default: false
+    ProjectResource:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Resource identifier
+        Name:
+          type: string
+          description: Resource name
+        Email:
+          type: string
+          format: email
+          description: Resource email
     EnterpriseResource:
       type: object
       properties:
@@ -172,6 +206,13 @@ components:
           type: string
           description: Base calendar name
           example: Standard
+    ProjectResourceCreate:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Enterprise resource ID to add to project
     ProjectResourceCollection:
       type: object
       properties:
@@ -186,47 +227,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EnterpriseResource'
-    EnterpriseResourceCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Resource name
-          example: John Doe
-        Email:
-          type: string
-          format: email
-          description: Resource email
-        ResourceType:
-          type: integer
-          description: Resource type
-          default: 1
-        IsGeneric:
-          type: boolean
-          default: false
-    ProjectResource:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Resource identifier
-        Name:
-          type: string
-          description: Resource name
-        Email:
-          type: string
-          format: email
-          description: Resource email
-    ProjectResourceCreate:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Enterprise resource ID to add to project
   parameters:
     projectId:
       name: projectId

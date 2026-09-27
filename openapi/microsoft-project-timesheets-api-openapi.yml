@@ -114,15 +114,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    periodId:
-      name: periodId
-      in: path
-      required: true
-      description: The GUID identifier of the timesheet period
-      schema:
-        type: string
-        format: uuid
   schemas:
     TimeSheet:
       type: object
@@ -147,6 +138,20 @@ components:
           type: string
           description: Total actual work
           example: 38h
+    TimeSheetLineCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetLine'
+    TimeSheetPeriodCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetPeriod'
     TimeSheetPeriod:
       type: object
       properties:
@@ -192,13 +197,6 @@ components:
         Comment:
           type: string
           description: Line comment
-    TimeSheetPeriodCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeSheetPeriod'
     TimeSheetLineCreate:
       type: object
       properties:
@@ -214,13 +212,15 @@ components:
           type: string
           format: uuid
           description: Task ID
-    TimeSheetLineCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeSheetLine'
+  parameters:
+    periodId:
+      name: periodId
+      in: path
+      required: true
+      description: The GUID identifier of the timesheet period
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

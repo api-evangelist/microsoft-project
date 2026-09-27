@@ -131,24 +131,13 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    LookupTableEntryCreate:
-      type: object
-      required:
-      - Value
-      properties:
-        Value:
-          type: string
-          description: Entry value
-        Description:
-          type: string
-          description: Entry description
-    LookupTableEntryCollection:
+    LookupTableCollection:
       type: object
       properties:
         value:
           type: array
           items:
-            $ref: '#/components/schemas/LookupTableEntry'
+            $ref: '#/components/schemas/LookupTable'
     LookupTableEntry:
       type: object
       properties:
@@ -167,13 +156,6 @@ components:
         Description:
           type: string
           description: Entry description
-    LookupTableCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/LookupTable'
     LookupTable:
       type: object
       properties:
@@ -191,6 +173,24 @@ components:
         SortOrder:
           type: integer
           description: Sort order for entries
+    LookupTableEntryCreate:
+      type: object
+      required:
+      - Value
+      properties:
+        Value:
+          type: string
+          description: Entry value
+        Description:
+          type: string
+          description: Entry description
+    LookupTableEntryCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTableEntry'
     LookupTableCreate:
       type: object
       required:

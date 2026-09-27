@@ -4,15 +4,19 @@ description: Microsoft Project is a project management software product develope
 type: Index
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - officedev/project-samples
+  open_source: unknown
   commercial: true
   callable_host: true
   label: Hosted service · you call their endpoint
-  confidence: high
+  confidence: low
   source:
   - openapi
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: paid
@@ -32,7 +36,7 @@ tags:
 - Budgeting
 - Gantt Charts
 - Microsoft
-- Portfolio-Management
+- Portfolio Management
 - Project Management
 - Resource Management
 - Scheduling
@@ -46,6 +50,7 @@ tags_raw:
 - Resource Management
 - Scheduling
 - Task Management
+- Portfolio-Management
 url: https://developer.microsoft.com/en-us/microsoft-365
 created: '2024-01-15'
 modified: '2026-05-19'

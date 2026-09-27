@@ -202,39 +202,7 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  responses:
-    BadRequest:
-      description: Bad request - invalid parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: Forbidden - insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - authentication required
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    ProjectCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -292,24 +260,6 @@ components:
           format: uri
           description: URL to the project site
           example: https://contoso.sharepoint.com/sites/pwa/ProjectSite
-    QueueJob:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Queue job identifier
-        JobState:
-          type: integer
-          description: Job state (0=Unknown, 1=ReadyForProcessing, 2=SendIncomplete, 3=Processing, 4=Success, 5=Failed, 6=FailedNotBlocking, 7=ProcessingDeferred, 8=CorrelationBlocked, 9=Canceled, 10=OnHold, 11=Sleeping, 12=ReadyForLaunch)
-          example: 4
-        MessageType:
-          type: integer
-          description: Queue message type
-        PercentComplete:
-          type: integer
-          description: Job completion percentage
-          example: 100
     ProjectCreate:
       type: object
       required:
@@ -328,13 +278,6 @@ components:
           format: date-time
           description: Project start date
           example: '2026-07-01T00:00:00Z'
-    QueueJobCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/QueueJob'
     Error:
       type: object
       properties:
@@ -349,6 +292,63 @@ components:
               type: string
               description: Error message
               example: The specified project was not found.
+    ProjectCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    QueueJob:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Queue job identifier
+        JobState:
+          type: integer
+          description: Job state (0=Unknown, 1=ReadyForProcessing, 2=SendIncomplete, 3=Processing, 4=Success, 5=Failed, 6=FailedNotBlocking, 7=ProcessingDeferred, 8=CorrelationBlocked, 9=Canceled, 10=OnHold, 11=Sleeping, 12=ReadyForLaunch)
+          example: 4
+        MessageType:
+          type: integer
+          description: Queue message type
+        PercentComplete:
+          type: integer
+          description: Job completion percentage
+          example: 100
+    QueueJobCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueueJob'
+  responses:
+    BadRequest:
+      description: Bad request - invalid parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - authentication required
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   parameters:
     projectId:
       name: projectId

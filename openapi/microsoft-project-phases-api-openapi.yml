@@ -93,21 +93,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Phase:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Phase identifier
-        Name:
-          type: string
-          description: Phase name
-          example: Initiation
-        Description:
-          type: string
-          description: Phase description
-          example: Project initiation and planning phase
     PhaseCollection:
       type: object
       properties:
@@ -126,6 +111,21 @@ components:
         Description:
           type: string
           description: Phase description
+    Phase:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Phase identifier
+        Name:
+          type: string
+          description: Phase name
+          example: Initiation
+        Description:
+          type: string
+          description: Phase description
+          example: Project initiation and planning phase
   parameters:
     phaseId:
       name: phaseId

@@ -122,6 +122,15 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
+    assignmentId:
+      name: assignmentId
+      in: path
+      required: true
+      description: The GUID identifier of the assignment
+      schema:
+        type: string
+        format: uuid
+      example: a2eafeb5-437c-e111-92fc-00155d3ba208
     resourceId:
       name: resourceId
       in: path
@@ -140,23 +149,7 @@ components:
         type: string
         format: uuid
       example: 263fc8d7-427c-e111-92fc-00155d3ba208
-    assignmentId:
-      name: assignmentId
-      in: path
-      required: true
-      description: The GUID identifier of the assignment
-      schema:
-        type: string
-        format: uuid
-      example: a2eafeb5-437c-e111-92fc-00155d3ba208
   schemas:
-    AssignmentCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Assignment'
     Assignment:
       type: object
       properties:
@@ -215,6 +208,13 @@ components:
           type: string
           format: uuid
           description: Resource to assign
+    AssignmentCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Assignment'
   securitySchemes:
     oauth2:
       type: oauth2

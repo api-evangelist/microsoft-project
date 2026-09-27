@@ -93,13 +93,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    EventHandlerCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventHandler'
     EventHandlerCreate:
       type: object
       required:
@@ -145,6 +138,13 @@ components:
           type: integer
           description: Handler execution order
           example: 1
+    EventHandlerCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHandler'
   parameters:
     handlerId:
       name: handlerId

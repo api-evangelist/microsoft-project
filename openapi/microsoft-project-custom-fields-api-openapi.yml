@@ -97,13 +97,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CustomFieldCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomField'
     CustomField:
       type: object
       properties:
@@ -146,6 +139,13 @@ components:
         Formula:
           type: string
           description: Calculated field formula
+    CustomFieldCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomField'
     CustomFieldCreate:
       type: object
       required:

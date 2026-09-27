@@ -96,7 +96,25 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    calendarId:
+      name: calendarId
+      in: path
+      required: true
+      description: The GUID identifier of the calendar
+      schema:
+        type: string
+        format: uuid
   schemas:
+    CalendarCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Calendar name
+          example: Night Shift Calendar
     Calendar:
       type: object
       properties:
@@ -127,24 +145,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Calendar'
-    CalendarCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Calendar name
-          example: Night Shift Calendar
-  parameters:
-    calendarId:
-      name: calendarId
-      in: path
-      required: true
-      description: The GUID identifier of the calendar
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

@@ -124,13 +124,6 @@ components:
         WorkspaceTemplateName:
           type: string
           description: Associated workspace template name
-    EnterpriseProjectTypeCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/EnterpriseProjectType'
     EnterpriseProjectTypeCreate:
       type: object
       required:
@@ -142,6 +135,13 @@ components:
         Description:
           type: string
           description: Project type description
+    EnterpriseProjectTypeCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterpriseProjectType'
   securitySchemes:
     oauth2:
       type: oauth2
