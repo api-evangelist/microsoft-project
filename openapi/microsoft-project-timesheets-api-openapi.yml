@@ -115,36 +115,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    TimeSheet:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Timesheet identifier
-        Status:
-          type: integer
-          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
-          example: 0
-        PeriodId:
-          type: string
-          format: uuid
-          description: Associated period ID
-        TotalWork:
-          type: string
-          description: Total work reported
-          example: 40h
-        TotalActualWork:
-          type: string
-          description: Total actual work
-          example: 38h
-    TimeSheetLineCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeSheetLine'
     TimeSheetPeriodCollection:
       type: object
       properties:
@@ -171,6 +141,36 @@ components:
           type: string
           format: date-time
           description: Period end date
+    TimeSheetLineCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetLine'
+    TimeSheet:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Timesheet identifier
+        Status:
+          type: integer
+          description: Timesheet status (0=InProgress, 1=Submitted, 2=Acceptable, 3=Approved, 4=Rejected)
+          example: 0
+        PeriodId:
+          type: string
+          format: uuid
+          description: Associated period ID
+        TotalWork:
+          type: string
+          description: Total work reported
+          example: 40h
+        TotalActualWork:
+          type: string
+          description: Total actual work
+          example: 38h
     TimeSheetLine:
       type: object
       properties:

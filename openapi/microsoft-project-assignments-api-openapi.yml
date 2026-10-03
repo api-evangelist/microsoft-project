@@ -121,34 +121,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    assignmentId:
-      name: assignmentId
-      in: path
-      required: true
-      description: The GUID identifier of the assignment
-      schema:
-        type: string
-        format: uuid
-      example: a2eafeb5-437c-e111-92fc-00155d3ba208
-    resourceId:
-      name: resourceId
-      in: path
-      required: true
-      description: The GUID identifier of the enterprise resource
-      schema:
-        type: string
-        format: uuid
-      example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      description: The GUID identifier of the project
-      schema:
-        type: string
-        format: uuid
-      example: 263fc8d7-427c-e111-92fc-00155d3ba208
   schemas:
     Assignment:
       type: object
@@ -215,6 +187,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Assignment'
+  parameters:
+    assignmentId:
+      name: assignmentId
+      in: path
+      required: true
+      description: The GUID identifier of the assignment
+      schema:
+        type: string
+        format: uuid
+      example: a2eafeb5-437c-e111-92fc-00155d3ba208
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      description: The GUID identifier of the project
+      schema:
+        type: string
+        format: uuid
+      example: 263fc8d7-427c-e111-92fc-00155d3ba208
+    resourceId:
+      name: resourceId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise resource
+      schema:
+        type: string
+        format: uuid
+      example: 28eeb2b5-fe74-4efc-aa35-6a64514d1526
   securitySchemes:
     oauth2:
       type: oauth2

@@ -96,15 +96,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    calendarId:
-      name: calendarId
-      in: path
-      required: true
-      description: The GUID identifier of the calendar
-      schema:
-        type: string
-        format: uuid
   schemas:
     CalendarCreate:
       type: object
@@ -145,6 +136,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Calendar'
+  parameters:
+    calendarId:
+      name: calendarId
+      in: path
+      required: true
+      description: The GUID identifier of the calendar
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

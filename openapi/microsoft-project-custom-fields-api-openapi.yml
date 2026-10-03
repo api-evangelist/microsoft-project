@@ -97,6 +97,32 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CustomFieldCreate:
+      type: object
+      required:
+      - Name
+      - FieldType
+      - EntityType
+      properties:
+        Name:
+          type: string
+          description: Custom field display name
+        FieldType:
+          type: integer
+          description: Field data type
+        EntityType:
+          type: integer
+          description: Entity type
+        Description:
+          type: string
+          description: Field description
+    CustomFieldCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomField'
     CustomField:
       type: object
       properties:
@@ -139,32 +165,6 @@ components:
         Formula:
           type: string
           description: Calculated field formula
-    CustomFieldCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomField'
-    CustomFieldCreate:
-      type: object
-      required:
-      - Name
-      - FieldType
-      - EntityType
-      properties:
-        Name:
-          type: string
-          description: Custom field display name
-        FieldType:
-          type: integer
-          description: Field data type
-        EntityType:
-          type: integer
-          description: Entity type
-        Description:
-          type: string
-          description: Field description
   parameters:
     fieldId:
       name: fieldId

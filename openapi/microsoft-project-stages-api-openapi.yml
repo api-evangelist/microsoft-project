@@ -112,6 +112,13 @@ components:
           type: string
           format: uuid
           description: Parent phase ID
+    StageCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stage'
     StageCreate:
       type: object
       required:
@@ -128,13 +135,6 @@ components:
           type: string
           format: uuid
           description: Parent phase ID
-    StageCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stage'
   parameters:
     stageId:
       name: stageId

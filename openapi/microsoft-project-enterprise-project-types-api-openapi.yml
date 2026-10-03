@@ -102,6 +102,13 @@ components:
         type: string
         format: uuid
   schemas:
+    EnterpriseProjectTypeCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnterpriseProjectType'
     EnterpriseProjectType:
       type: object
       properties:
@@ -135,13 +142,6 @@ components:
         Description:
           type: string
           description: Project type description
-    EnterpriseProjectTypeCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/EnterpriseProjectType'
   securitySchemes:
     oauth2:
       type: oauth2
