@@ -36,21 +36,20 @@ tags:
 - Budgeting
 - Gantt Charts
 - Microsoft
-- Portfolio Management
 - Project Management
 - Resource Management
 - Scheduling
 - Task Management
+- Project Portfolio Management
 tags_raw:
 - Budgeting
 - Gantt Charts
 - Microsoft
-- Portfolio Management
 - Project Management
 - Resource Management
 - Scheduling
 - Task Management
-- Portfolio-Management
+- Project Portfolio Management
 url: https://developer.microsoft.com/en-us/microsoft-365
 created: '2024-01-15'
 modified: '2026-05-19'
@@ -1213,3 +1212,5 @@ maintainers:
   email: kin@apievangelist.com
 x-parent: microsoft-365
 x-relationship: product
+x-tags-removed:
+- Portfolio Management
