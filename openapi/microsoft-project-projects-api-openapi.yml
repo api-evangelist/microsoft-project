@@ -267,6 +267,24 @@ components:
           format: uri
           description: URL to the project site
           example: https://contoso.sharepoint.com/sites/pwa/ProjectSite
+    ProjectCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Name of the project
+          example: New Product Launch
+        Description:
+          type: string
+          description: Description of the project
+          example: Launch plan for Q3 product release
+        StartDate:
+          type: string
+          format: date-time
+          description: Project start date
+          example: '2026-07-01T00:00:00Z'
     ProjectCollection:
       type: object
       properties:
@@ -292,24 +310,6 @@ components:
           type: integer
           description: Job completion percentage
           example: 100
-    ProjectCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Name of the project
-          example: New Product Launch
-        Description:
-          type: string
-          description: Description of the project
-          example: Launch plan for Q3 product release
-        StartDate:
-          type: string
-          format: date-time
-          description: Project start date
-          example: '2026-07-01T00:00:00Z'
     Error:
       type: object
       properties:
@@ -331,8 +331,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: Forbidden - insufficient permissions
+    Unauthorized:
+      description: Unauthorized - authentication required
       content:
         application/json:
           schema:
@@ -343,8 +343,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - authentication required
+    Forbidden:
+      description: Forbidden - insufficient permissions
       content:
         application/json:
           schema:

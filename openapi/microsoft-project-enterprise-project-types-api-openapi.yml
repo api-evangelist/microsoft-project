@@ -92,16 +92,18 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    projectTypeId:
-      name: projectTypeId
-      in: path
-      required: true
-      description: The GUID identifier of the enterprise project type
-      schema:
-        type: string
-        format: uuid
   schemas:
+    EnterpriseProjectTypeCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Project type name
+        Description:
+          type: string
+          description: Project type description
     EnterpriseProjectTypeCollection:
       type: object
       properties:
@@ -131,17 +133,15 @@ components:
         WorkspaceTemplateName:
           type: string
           description: Associated workspace template name
-    EnterpriseProjectTypeCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Project type name
-        Description:
-          type: string
-          description: Project type description
+  parameters:
+    projectTypeId:
+      name: projectTypeId
+      in: path
+      required: true
+      description: The GUID identifier of the enterprise project type
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

@@ -122,32 +122,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimeSheetPeriod'
-    TimeSheetPeriod:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Period identifier
-        Name:
-          type: string
-          description: Period name
-          example: March 2026 - Week 1
-        Start:
-          type: string
-          format: date-time
-          description: Period start date
-        End:
-          type: string
-          format: date-time
-          description: Period end date
-    TimeSheetLineCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeSheetLine'
     TimeSheet:
       type: object
       properties:
@@ -171,6 +145,40 @@ components:
           type: string
           description: Total actual work
           example: 38h
+    TimeSheetPeriod:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Period identifier
+        Name:
+          type: string
+          description: Period name
+          example: March 2026 - Week 1
+        Start:
+          type: string
+          format: date-time
+          description: Period start date
+        End:
+          type: string
+          format: date-time
+          description: Period end date
+    TimeSheetLineCreate:
+      type: object
+      properties:
+        LineClass:
+          type: integer
+          description: Line classification
+          default: 0
+        ProjectId:
+          type: string
+          format: uuid
+          description: Project ID
+        TaskId:
+          type: string
+          format: uuid
+          description: Task ID
     TimeSheetLine:
       type: object
       properties:
@@ -197,21 +205,13 @@ components:
         Comment:
           type: string
           description: Line comment
-    TimeSheetLineCreate:
+    TimeSheetLineCollection:
       type: object
       properties:
-        LineClass:
-          type: integer
-          description: Line classification
-          default: 0
-        ProjectId:
-          type: string
-          format: uuid
-          description: Project ID
-        TaskId:
-          type: string
-          format: uuid
-          description: Task ID
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeSheetLine'
   parameters:
     periodId:
       name: periodId

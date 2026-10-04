@@ -130,25 +130,16 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    tableId:
+      name: tableId
+      in: path
+      required: true
+      description: The GUID identifier of the lookup table
+      schema:
+        type: string
+        format: uuid
   schemas:
-    LookupTableEntryCreate:
-      type: object
-      required:
-      - Value
-      properties:
-        Value:
-          type: string
-          description: Entry value
-        Description:
-          type: string
-          description: Entry description
-    LookupTableEntryCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/LookupTableEntry'
     LookupTableEntry:
       type: object
       properties:
@@ -167,6 +158,42 @@ components:
         Description:
           type: string
           description: Entry description
+    LookupTableCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTable'
+    LookupTableEntryCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/LookupTableEntry'
+    LookupTableEntryCreate:
+      type: object
+      required:
+      - Value
+      properties:
+        Value:
+          type: string
+          description: Entry value
+        Description:
+          type: string
+          description: Entry description
+    LookupTableCreate:
+      type: object
+      required:
+      - Name
+      properties:
+        Name:
+          type: string
+          description: Lookup table name
+        FieldType:
+          type: integer
+          description: Value field type
     LookupTable:
       type: object
       properties:
@@ -184,33 +211,6 @@ components:
         SortOrder:
           type: integer
           description: Sort order for entries
-    LookupTableCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/LookupTable'
-    LookupTableCreate:
-      type: object
-      required:
-      - Name
-      properties:
-        Name:
-          type: string
-          description: Lookup table name
-        FieldType:
-          type: integer
-          description: Value field type
-  parameters:
-    tableId:
-      name: tableId
-      in: path
-      required: true
-      description: The GUID identifier of the lookup table
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

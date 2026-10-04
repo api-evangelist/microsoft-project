@@ -92,7 +92,23 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    handlerId:
+      name: handlerId
+      in: path
+      required: true
+      description: The GUID identifier of the event handler
+      schema:
+        type: string
+        format: uuid
   schemas:
+    EventHandlerCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventHandler'
     EventHandler:
       type: object
       properties:
@@ -117,13 +133,6 @@ components:
           type: integer
           description: Handler execution order
           example: 1
-    EventHandlerCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventHandler'
     EventHandlerCreate:
       type: object
       required:
@@ -145,15 +154,6 @@ components:
         Order:
           type: integer
           description: Execution order
-  parameters:
-    handlerId:
-      name: handlerId
-      in: path
-      required: true
-      description: The GUID identifier of the event handler
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

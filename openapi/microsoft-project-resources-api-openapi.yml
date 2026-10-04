@@ -172,34 +172,6 @@ components:
           type: string
           description: Base calendar name
           example: Standard
-    ProjectResource:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Resource identifier
-        Name:
-          type: string
-          description: Resource name
-        Email:
-          type: string
-          format: email
-          description: Resource email
-    ProjectResourceCreate:
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Enterprise resource ID to add to project
-    ProjectResourceCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectResource'
     EnterpriseResourceCreate:
       type: object
       required:
@@ -220,6 +192,27 @@ components:
         IsGeneric:
           type: boolean
           default: false
+    ProjectResourceCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectResource'
+    ProjectResource:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Resource identifier
+        Name:
+          type: string
+          description: Resource name
+        Email:
+          type: string
+          format: email
+          description: Resource email
     EnterpriseResourceCollection:
       type: object
       properties:
@@ -227,6 +220,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EnterpriseResource'
+    ProjectResourceCreate:
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Enterprise resource ID to add to project
   parameters:
     projectId:
       name: projectId

@@ -92,7 +92,32 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    stageId:
+      name: stageId
+      in: path
+      required: true
+      description: The GUID identifier of the stage
+      schema:
+        type: string
+        format: uuid
   schemas:
+    StageCreate:
+      type: object
+      required:
+      - Name
+      - PhaseId
+      properties:
+        Name:
+          type: string
+          description: Stage name
+        Description:
+          type: string
+          description: Stage description
+        PhaseId:
+          type: string
+          format: uuid
+          description: Parent phase ID
     Stage:
       type: object
       properties:
@@ -119,31 +144,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Stage'
-    StageCreate:
-      type: object
-      required:
-      - Name
-      - PhaseId
-      properties:
-        Name:
-          type: string
-          description: Stage name
-        Description:
-          type: string
-          description: Stage description
-        PhaseId:
-          type: string
-          format: uuid
-          description: Parent phase ID
-  parameters:
-    stageId:
-      name: stageId
-      in: path
-      required: true
-      description: The GUID identifier of the stage
-      schema:
-        type: string
-        format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

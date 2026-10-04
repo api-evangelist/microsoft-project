@@ -186,6 +186,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    TaskLinkCreate:
+      type: object
+      required:
+      - StartId
+      - EndId
+      properties:
+        StartId:
+          type: string
+          format: uuid
+          description: Predecessor task ID
+        EndId:
+          type: string
+          format: uuid
+          description: Successor task ID
+        DependencyType:
+          type: integer
+          description: Dependency type
+          default: 0
     TaskCollection:
       type: object
       properties:
@@ -214,18 +232,6 @@ components:
           type: string
           format: uuid
           description: Parent task ID
-    TaskUpdate:
-      type: object
-      properties:
-        Name:
-          type: string
-          description: Updated task name
-        PercentComplete:
-          type: integer
-          description: Updated completion percentage
-        Duration:
-          type: string
-          description: Updated duration
     TaskLink:
       type: object
       properties:
@@ -245,6 +251,32 @@ components:
           type: integer
           description: Dependency type (0=FinishToStart, 1=FinishToFinish, 2=StartToStart, 3=StartToFinish)
           example: 0
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Error code
+              example: InvalidRequest
+            message:
+              type: string
+              description: Error message
+              example: The specified project was not found.
+    TaskUpdate:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Updated task name
+        PercentComplete:
+          type: integer
+          description: Updated completion percentage
+        Duration:
+          type: string
+          description: Updated duration
     Task:
       type: object
       properties:
@@ -331,38 +363,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TaskLink'
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: Error code
-              example: InvalidRequest
-            message:
-              type: string
-              description: Error message
-              example: The specified project was not found.
-    TaskLinkCreate:
-      type: object
-      required:
-      - StartId
-      - EndId
-      properties:
-        StartId:
-          type: string
-          format: uuid
-          description: Predecessor task ID
-        EndId:
-          type: string
-          format: uuid
-          description: Successor task ID
-        DependencyType:
-          type: integer
-          description: Dependency type
-          default: 0
   parameters:
     taskId:
       name: taskId
