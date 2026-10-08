@@ -1079,6 +1079,12 @@ apis:
     email: officedevfeedback@microsoft.com
     url: https://developer.microsoft.com/en-us/office
 common:
+- type: Plans
+  url: plans/microsoft-project-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/microsoft-project-rate-limits.yml
+- type: FinOps
+  url: finops/microsoft-project-finops.yml
 - type: X-portal
   url: https://developer.microsoft.com/
 - type: X-pricing
