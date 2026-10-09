@@ -192,3 +192,67 @@ plans:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - seat
+  - subscription
+  units:
+  - request
+  - seat
+  plans:
+  - name: Microsoft Planner (included with Microsoft 365)
+    access: freemium
+    model: seat
+    model_how: derived
+    units:
+    - request
+    - seat
+    periods:
+    - day
+    - month
+  - name: Planner Plan 1
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - request
+    - seat
+    periods:
+    - day
+    - month
+  - name: Planner and Project Plan 3
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - request
+    - seat
+    periods:
+    - day
+    - month
+  - name: Project Standard 2024 (one-time)
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - year
+  - name: Project Professional 2024 (one-time)
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - seat
+    periods:
+    - year
+  - name: Project Plan 5 (End of Sale)
+    access: enterprise
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
