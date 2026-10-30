@@ -1,4 +1,4 @@
-# Microsoft Project (microsoft-project)
+# Microsoft Project
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,220 +66,229 @@
 
 Microsoft Project is a project management software product developed by Microsoft. It provides tools for developing plans, assigning resources to tasks, tracking progress, managing budgets, and analyzing workloads. Microsoft Project offers REST APIs via SharePoint/Project Online, a Client-Side Object Model (CSOM), OData reporting feeds, and JavaScript APIs for building add-ins and integrations.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/microsoft-project/refs/heads/main/apis.yml)
+**Areas:** Budgeting · Gantt Charts · Microsoft · Project Management · Resource Management · Scheduling · Task Management · Project Portfolio Management
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Microsoft Project on APIs.io
 
-## Tags:
+Everything profiled for Microsoft Project is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/microsoft-project/](https://apis.io/providers/microsoft-project/)** — or go straight to one of the APIs or properties below.
 
- - Budgeting, Gantt Charts, Microsoft, Portfolio Management, Project Management, Resource Management, Scheduling, Task Management
+### APIs (21)
 
-## Timestamps
+- [Microsoft Project Online CSOM API](https://apis.io/apis/microsoft-project/csom-api/) — Client-Side Object Model API for programmatic access to Project Online and Project Server. Provides .NET, Silverlight, Windows Phone, and JavaScript…
+- [Microsoft Project OData Reporting API](https://apis.io/apis/microsoft-project/odata-reporting-api/) — OData-based reporting feed for read-only access to Project Server and Project Online reporting data. Provides access to project, task, resource, assignment,…
+- [Microsoft Project JavaScript API](https://apis.io/apis/microsoft-project/javascript-api/) — JavaScript API for building Office Add-ins that extend Microsoft Project desktop client. Enables reading task, resource, and view data from the active…
+- [Microsoft Project Assignments API](https://apis.io/apis/microsoft-project/microsoft-project-assignments-api/) — Manage resource assignments to tasks
+- [Microsoft Project Calendars API](https://apis.io/apis/microsoft-project/microsoft-project-calendars-api/) — Manage enterprise calendars
+- [Microsoft Project Custom Fields API](https://apis.io/apis/microsoft-project/microsoft-project-custom-fields-api/) — Manage enterprise custom field definitions
+- [Microsoft Project Enterprise Project Types API](https://apis.io/apis/microsoft-project/microsoft-project-enterprise-project-types-api/) — Manage enterprise project type configurations
+- [Microsoft Project Event Handlers API](https://apis.io/apis/microsoft-project/microsoft-project-event-handlers-api/) — Manage event handler subscriptions
+- [Microsoft Project Lookup Tables API](https://apis.io/apis/microsoft-project/microsoft-project-lookup-tables-api/) — Manage lookup table definitions and entries
+- [Microsoft Project Phases API](https://apis.io/apis/microsoft-project/microsoft-project-phases-api/) — Manage workflow phases
+- [Microsoft Project Projects API](https://apis.io/apis/microsoft-project/microsoft-project-projects-api/) — Manage projects and project lifecycle operations
+- [Microsoft Project Resources API](https://apis.io/apis/microsoft-project/microsoft-project-resources-api/) — Manage enterprise resources and project resources
+- [Microsoft Project Stages API](https://apis.io/apis/microsoft-project/microsoft-project-stages-api/) — Manage workflow stages
+- [Microsoft Project Tasks API](https://apis.io/apis/microsoft-project/microsoft-project-tasks-api/) — Manage project tasks and subtasks
+- [Microsoft Project Timesheets API](https://apis.io/apis/microsoft-project/microsoft-project-timesheets-api/) — Manage timesheet periods, lines, and work entries
+- [Microsoft Project Workflow Activities API](https://apis.io/apis/microsoft-project/microsoft-project-workflow-activities-api/) — Manage workflow activities
+- [Microsoft Project Online API](https://apis.io/apis/microsoft-project/microsoft-project-online-api/) — REST API for accessing and managing Project Online data, including projects, tasks, resources, and assignments.
+- [Microsoft Graph Project API](https://apis.io/apis/microsoft-project/microsoft-graph-project-api/) — Microsoft Graph API for Project for the web, enabling access to projects, tasks, and bucket management.
+- [Microsoft Project Server CSOM API](https://apis.io/apis/microsoft-project/microsoft-project-server-csom-api/) — Client-Side Object Model (CSOM) API for Project Server, providing programmatic access to Project Server data.
+- [Microsoft Project for the Web API](https://apis.io/apis/microsoft-project/microsoft-project-for-the-web-api/) — REST API for managing projects, tasks, resources, and assignments in Microsoft Project for the web.
+- [Microsoft Project Desktop CSOM API](https://apis.io/apis/microsoft-project/microsoft-project-desktop-csom-api/) — Client-side object model for programmatically interacting with Microsoft Project desktop applications.
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-04-18
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Microsoft Project Online REST API
-REST API for accessing and managing Microsoft Project Online and Project Server data including projects, tasks, resources, assignments, calendars, custom fields, timesheets, lookup tables, and workflow activities. Uses SharePoint-based REST endpoints via the ProjectServer service.
+#### Agentic access (1)
 
-**Human URL:** [https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013](https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags:
+- [Microsoft Project Agentic Access](https://apis.io/agentic-access/microsoft-project/microsoft-project-agentic-access/)
 
- - Assignments, Calendars, Custom Fields, Projects, Resources, REST, Tasks, Timesheets
+#### JSON Schema (7)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013)
-- [APIReference](https://learn.microsoft.com/en-us/office/client-developer/project/javascript-library-and-rest-reference-for-project-server-2013)
-- [Authentication](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins)
-- [CodeExamples](https://github.com/OfficeDev/Project-Samples/tree/main/O365-Project-Online-REST-Samples)
-- [CodeExamples - REST CRUD Operations Sample](https://github.com/OfficeDev/Project-Add-in-REST-BasicDataOperations)
-- [OpenAPI](openapi/microsoft-project-rest-api.yaml)
-- [JSONSchema - Project Schema](json-schema/rest-api-project-schema.json)
-- [JSONSchema - Task Schema](json-schema/rest-api-task-schema.json)
-- [JSONSchema - Enterprise Resource Schema](json-schema/rest-api-enterprise-resource-schema.json)
-- [JSONSchema - Assignment Schema](json-schema/rest-api-assignment-schema.json)
-- [JSONSchema - Calendar Schema](json-schema/rest-api-calendar-schema.json)
-- [JSONSchema - Custom Field Schema](json-schema/rest-api-custom-field-schema.json)
-- [JSONSchema - TimeSheet Schema](json-schema/rest-api-time-sheet-schema.json)
-- [JSONLD](json-ld/microsoft-project-rest-api-context.jsonld)
+- [Assignment](https://apis.io/schemas/microsoft-project/rest-api-assignment/)
+- [Calendar](https://apis.io/schemas/microsoft-project/rest-api-calendar/)
+- [CustomField](https://apis.io/schemas/microsoft-project/rest-api-custom-field/)
+- [EnterpriseResource](https://apis.io/schemas/microsoft-project/rest-api-enterprise-resource/)
+- [Project](https://apis.io/schemas/microsoft-project/rest-api-project/)
+- [Task](https://apis.io/schemas/microsoft-project/rest-api-task/)
+- [TimeSheet](https://apis.io/schemas/microsoft-project/rest-api-time-sheet/)
 
-### Microsoft Project Online CSOM API
-Client-Side Object Model API for programmatic access to Project Online and Project Server. Provides .NET, Silverlight, Windows Phone, and JavaScript interfaces for CRUD operations on projects, tasks, resources, assignments, custom fields, lookup tables, and enterprise project types.
+#### JSON Structure (7)
 
-**Human URL:** [https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013](https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013)
+Data models expressed in JSON Structure.
 
-#### Tags:
+- [Rest Api Assignment Structure](https://apis.io/json-structure/microsoft-project/rest-api-assignment-structure/)
+- [Rest Api Calendar Structure](https://apis.io/json-structure/microsoft-project/rest-api-calendar-structure/)
+- [Rest Api Custom Field Structure](https://apis.io/json-structure/microsoft-project/rest-api-custom-field-structure/)
+- [Rest Api Enterprise Resource Structure](https://apis.io/json-structure/microsoft-project/rest-api-enterprise-resource-structure/)
+- [Rest Api Project Structure](https://apis.io/json-structure/microsoft-project/rest-api-project-structure/)
+- [Rest Api Task Structure](https://apis.io/json-structure/microsoft-project/rest-api-task-structure/)
+- [Rest Api Time Sheet Structure](https://apis.io/json-structure/microsoft-project/rest-api-time-sheet-structure/)
 
- - .NET, Client Library, CSOM, JavaScript, Projects, Resources, Tasks
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://learn.microsoft.com/en-us/office/client-developer/project/client-side-object-model-csom-for-project-2013)
-- [SDK - .NET SDK](https://www.nuget.org/packages/Microsoft.SharePointOnline.CSOM/)
-- [GettingStarted](https://learn.microsoft.com/en-us/office/client-developer/project/getting-started-with-the-project-server-csom-and-.net)
+- [Microsoft Project Rest Api Context](https://apis.io/jsonld/microsoft-project/microsoft-project-rest-api-context/)
 
-### Microsoft Project OData Reporting API
-OData-based reporting feed for read-only access to Project Server and Project Online reporting data. Provides access to project, task, resource, assignment, and timesheet reporting tables and views via the ProjectData service endpoint.
+#### Vocabulary (1)
 
-**Human URL:** [https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture](https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture)
+The provider's domain terms, defined.
 
-#### Tags:
+- [Microsoft Project Vocabulary](https://apis.io/vocabularies/microsoft-project/microsoft-project-vocabulary/)
 
- - OData, Projects, Reporting, Resources, Tasks
+#### Examples (7)
 
-#### Properties
+Example requests and responses.
 
-- [Documentation](https://learn.microsoft.com/en-us/office/client-developer/project/project-server-2013-architecture)
-- [Authentication](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins)
+- [Rest Api Assignment Example](https://apis.io/examples/microsoft-project/rest-api-assignment-example/)
+- [Rest Api Calendar Example](https://apis.io/examples/microsoft-project/rest-api-calendar-example/)
+- [Rest Api Custom Field Example](https://apis.io/examples/microsoft-project/rest-api-custom-field-example/)
+- [Rest Api Enterprise Resource Example](https://apis.io/examples/microsoft-project/rest-api-enterprise-resource-example/)
+- [Rest Api Project Example](https://apis.io/examples/microsoft-project/rest-api-project-example/)
+- [Rest Api Task Example](https://apis.io/examples/microsoft-project/rest-api-task-example/)
+- [Rest Api Time Sheet Example](https://apis.io/examples/microsoft-project/rest-api-time-sheet-example/)
 
-### Microsoft Project JavaScript API
-JavaScript API for building Office Add-ins that extend Microsoft Project desktop client. Enables reading task, resource, and view data from the active project within a task pane add-in.
+#### Collections (26)
 
-**Human URL:** [https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins](https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins)
+Postman and Open Collection request collections.
 
-#### Tags:
+- [Microsoft Project Online REST Assignments API](https://apis.io/collections/microsoft-project/open-microsoft-project-assignments-api/)
+- [Microsoft Project Online REST Assignments Calendars API](https://apis.io/collections/microsoft-project/open-microsoft-project-calendars-api/)
+- [Microsoft Project Online REST Assignments Custom Fields API](https://apis.io/collections/microsoft-project/open-microsoft-project-custom-fields-api/)
+- [Microsoft Project Online REST Assignments Enterprise Project Types API](https://apis.io/collections/microsoft-project/open-microsoft-project-enterprise-project-types-api/)
+- [Microsoft Project Online REST Assignments Event Handlers API](https://apis.io/collections/microsoft-project/open-microsoft-project-event-handlers-api/)
+- [Microsoft Project Online REST Assignments Lookup Tables API](https://apis.io/collections/microsoft-project/open-microsoft-project-lookup-tables-api/)
+- [Microsoft Project Online REST Assignments Phases API](https://apis.io/collections/microsoft-project/open-microsoft-project-phases-api/)
+- [Microsoft Project Online REST Assignments Projects API](https://apis.io/collections/microsoft-project/open-microsoft-project-projects-api/)
+- [Microsoft Project Online REST Assignments Resources API](https://apis.io/collections/microsoft-project/open-microsoft-project-resources-api/)
+- [Microsoft Project Online REST Assignments Stages API](https://apis.io/collections/microsoft-project/open-microsoft-project-stages-api/)
+- [Microsoft Project Online REST Assignments Tasks API](https://apis.io/collections/microsoft-project/open-microsoft-project-tasks-api/)
+- [Microsoft Project Online REST Assignments Timesheets API](https://apis.io/collections/microsoft-project/open-microsoft-project-timesheets-api/)
+- [Microsoft Project Online REST Assignments Workflow Activities API](https://apis.io/collections/microsoft-project/open-microsoft-project-workflow-activities-api/)
+- [Microsoft Project Online REST Assignments API](https://apis.io/collections/microsoft-project/postman-microsoft-project-assignments-api/)
+- [Microsoft Project Online REST Assignments Calendars API](https://apis.io/collections/microsoft-project/postman-microsoft-project-calendars-api/)
+- [Microsoft Project Online REST Assignments Custom Fields API](https://apis.io/collections/microsoft-project/postman-microsoft-project-custom-fields-api/)
+- [Microsoft Project Online REST Assignments Enterprise Project Types API](https://apis.io/collections/microsoft-project/postman-microsoft-project-enterprise-project-types-api/)
+- [Microsoft Project Online REST Assignments Event Handlers API](https://apis.io/collections/microsoft-project/postman-microsoft-project-event-handlers-api/)
+- [Microsoft Project Online REST Assignments Lookup Tables API](https://apis.io/collections/microsoft-project/postman-microsoft-project-lookup-tables-api/)
+- [Microsoft Project Online REST Assignments Phases API](https://apis.io/collections/microsoft-project/postman-microsoft-project-phases-api/)
+- [Microsoft Project Online REST Assignments Projects API](https://apis.io/collections/microsoft-project/postman-microsoft-project-projects-api/)
+- [Microsoft Project Online REST Assignments Resources API](https://apis.io/collections/microsoft-project/postman-microsoft-project-resources-api/)
+- [Microsoft Project Online REST Assignments Stages API](https://apis.io/collections/microsoft-project/postman-microsoft-project-stages-api/)
+- [Microsoft Project Online REST Assignments Tasks API](https://apis.io/collections/microsoft-project/postman-microsoft-project-tasks-api/)
+- [Microsoft Project Online REST Assignments Timesheets API](https://apis.io/collections/microsoft-project/postman-microsoft-project-timesheets-api/)
+- …and 1 more published on APIs.io
 
- - Add-Ins, JavaScript, Office, Task Pane
+#### Governance rules (2)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://learn.microsoft.com/en-us/office/dev/add-ins/project/project-add-ins)
-- [Quickstart](https://learn.microsoft.com/en-us/office/dev/add-ins/quickstarts/project-quickstart)
-- [APIReference](https://learn.microsoft.com/en-us/javascript/api/office/office.context)
-- [CodeExamples](https://developer.microsoft.com/en-us/microsoft-365/gallery/?filterBy=Project,Samples)
+- [Microsoft Project — jsonschema rules](https://apis.io/rules/microsoft-project/microsoft-project-jsonschema-spectral-rules/)
+- [Microsoft Project API Rules](https://apis.io/rules/microsoft-project/microsoft-project-spectral-rules/)
 
-## Common Properties
+#### Security (3)
 
-- [Portal](https://developer.microsoft.com/en-us/microsoft-365)
-- [DeveloperPortal](https://learn.microsoft.com/en-us/office/client-developer/project/project-programming-tasks)
-- [Blog](https://techcommunity.microsoft.com/t5/project-blog/bg-p/ProjectBlog)
-- [TermsOfService](https://www.microsoft.com/en-us/legal/terms-of-use)
-- [PrivacyPolicy](https://privacy.microsoft.com/en-us/privacystatement)
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Microsoft Project Authentication](https://apis.io/security/microsoft-project/microsoft-project-authentication/)
+- [Microsoft Project Domain Security](https://apis.io/security/microsoft-project/microsoft-project-domain-security/)
+- [Microsoft Project Vulnerability Disclosure](https://apis.io/security/microsoft-project/microsoft-project-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Microsoft Project Scopes](https://apis.io/scopes/microsoft-project/microsoft-project-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Microsoft Project Plans Pricing](https://apis.io/plans/microsoft-project/microsoft-project-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Microsoft Project Rate Limits](https://apis.io/rate-limits/microsoft-project/microsoft-project-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Microsoft Project Finops](https://apis.io/finops/microsoft-project/microsoft-project-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.microsoft.com/)
+- [Getting started](https://learn.microsoft.com/en-us/office/client-developer/project/getting-started-developing-project-server-workflows)
 - [Pricing](https://www.microsoft.com/en-us/microsoft-365/project/compare-microsoft-project-management-software)
 - [Support](https://support.microsoft.com/)
-- [GitHubRepository](https://github.com/OfficeDev/Project-Samples)
-- [StackOverflow](https://stackoverflow.com/questions/tagged/ms-project)
-- [Training](https://support.microsoft.com/en-us/project)
-- [GettingStarted](https://learn.microsoft.com/en-us/office/client-developer/project/getting-started-developing-project-server-workflows)
-- [GitHubOrganization](https://github.com/OfficeDev)
-- [CodeExamples - Project Accelerator](https://github.com/OfficeDev/Project-Accelerator)
-- [CodeExamples - Dataverse Plugin Sample](https://github.com/OfficeDev/Project-Dataverse-Plugin-Sample)
+- [Blog](https://techcommunity.microsoft.com/t5/project-blog/bg-p/ProjectBlog)
+- [Terms of service](https://www.microsoft.com/en-us/legal/terms-of-use)
+- [Privacy policy](https://privacy.microsoft.com/en-us/privacystatement)
+- [GitHub](https://github.com/OfficeDev)
+- [Status](https://status.microsoft.com/)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Gantt Charts | Visual timeline charts for project scheduling with task dependencies, critical path analysis, and milestone tracking. |
-| Task Management | Create, assign, and track tasks with predecessors, successors, constraints, and deadlines. |
-| Resource Management | Assign resources to tasks, view workloads, and manage resource availability and capacity. |
-| Portfolio Management | Manage multiple projects as a portfolio with prioritization, budgeting, and resource allocation across projects. |
-| Budgeting and Cost Tracking | Track project costs, budgets, and earned value metrics for financial project management. |
-| Scheduling Engine | Automatic scheduling with task dependencies, resource leveling, and critical path calculation. |
-| Timesheets | Time tracking and approval workflows for resource hours and project progress reporting. |
-| Custom Fields | Define enterprise custom fields, lookup tables, and formulas for extended project metadata. |
-| Reporting and Dashboards | Pre-built and custom reports with Power BI integration for project, resource, and portfolio analytics. |
-| Workflow Automation | Demand management workflows for project proposals, approvals, and stage-gate governance. |
-| Collaboration | SharePoint-based project sites with document libraries, issue tracking, and team communication. |
-| Power Platform Integration | Integration with Power BI, Power Automate, and Power Apps for extended project management scenarios. |
+**Kin Score 45.5** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 30.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 65.5 |
+| Access clarity | 34.2 |
 
-| Name | Description |
-|------|-------------|
-| IT Project Management | Plan and track IT infrastructure, software development, and digital transformation projects. |
-| Construction Project Planning | Schedule construction phases, manage subcontractors, and track material costs. |
-| Product Development | Coordinate product development timelines, milestones, and cross-functional team resources. |
-| Portfolio Optimization | Evaluate and prioritize project portfolios based on strategic alignment, ROI, and resource constraints. |
-| Resource Capacity Planning | Forecast resource demand, identify bottlenecks, and optimize resource allocation across projects. |
-| Program Management | Manage interdependent projects as programs with shared resources and coordinated timelines. |
-| Agile Project Tracking | Track agile sprints, backlogs, and team velocity alongside traditional waterfall schedules. |
-| Compliance Reporting | Generate audit trails and compliance reports for project governance and regulatory requirements. |
+**Agent readiness 25.8** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| Microsoft Teams | View and manage project tasks directly within Microsoft Teams channels and tabs. |
-| Power BI | Connect to Project Online data for interactive dashboards and portfolio analytics. |
-| SharePoint | SharePoint-based project sites for document management, collaboration, and task synchronization. |
-| Microsoft 365 | Deep integration with Outlook, Excel, Word, and other Microsoft 365 applications. |
-| Power Automate | Automate project workflows, notifications, and approvals using Power Automate flows. |
-| Power Apps | Build custom project management applications using Power Apps with Project data. |
-| Azure DevOps | Connect project schedules with Azure DevOps work items for software development projects. |
-| Microsoft Planner | Integrate lightweight task planning in Planner with enterprise project management in Project. |
-| Dataverse | Project for the web stores data in Microsoft Dataverse, enabling custom integrations and extensions. |
-| Excel | Export and import project data to Excel for custom analysis, reporting, and data manipulation. |
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/microsoft-project/](https://apis.io/providers/microsoft-project/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Microsoft Project Online REST API](openapi/microsoft-project-rest-api.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Microsoft Project: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [Project Schema](json-schema/rest-api-project-schema.json)
-- [Task Schema](json-schema/rest-api-task-schema.json)
-- [Enterprise Resource Schema](json-schema/rest-api-enterprise-resource-schema.json)
-- [Assignment Schema](json-schema/rest-api-assignment-schema.json)
-- [Calendar Schema](json-schema/rest-api-calendar-schema.json)
-- [Custom Field Schema](json-schema/rest-api-custom-field-schema.json)
-- [TimeSheet Schema](json-schema/rest-api-time-sheet-schema.json)
-
-### JSON Structure
-
-- [Project Structure](json-structure/rest-api-project-structure.json)
-- [Task Structure](json-structure/rest-api-task-structure.json)
-- [Enterprise Resource Structure](json-structure/rest-api-enterprise-resource-structure.json)
-- [Assignment Structure](json-structure/rest-api-assignment-structure.json)
-- [Calendar Structure](json-structure/rest-api-calendar-structure.json)
-- [Custom Field Structure](json-structure/rest-api-custom-field-structure.json)
-- [TimeSheet Structure](json-structure/rest-api-time-sheet-structure.json)
-
-### JSON-LD
-
-- [Microsoft Project REST API Context](json-ld/microsoft-project-rest-api-context.jsonld)
-
-### Examples
-
-- [Project Example](examples/rest-api-project-example.json)
-- [Task Example](examples/rest-api-task-example.json)
-- [Enterprise Resource Example](examples/rest-api-enterprise-resource-example.json)
-- [Assignment Example](examples/rest-api-assignment-example.json)
-- [Calendar Example](examples/rest-api-calendar-example.json)
-- [Custom Field Example](examples/rest-api-custom-field-example.json)
-- [TimeSheet Example](examples/rest-api-time-sheet-example.json)
-
-## Capabilities
-
-Naftiko capabilities organized as shared per-API definitions composed into customer-facing workflows.
-
-### Shared Per-API Definitions
-
-- [Microsoft Project Online REST API](capabilities/shared/project-rest-api.yaml) — 18 operations for project, task, resource, and calendar management
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Project Management](capabilities/project-management.yaml) | Project REST API | 18 | Project Manager, PMO |
-
-## Vocabulary
-
-- [Microsoft Project Vocabulary](vocabulary/microsoft-project-vocabulary.yaml) — Unified taxonomy mapping 12 resources, 10 actions, 1 workflow, and 3 personas across operational (OpenAPI) and capability (Naftiko) dimensions
-
-## Rules
-
-- [Microsoft Project Spectral Rules](rules/microsoft-project-spectral-rules.yml) — 39 rules across 13 categories enforcing Microsoft Project API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/microsoft-project/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
